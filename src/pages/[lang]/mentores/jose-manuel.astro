@@ -10,7 +10,6 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: UiLanguage };
 const t = useTranslations(lang, "mentors");
-const tc = useTranslations(lang, "common");
 ---
 
 <Layout

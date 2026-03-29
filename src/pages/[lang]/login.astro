@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import type { UiLanguage } from '../../i18n/config';
 import { languages } from '../../i18n/config';
-import { useTranslations } from '../../i18n/utils';
+
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));

@@ -13,7 +13,7 @@ export function initDino(containerId: string, canvasId: string) {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.0;
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
@@ -135,11 +135,11 @@ export function initDino(containerId: string, canvasId: string) {
     my = ((e.clientY - r.top) / r.height - 0.5) * 2;
   });
 
-  const clock = new THREE.Clock();
+  const startTime = performance.now();
 
   function animate() {
     requestAnimationFrame(animate);
-    const t = clock.getElapsedTime();
+    const t = (performance.now() - startTime) / 1000;
 
     if (dinoModel) {
       // Idle floating animation

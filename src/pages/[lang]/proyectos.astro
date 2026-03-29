@@ -236,33 +236,34 @@ const areas = [
 
   <script>
     document.addEventListener('astro:page-load', () => {
-      const filterBtns = document.querySelectorAll('.area-filter-btn');
-      const filterableCards = document.querySelectorAll('.filterable-card');
-      const filterableSections = document.querySelectorAll('.filterable-section');
+      const filterBtns = document.querySelectorAll<HTMLButtonElement>('.area-filter-btn');
+      const filterableCards = document.querySelectorAll<HTMLElement>('.filterable-card');
+      const filterableSections = document.querySelectorAll<HTMLElement>('.filterable-section');
+      let currentArea = '';
 
-      function applyFilter(activeArea) {
-        if (!activeArea) {
+      const applyFilter = () => {
+        if (!currentArea) {
           // Show all
-          filterableCards.forEach(card => card.style.display = '');
-          filterableSections.forEach(sec => sec.style.display = '');
+          filterableCards.forEach(card => card.removeAttribute('hidden'));
+          filterableSections.forEach(sec => sec.removeAttribute('hidden'));
         } else {
           // Filter cards
           filterableCards.forEach(card => {
             const cardAreas = card.getAttribute('data-areas');
-            if (cardAreas && cardAreas.split(',').map(s=>s.trim()).includes(activeArea)) {
-              card.style.display = '';
+            if (cardAreas && cardAreas.split(',').map(s=>s.trim()).includes(currentArea)) {
+              card.removeAttribute('hidden');
             } else {
-              card.style.display = 'none';
+              card.setAttribute('hidden', '');
             }
           });
 
           // Hide sections empty of visible cards
           filterableSections.forEach(section => {
-            const visibleCards = section.querySelectorAll('.filterable-card:not([style*="display: none"])');
+            const visibleCards = section.querySelectorAll('.filterable-card:not([hidden])');
             if (visibleCards.length === 0) {
-              section.style.display = 'none';
+              section.setAttribute('hidden', '');
             } else {
-              section.style.display = '';
+              section.removeAttribute('hidden');
             }
           });
         }
@@ -270,7 +271,7 @@ const areas = [
         // Update button active state
         filterBtns.forEach(btn => {
           const btnIcon = btn.querySelector('svg');
-          if (btn.getAttribute('data-filter') === activeArea) {
+          if (btn.getAttribute('data-filter') === currentArea) {
             btn.classList.add('bg-[#EAEAEA]', 'border-black/20', 'text-apple-text');
             btn.classList.remove('bg-white', 'border-black/10', 'text-apple-muted');
             if(btnIcon) btnIcon.classList.add('text-apple-blue');
@@ -280,7 +281,7 @@ const areas = [
             if(btnIcon) btnIcon.classList.remove('text-apple-blue');
           }
         });
-      }
+      };
 
       filterBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -289,10 +290,14 @@ const areas = [
           
           if (btn.classList.contains('bg-[#EAEAEA]')) {
              history.pushState(null, '', window.location.pathname); // clear hash
-             applyFilter('');
+             currentArea = '';
+             applyFilter();
           } else {
-             history.pushState(null, '', '#' + area.toLowerCase().replace(/\\s+/g, '-'));
-             applyFilter(area);
+             if (area) {
+                 history.pushState(null, '', '#' + area.toLowerCase().replace(/\s+/g, '-'));
+                currentArea = area;
+                applyFilter();
+             }
           }
         });
       });
@@ -305,7 +310,8 @@ const areas = [
              return filterVal && filterVal.toLowerCase().replace(/\\s+/g, '-') === hash;
          });
          if (targetBtn) {
-            applyFilter(targetBtn.getAttribute('data-filter'));
+          currentArea = targetBtn.getAttribute('data-filter') || '';
+          applyFilter();
          }
       }
       
@@ -313,13 +319,17 @@ const areas = [
       window.addEventListener('hashchange', () => {
           const newHash = window.location.hash.replace('#', '');
           if (!newHash) {
-             applyFilter('');
+             currentArea = '';
+             applyFilter();
           } else {
              const targetBtn = Array.from(filterBtns).find(b => {
                  const filterVal = b.getAttribute('data-filter');
                  return filterVal && filterVal.toLowerCase().replace(/\\s+/g, '-') === newHash;
              });
-             if (targetBtn) applyFilter(targetBtn.getAttribute('data-filter'));
+             if (targetBtn) {
+               currentArea = targetBtn.getAttribute('data-filter') || '';
+               applyFilter();
+             }
           }
       });
     });
