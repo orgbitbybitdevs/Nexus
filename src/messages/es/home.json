@@ -1,0 +1,50 @@
+{
+  "hero": {
+    "title": "Aprende a construir sistemas reales.",
+    "subtitle": "Aprende ingeniería construyendo sistemas reales. Software, hardware y colaboración en un entorno técnico."
+  },
+  "philosophy": {
+    "title": "Más que programar. Aprende a construir sistemas.",
+    "body": "Entender sintaxis es la parte fácil. El verdadero desafío está en tomar decisiones arquitectónicas, modelar el dominio de un problema, y colaborar en un equipo real de ingeniería."
+  },
+  "platform": {
+    "title": "Aprendes construyendo.",
+    "subtitle": "Aprende dentro de un entorno real de ingeniería. Accede a repositorios, retos y colaboración técnica desde el inicio.",
+    "realAccess": {
+      "title": "Acceso real",
+      "body": "Entras a la academia y trabajas directamente en un entorno técnico con dinámicas del mundo real."
+    },
+    "building": {
+      "title": "Construcción",
+      "body": "Desarrollas sistemas reales y arquitecturas complejas, no ejercicios aislados de principiante."
+    },
+    "collaboration": {
+      "title": "Colaboración",
+      "body": "Code reviews, decisiones de sistema, branches y trabajo en equipo usando flujos de la industria."
+    }
+  },
+  "projects": {
+    "title": "Lo que construyes.",
+    "subtitle": "Proyectos, guías y repositorios diseñados para aprender construyendo. Desde fundamentos de GitHub y Python hasta sistemas, IA, redes e ingeniería de software.",
+    "featured": {
+      "name": "CNN Visualizer",
+      "description": "Visualiza cómo una red convolucional procesa dígitos escritos a mano, desde la entrada hasta la predicción final en el navegador."
+    },
+    "guides": {
+      "name": "Guías y templates",
+      "description": "Repositorios base estructurados para dominar fundamentos técnica y aplicarlos correctamente desde el inicio."
+    },
+    "systems": {
+      "name": "Sistemas e integración",
+      "description": "Proyectos reales complejos donde infraestructura, software y hardware trabajan juntos en un mismo flujo."
+    },
+    "infra": {
+      "name": "Infraestructura técnica",
+      "description": "Repositorios diseñados para practicar y aplicar desde fundamentos de redes hasta arquitectura computacional."
+    }
+  },
+  "mentors": {
+    "title": "Personas que construyen.",
+    "subtitle": "Aprende con ingenieros que trabajan en sistemas reales."
+  }
+}

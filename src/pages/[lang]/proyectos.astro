@@ -1,0 +1,327 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import type { UiLanguage } from '../../i18n/config';
+import { languages } from '../../i18n/config';
+import { useTranslations } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: UiLanguage };
+const t  = useTranslations(lang, 'projects');
+const tc = useTranslations(lang, 'common');
+
+const guides = [
+  { key: 'guides.github',      link: 'https://github.com/orgbitbybitdevs', areas: 'Software,IT' },
+  { key: 'guides.python',      link: 'https://github.com/orgbitbybitdevs', areas: 'Software,AI,Computer Science' },
+  { key: 'guides.softwareDev', link: 'https://github.com/orgbitbybitdevs', areas: 'Software,IT' },
+  { key: 'guides.networking',  link: 'https://github.com/orgbitbybitdevs', areas: 'Redes,IoT,IT' },
+] as const;
+
+const templates = [
+  { key: 'templates.githubWorkflow', link: 'https://github.com/orgbitbybitdevs', areas: 'Software,IT' },
+  { key: 'templates.pythonStarter',  link: 'https://github.com/orgbitbybitdevs', areas: 'Software,AI,Computer Science' },
+  { key: 'templates.engineeringDocs',link: 'https://github.com/orgbitbybitdevs', areas: 'Software,IT' },
+  { key: 'templates.networkingLab',  link: 'https://github.com/orgbitbybitdevs', areas: 'Redes,IoT,IT' },
+] as const;
+
+const areas = [
+  { name: 'AI',               iconPath: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 16v-4M12 8h.01' },
+  { name: 'Software',         iconPath: 'M16 18l6-6-6-6M8 6L2 12l6 6' },
+  { name: 'IoT',              iconPath: 'M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01' },
+  { name: 'Redes',            iconPath: 'M2 2h20v8H2zM2 14h20v8H2zM6 6h.01M6 18h.01' },
+  { name: 'IT',               iconPath: 'M4 4h16v16H4zM9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3' },
+  { name: 'Computer Science', iconPath: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5' },
+];
+---
+
+<Layout lang={lang} title={`${t('hero.title')} — BitByBit Academy`}>
+  <main class="bg-white min-h-screen pt-32 pb-24 text-apple-text overflow-x-hidden">
+
+    <!-- 1) Hero -->
+    <section class="max-w-[1000px] mx-auto px-6 md:px-12 mb-20 text-center">
+      <h1 class="text-[clamp(3.5rem,6vw,5.5rem)] font-black tracking-tight leading-[1] mb-6 text-apple-text">
+        {t('hero.title')}
+      </h1>
+      <p class="text-[1.25rem] md:text-[1.5rem] text-apple-muted font-medium leading-relaxed max-w-[800px] mx-auto mb-10">
+        {t('hero.subtitle')}
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#destacado" class="w-full sm:w-auto px-8 py-3.5 bg-apple-blue text-white font-semibold rounded-full hover:bg-apple-blue-hover transition-colors shadow-sm text-center">
+          {tc('cta.exploreProjects')}
+        </a>
+        <a href="#guias" class="w-full sm:w-auto px-8 py-3.5 bg-black/5 text-apple-text font-semibold rounded-full hover:bg-black/10 transition-colors text-center border border-black/5">
+          {tc('cta.viewGuides')}
+        </a>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="max-w-[1200px] mx-auto px-6 md:px-12 mb-20 text-center">
+      <div class="flex flex-wrap justify-center gap-3">
+        {areas.map(area => (
+          <button data-filter={area.name} class="area-filter-btn flex items-center gap-2 px-5 py-3 bg-white border border-black/10 rounded-full hover:border-apple-blue hover:text-apple-blue transition-all hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] text-apple-muted group">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" class="group-hover:text-apple-blue transition-colors">
+              <path d={area.iconPath} />
+            </svg>
+            <span class="font-semibold text-[0.95rem]">{area.name}</span>
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- 2) Proyecto Destacado -->
+    <section id="destacado" class="filterable-section max-w-[1200px] mx-auto px-6 md:px-12 mb-32">
+      <div class="filterable-card bg-[#F5F5F7] rounded-[2.5rem] p-8 md:p-14 lg:p-16 border border-black/5 overflow-hidden relative group" data-areas="AI,Software,Computer Science">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-apple-blue/10 rounded-full blur-3xl group-hover:bg-apple-blue/20 transition-colors duration-700 pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-colors duration-700 pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <span class="px-3 py-1 bg-apple-blue/10 text-apple-blue text-[0.75rem] font-bold rounded-full uppercase tracking-wide border border-apple-blue/20">{t('featured.label')}</span>
+              <span class="px-3 py-1 bg-yellow-400/20 text-yellow-800 text-[0.75rem] font-bold rounded-full border border-yellow-400/30 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-yellow-600 animate-pulse"></span>
+                {tc('badge.inDevelopment')}
+              </span>
+            </div>
+            <h2 class="text-[clamp(2rem,4vw,3rem)] font-bold tracking-tight text-apple-text mb-4">
+              {t('featured.name')}
+            </h2>
+            <p class="text-[1.15rem] leading-relaxed text-apple-muted font-medium mb-8">
+              {t('featured.description')}
+            </p>
+            <div class="flex flex-wrap gap-2 mb-10">
+              <span class="px-3 py-1 bg-white text-[0.8rem] font-semibold rounded-full border border-black/10 text-apple-text shadow-sm">AI</span>
+              <span class="px-3 py-1 bg-white text-[0.8rem] font-semibold rounded-full border border-black/10 text-apple-text shadow-sm">Visualization</span>
+              <span class="px-3 py-1 bg-white text-[0.8rem] font-semibold rounded-full border border-black/10 text-apple-text shadow-sm">TypeScript</span>
+              <span class="px-3 py-1 bg-white text-[0.8rem] font-semibold rounded-full border border-black/10 text-apple-text shadow-sm">TensorFlow.js</span>
+            </div>
+            <div class="flex gap-4">
+              <a href="https://github.com/osvdevv/CNN-Visualizer" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-apple-text text-white font-semibold rounded-full hover:bg-black transition-colors shadow-sm text-[0.95rem]">
+                {tc('cta.viewRepo')}
+              </a>
+              <a href="https://github.com/osvdevv/CNN-Visualizer" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-white text-apple-text font-semibold rounded-full hover:bg-gray-50 transition-colors border border-black/10 shadow-sm text-[0.95rem] flex items-center gap-2">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+          <!-- Preview Window -->
+          <div class="w-full aspect-video bg-white rounded-2xl shadow-lg border border-black/5 overflow-hidden flex flex-col transform group-hover:-translate-y-2 transition-transform duration-500">
+            <div class="h-8 border-b border-black/5 bg-[#F5F5F7] flex items-center px-4 gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+            </div>
+            <div class="flex-1 bg-[#1A1A1A] flex items-center justify-center p-8 relative overflow-hidden">
+              <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+              <svg width="200" height="100" viewBox="0 0 200 100" class="overflow-visible relative z-10">
+                <rect x="10" y="30" width="40" height="40" rx="4" fill="none" stroke="#60A5FA" stroke-width="2"/>
+                <text x="30" y="55" fill="#60A5FA" font-size="24" font-family="monospace" text-anchor="middle" font-weight="bold">3</text>
+                <path d="M55 50 L100 20 M55 50 L100 50 M55 50 L100 80" stroke="#4B5563" stroke-width="2" stroke-dasharray="4"/>
+                <rect x="105" y="10" width="20" height="20" fill="#3B82F6" opacity="0.8"/>
+                <rect x="105" y="40" width="20" height="20" fill="#8B5CF6" opacity="0.8"/>
+                <rect x="105" y="70" width="20" height="20" fill="#EC4899" opacity="0.8"/>
+                <path d="M130 20 L160 50 M130 50 L160 50 M130 80 L160 50" stroke="#4B5563" stroke-width="2" stroke-dasharray="4"/>
+                <circle cx="170" cy="50" r="15" fill="#10B981"/>
+                <text x="170" y="55" fill="white" font-size="12" font-family="sans-serif" text-anchor="middle" font-weight="bold">3</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Proyectos Activos -->
+    <section class="filterable-section max-w-[1200px] mx-auto px-6 md:px-12 mb-32">
+      <div class="border-b border-black/10 pb-6 mb-10">
+        <h2 class="text-3xl font-bold tracking-tight text-apple-text mb-2 flex items-center gap-3">
+          {t('active.title')}
+        </h2>
+        <p class="text-[1.1rem] text-apple-muted font-medium">{t('active.subtitle')}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <a href="#" class="filterable-card group block bg-[#F5F5F7] rounded-3xl p-8 border border-black/5 hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-all duration-300" data-areas="IoT,Software,Redes">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2.5 py-0.5 bg-black/5 text-apple-text text-[0.7rem] font-bold rounded-full uppercase tracking-wider">Project</span>
+            <span class="px-2.5 py-0.5 bg-gray-200 text-gray-600 text-[0.7rem] font-bold rounded-full uppercase tracking-wider">{tc('badge.comingSoon')}</span>
+          </div>
+          <h3 class="text-xl font-bold text-apple-text mb-2 group-hover:text-apple-blue transition-colors">{t('active.iotSystem.name')}</h3>
+          <p class="text-[0.95rem] text-apple-muted font-medium leading-relaxed mb-6">{t('active.iotSystem.description')}</p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="px-2.5 py-1 bg-white text-[0.75rem] font-semibold rounded-md border border-black/5 text-apple-text">IoT</span>
+            <span class="px-2.5 py-1 bg-white text-[0.75rem] font-semibold rounded-md border border-black/5 text-apple-text">Go</span>
+          </div>
+          <div class="text-[0.9rem] font-bold text-apple-muted flex items-center transition-colors">
+            Ver detalles <span class="ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all">&rarr;</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4) Guías -->
+    <section id="guias" class="filterable-section max-w-[1200px] mx-auto px-6 md:px-12 mb-32 bg-[#FBFBFD] py-20 rounded-[3rem] border border-black/5">
+      <div class="max-w-[1000px] mx-auto">
+        <div class="mb-12 text-center md:text-left">
+          <h2 class="text-[clamp(2rem,3vw,2.5rem)] font-bold tracking-tight text-apple-text mb-3">
+            {t('guides.title')}
+          </h2>
+          <p class="text-[1.15rem] md:text-[1.25rem] text-apple-muted font-medium max-w-[700px]">
+            {t('guides.subtitle')}
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {guides.map(({ key, link, areas }) => (
+            <div class="filterable-card bg-white p-6 md:p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full group" data-areas={areas}>
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-0.5 bg-green-500/10 text-green-700 text-[0.7rem] font-bold rounded-full uppercase tracking-wider">Guide</span>
+              </div>
+              <h3 class="text-xl font-bold text-apple-text mb-2">{t(`${key}.name`)}</h3>
+              <p class="text-[0.95rem] text-apple-muted font-medium leading-relaxed mb-6 flex-1">{t(`${key}.desc`)}</p>
+              <div class="mt-auto pt-6 border-t border-black/5 flex items-center justify-between">
+                <div>
+                  <span class="text-[0.75rem] font-bold text-apple-muted uppercase tracking-wider block mb-0.5">Nivel</span>
+                  <span class="text-[0.85rem] font-semibold text-apple-text">{t(`${key}.level`)}</span>
+                </div>
+                <a href={link} target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-apple-blue/10 text-apple-blue font-bold text-[0.85rem] rounded-lg hover:bg-apple-blue hover:text-white transition-colors group-hover:shadow-sm">
+                  {tc('cta.openGuide')}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Templates -->
+    <section class="filterable-section max-w-[1200px] mx-auto px-6 md:px-12 mb-32">
+      <div class="border-b border-black/10 pb-6 mb-10">
+        <h2 class="text-3xl font-bold tracking-tight text-apple-text mb-2">{t('templates.title')}</h2>
+        <p class="text-[1.1rem] text-apple-muted font-medium">{t('templates.subtitle')}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {templates.map(({ key, link, areas }) => (
+          <div class="filterable-card bg-[#F5F5F7] p-6 rounded-2xl border border-black/5 hover:border-apple-blue/30 transition-colors flex flex-col group" data-areas={areas}>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="px-2.5 py-0.5 bg-purple-500/10 text-purple-700 text-[0.7rem] font-bold rounded-full uppercase tracking-wider">Template</span>
+            </div>
+            <h3 class="text-lg font-bold text-apple-text mb-2 leading-tight">{t(`${key}.name`)}</h3>
+            <p class="text-[0.9rem] text-apple-muted font-medium leading-relaxed mb-6 flex-1">{t(`${key}.desc`)}</p>
+            <div class="bg-white px-3 py-2 rounded-lg border border-black/5 text-[0.75rem] font-bold text-apple-text mb-4 text-center">
+              {t(`${key}.stack`)}
+            </div>
+            <a href={link} target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-white border border-black/10 text-apple-text font-bold text-[0.85rem] rounded-lg hover:bg-gray-50 transition-colors text-center shadow-sm">
+              {tc('cta.useTemplate')}
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+
+
+    <!-- 6) CTA -->
+    <section class="max-w-[800px] mx-auto px-6 text-center pb-20 border-t border-black/5 pt-20">
+      <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold tracking-tight text-[#1D1D1F] mb-8">
+        {t('cta.title')}
+      </h2>
+      <a href={`/${lang}/unirse`} class="inline-flex items-center gap-2 justify-center px-10 py-4 bg-[#0071E3] text-white text-[1.1rem] font-bold rounded-full hover:bg-[#0077ED] transition-transform hover:scale-[1.03] shadow-lg hover:shadow-xl">
+        {tc('cta.joinAcademy')} <span aria-hidden="true">&rarr;</span>
+      </a>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const filterBtns = document.querySelectorAll('.area-filter-btn');
+      const filterableCards = document.querySelectorAll('.filterable-card');
+      const filterableSections = document.querySelectorAll('.filterable-section');
+
+      function applyFilter(activeArea) {
+        if (!activeArea) {
+          // Show all
+          filterableCards.forEach(card => card.style.display = '');
+          filterableSections.forEach(sec => sec.style.display = '');
+        } else {
+          // Filter cards
+          filterableCards.forEach(card => {
+            const cardAreas = card.getAttribute('data-areas');
+            if (cardAreas && cardAreas.split(',').map(s=>s.trim()).includes(activeArea)) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          // Hide sections empty of visible cards
+          filterableSections.forEach(section => {
+            const visibleCards = section.querySelectorAll('.filterable-card:not([style*="display: none"])');
+            if (visibleCards.length === 0) {
+              section.style.display = 'none';
+            } else {
+              section.style.display = '';
+            }
+          });
+        }
+
+        // Update button active state
+        filterBtns.forEach(btn => {
+          const btnIcon = btn.querySelector('svg');
+          if (btn.getAttribute('data-filter') === activeArea) {
+            btn.classList.add('bg-[#EAEAEA]', 'border-black/20', 'text-apple-text');
+            btn.classList.remove('bg-white', 'border-black/10', 'text-apple-muted');
+            if(btnIcon) btnIcon.classList.add('text-apple-blue');
+          } else {
+            btn.classList.remove('bg-[#EAEAEA]', 'border-black/20', 'text-apple-text');
+            btn.classList.add('bg-white', 'border-black/10', 'text-apple-muted');
+            if(btnIcon) btnIcon.classList.remove('text-apple-blue');
+          }
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const area = btn.getAttribute('data-filter');
+          
+          if (btn.classList.contains('bg-[#EAEAEA]')) {
+             history.pushState(null, '', window.location.pathname); // clear hash
+             applyFilter('');
+          } else {
+             history.pushState(null, '', '#' + area.toLowerCase().replace(/\\s+/g, '-'));
+             applyFilter(area);
+          }
+        });
+      });
+
+      // Handle initial load based on URL hash
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+         const targetBtn = Array.from(filterBtns).find(b => {
+             const filterVal = b.getAttribute('data-filter');
+             return filterVal && filterVal.toLowerCase().replace(/\\s+/g, '-') === hash;
+         });
+         if (targetBtn) {
+            applyFilter(targetBtn.getAttribute('data-filter'));
+         }
+      }
+      
+      // Handle browser back/forward buttons
+      window.addEventListener('hashchange', () => {
+          const newHash = window.location.hash.replace('#', '');
+          if (!newHash) {
+             applyFilter('');
+          } else {
+             const targetBtn = Array.from(filterBtns).find(b => {
+                 const filterVal = b.getAttribute('data-filter');
+                 return filterVal && filterVal.toLowerCase().replace(/\\s+/g, '-') === newHash;
+             });
+             if (targetBtn) applyFilter(targetBtn.getAttribute('data-filter'));
+          }
+      });
+    });
+  </script>
+</Layout>

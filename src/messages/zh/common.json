@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "首页",
+    "platform": "平台",
+    "projects": "项目",
+    "mentors": "导师",
+    "join": "加入"
+  },
+  "footer": {
+    "tagline": "学习构建真实系统。",
+    "github": "在 GitHub 上查看组织"
+  },
+  "cta": {
+    "joinAcademy": "加入学院",
+    "explorePlatform": "探索它是如何运作的",
+    "exploreProjects": "探索项目",
+    "exploreMentors": "探索导师",
+    "viewGuides": "查看指南和模板",
+    "viewRepo": "查看项目",
+    "useTemplate": "使用模板",
+    "openGuide": "打开指南"
+  },
+  "badge": {
+    "inDevelopment": "开发中",
+    "available": "可用",
+    "comingSoon": "敬请期待"
+  }
+}

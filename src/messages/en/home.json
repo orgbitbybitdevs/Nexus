@@ -1,0 +1,50 @@
+{
+  "hero": {
+    "title": "Learn to build real systems.",
+    "subtitle": "Learn engineering by building real systems. Software, hardware and collaboration in a technical environment."
+  },
+  "philosophy": {
+    "title": "More than coding. Learn to build systems.",
+    "body": "Understanding syntax is the easy part. The real challenge lies in making architectural decisions, modeling a problem's domain, and collaborating on a real engineering team."
+  },
+  "platform": {
+    "title": "You learn by building.",
+    "subtitle": "Learn inside a real engineering environment. Access repositories, challenges and technical collaboration from day one.",
+    "realAccess": {
+      "title": "Real access",
+      "body": "You join the academy and work directly in a technical environment with real-world dynamics."
+    },
+    "building": {
+      "title": "Building",
+      "body": "You develop real systems and complex architectures, not isolated beginner exercises."
+    },
+    "collaboration": {
+      "title": "Collaboration",
+      "body": "Code reviews, system decisions, branches and teamwork using industry-standard workflows."
+    }
+  },
+  "projects": {
+    "title": "What you build.",
+    "subtitle": "Projects, guides and repositories designed for learning by building. From GitHub and Python fundamentals to systems, AI, networks and software engineering.",
+    "featured": {
+      "name": "CNN Visualizer",
+      "description": "Visualize how a convolutional network processes handwritten digits, from input to final prediction in the browser."
+    },
+    "guides": {
+      "name": "Guides & templates",
+      "description": "Structured base repositories to master technical fundamentals and apply them correctly from the start."
+    },
+    "systems": {
+      "name": "Systems & integration",
+      "description": "Complex real projects where infrastructure, software and hardware work together in one unified flow."
+    },
+    "infra": {
+      "name": "Technical infrastructure",
+      "description": "Repositories designed to practice and apply everything from networking fundamentals to computational architecture."
+    }
+  },
+  "mentors": {
+    "title": "People who build.",
+    "subtitle": "Learn from engineers working on real systems."
+  }
+}

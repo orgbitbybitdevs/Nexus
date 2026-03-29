@@ -1,0 +1,241 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const guides = [
+  { name: 'GitHub Foundations', desc: 'Aprende los flujos de colaboración reales, Git Avanzado y Pull Requests.', level: 'Base técnica', link: 'https://github.com/orgbitbybitdevs' },
+  { name: 'Python for Engineering', desc: 'Fundamentos de Python con enfoque en aplicaciones y sistemas.', level: 'Inicial', link: 'https://github.com/orgbitbybitdevs' },
+  { name: 'Software Development Basics', desc: 'Arquitectura, patrones y construcción de aplicaciones reales.', level: 'Intermedio', link: 'https://github.com/orgbitbybitdevs' },
+  { name: 'Networking Fundamentals', desc: 'Domina TCP/IP, DNS, y el modelo OSI con laboratorios prácticos.', level: 'Base técnica', link: 'https://github.com/orgbitbybitdevs' }
+];
+
+const templates = [
+  { name: 'GitHub Workflow Template', desc: 'Repositorio base preconfigurado con Issues y PR templates.', stack: 'GitHub Actions', link: 'https://github.com/orgbitbybitdevs' },
+  { name: 'Python Project Starter', desc: 'Estructura estándar para proyectos backend que escalan.', stack: 'Python · Pytest', link: 'https://github.com/orgbitbybitdevs' },
+  { name: 'Engineering Docs Template', desc: 'Plantilla para RFCs, architecture decisions y diagramas.', stack: 'Markdown', link: 'https://github.com/orgbitbybitdevs' },
+  { name: 'Networking Practice Repo', desc: 'Entornos de laboratorio con configuraciones base listas para usar.', stack: 'Docker · Linux', link: 'https://github.com/orgbitbybitdevs' }
+];
+
+const areas = [
+  { name: 'AI', icon: '<circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path>' },
+  { name: 'Software', icon: '<polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>' },
+  { name: 'IoT', icon: '<path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line>' },
+  { name: 'Redes', icon: '<rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line>' },
+  { name: 'IT', icon: '<rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line>' },
+  { name: 'Computer Science', icon: '<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline>' }
+];
+---
+
+<Layout title="Proyectos — BitByBit Academy">
+  <main class="bg-white min-h-screen pt-32 pb-24 text-apple-text overflow-x-hidden">
+    
+    <!-- 1) Hero -->
+    <section class="max-w-[1000px] mx-auto px-6 md:px-12 mb-20 text-center">
+      <h1 class="text-[clamp(3.5rem,6vw,5.5rem)] font-black tracking-tight leading-[1] mb-6 text-apple-text">
+        Proyectos.
+      </h1>
+      <p class="text-[1.25rem] md:text-[1.5rem] text-apple-muted font-medium leading-relaxed max-w-[800px] mx-auto mb-10">
+        Construye, experimenta y aprende con proyectos reales, repositorios guiados y templates técnicos diseñados para la academia.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#destacado" class="w-full sm:w-auto px-8 py-3.5 bg-apple-blue text-white font-semibold rounded-full hover:bg-apple-blue-hover transition-colors shadow-sm text-center">
+          Explorar proyectos
+        </a>
+        <a href="#guias" class="w-full sm:w-auto px-8 py-3.5 bg-black/5 text-apple-text font-semibold rounded-full hover:bg-black/10 transition-colors text-center border border-black/5">
+          Ver guías
+        </a>
+      </div>
+    </section>
+
+    <!-- 2) Proyecto Destacado -->
+    <section id="destacado" class="max-w-[1200px] mx-auto px-6 md:px-12 mb-32">
+      <div class="bg-[#F5F5F7] rounded-[2.5rem] p-8 md:p-14 lg:p-16 border border-black/5 overflow-hidden relative group">
+        <!-- Abstract Decoration for visual flair -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-apple-blue/10 rounded-full blur-3xl group-hover:bg-apple-blue/20 transition-colors duration-700 pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-colors duration-700 pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <span class="px-3 py-1 bg-apple-blue/10 text-apple-blue text-[0.75rem] font-bold rounded-full uppercase tracking-wide border border-apple-blue/20">Project</span>
+              <span class="px-3 py-1 bg-yellow-400/20 text-yellow-800 text-[0.75rem] font-bold rounded-full border border-yellow-400/30 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-yellow-600 animate-pulse"></span>En desarrollo</span>
+            </div>
+            
+            <h2 class="text-[clamp(2rem,4vw,3rem)] font-bold tracking-tight text-apple-text mb-4">
+              CNN Visualizer
+            </h2>
+            <p class="text-[1.15rem] leading-relaxed text-apple-muted font-medium mb-8">
+              Una experiencia interactiva en el navegador para entender cómo una CNN procesa números escritos a mano, desde el preprocesamiento hasta la distribución final de confianza. El repositorio ya define stack, assets del modelo y roadmap de implementación por fases.
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mb-10">
+              <span class="px-3 py-1 bg-white text-[0.8rem] font-semibold rounded-full border border-black/10 text-apple-text shadow-sm">AI</span>
+              <span class="px-3 py-1 bg-white text-[0.8rem] font-semibold rounded-full border border-black/10 text-apple-text shadow-sm">Visualization</span>
+              <span class="px-3 py-1 bg-white text-[0.8rem] font-semibold rounded-full border border-black/10 text-apple-text shadow-sm">TypeScript</span>
+              <span class="px-3 py-1 bg-white text-[0.8rem] font-semibold rounded-full border border-black/10 text-apple-text shadow-sm">TensorFlow.js</span>
+            </div>
+
+            <div class="flex gap-4">
+              <a href="https://github.com/osvdevv/CNN-Visualizer" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-apple-text text-white font-semibold rounded-full hover:bg-black transition-colors shadow-sm text-[0.95rem]">
+                Ver proyecto
+              </a>
+              <a href="https://github.com/osvdevv/CNN-Visualizer" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-white text-apple-text font-semibold rounded-full hover:bg-gray-50 transition-colors border border-black/10 shadow-sm text-[0.95rem] flex items-center gap-2">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <!-- Clean Preview Window -->
+          <div class="w-full aspect-video bg-white rounded-2xl shadow-lg border border-black/5 overflow-hidden flex flex-col transform group-hover:-translate-y-2 transition-transform duration-500">
+            <div class="h-8 border-b border-black/5 bg-[#F5F5F7] flex items-center px-4 gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+            </div>
+            <div class="flex-1 bg-[#1A1A1A] flex items-center justify-center p-8 relative overflow-hidden">
+              <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+              
+              <!-- Mock Interface Graph -->
+              <svg width="200" height="100" viewBox="0 0 200 100" class="overflow-visible relative z-10">
+                <rect x="10" y="30" width="40" height="40" rx="4" fill="none" stroke="#60A5FA" stroke-width="2"/>
+                <text x="30" y="55" fill="#60A5FA" font-size="24" font-family="monospace" text-anchor="middle" font-weight="bold">3</text>
+                
+                <path d="M55 50 L100 20 M55 50 L100 50 M55 50 L100 80" stroke="#4B5563" stroke-width="2" stroke-dasharray="4"/>
+                
+                <rect x="105" y="10" width="20" height="20" fill="#3B82F6" opacity="0.8"/>
+                <rect x="105" y="40" width="20" height="20" fill="#8B5CF6" opacity="0.8"/>
+                <rect x="105" y="70" width="20" height="20" fill="#EC4899" opacity="0.8"/>
+
+                <path d="M130 20 L160 50 M130 50 L160 50 M130 80 L160 50" stroke="#4B5563" stroke-width="2" stroke-dasharray="4"/>
+
+                <circle cx="170" cy="50" r="15" fill="#10B981"/>
+                <text x="170" y="55" fill="white" font-size="12" font-family="sans-serif" text-anchor="middle" font-weight="bold">3</text>
+              </svg>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Proyectos Activos -->
+    <section class="max-w-[1200px] mx-auto px-6 md:px-12 mb-32">
+      <div class="border-b border-black/10 pb-6 mb-10">
+        <h2 class="text-3xl font-bold tracking-tight text-apple-text mb-2 flex items-center gap-3">
+          Proyectos activos
+        </h2>
+        <p class="text-[1.1rem] text-apple-muted font-medium">
+          Proyectos que evolucionan con nuevas iteraciones, documentación y trabajo colaborativo.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- We just keep one placeholder to represent 'IoT Telemetry System' or similar from Lineup -->
+        <a href="#" class="group block bg-[#F5F5F7] rounded-3xl p-8 border border-black/5 hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-all duration-300">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2.5 py-0.5 bg-black/5 text-apple-text text-[0.7rem] font-bold rounded-full uppercase tracking-wider">Project</span>
+            <span class="px-2.5 py-0.5 bg-gray-200 text-gray-600 text-[0.7rem] font-bold rounded-full uppercase tracking-wider">Próximamente</span>
+          </div>
+          <h3 class="text-xl font-bold text-apple-text mb-2 group-hover:text-apple-blue transition-colors">IoT Telemetry System</h3>
+          <p class="text-[0.95rem] text-apple-muted font-medium leading-relaxed mb-6">Plataforma distribuida de telemetría usando nodos locales y agregadores en la nube.</p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="px-2.5 py-1 bg-white text-[0.75rem] font-semibold rounded-md border border-black/5 text-apple-text">IoT</span>
+            <span class="px-2.5 py-1 bg-white text-[0.75rem] font-semibold rounded-md border border-black/5 text-apple-text">Go</span>
+          </div>
+          <div class="text-[0.9rem] font-bold text-apple-muted flex items-center transition-colors">
+            Ver detalles <span class="ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all">&rarr;</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4) Guías -->
+    <section id="guias" class="max-w-[1200px] mx-auto px-6 md:px-12 mb-32 bg-[#FBFBFD] py-20 rounded-[3rem] border border-black/5">
+      <div class="max-w-[1000px] mx-auto">
+        <div class="mb-12 text-center md:text-left">
+          <h2 class="text-[clamp(2rem,3vw,2.5rem)] font-bold tracking-tight text-apple-text mb-3">
+            Guías
+          </h2>
+          <p class="text-[1.15rem] md:text-[1.25rem] text-apple-muted font-medium max-w-[700px]">
+            La academia sí enseña y sí acompaña. Guías estructuradas para aprender fundamentos y aplicarlos correctamente desde el inicio.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {guides.map(guide => (
+            <div class="bg-white p-6 md:p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full group">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-0.5 bg-green-500/10 text-green-700 text-[0.7rem] font-bold rounded-full uppercase tracking-wider">Guide</span>
+              </div>
+              <h3 class="text-xl font-bold text-apple-text mb-2">{guide.name}</h3>
+              <p class="text-[0.95rem] text-apple-muted font-medium leading-relaxed mb-6 flex-1">{guide.desc}</p>
+              
+              <div class="mt-auto pt-6 border-t border-black/5 flex items-center justify-between">
+                <div>
+                  <span class="text-[0.75rem] font-bold text-apple-muted uppercase tracking-wider block mb-0.5">Nivel</span>
+                  <span class="text-[0.85rem] font-semibold text-apple-text">{guide.level}</span>
+                </div>
+                <a href={guide.link} target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-apple-blue/10 text-apple-blue font-bold text-[0.85rem] rounded-lg hover:bg-apple-blue hover:text-white transition-colors group-hover:shadow-sm">
+                  Abrir guía
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Templates -->
+    <section class="max-w-[1200px] mx-auto px-6 md:px-12 mb-32">
+      <div class="border-b border-black/10 pb-6 mb-10">
+        <h2 class="text-3xl font-bold tracking-tight text-apple-text mb-2">
+          Templates
+        </h2>
+        <p class="text-[1.1rem] text-apple-muted font-medium">
+          Repositorios base para comenzar con estructura, buenas prácticas y criterio técnico marcado.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {templates.map(template => (
+          <div class="bg-[#F5F5F7] p-6 rounded-2xl border border-black/5 hover:border-apple-blue/30 transition-colors flex flex-col group">
+             <div class="flex items-center gap-2 mb-4">
+                <span class="px-2.5 py-0.5 bg-purple-500/10 text-purple-700 text-[0.7rem] font-bold rounded-full uppercase tracking-wider">Template</span>
+              </div>
+            <h3 class="text-lg font-bold text-apple-text mb-2 leading-tight">{template.name}</h3>
+            <p class="text-[0.9rem] text-apple-muted font-medium leading-relaxed mb-6 flex-1">{template.desc}</p>
+            <div class="bg-white px-3 py-2 rounded-lg border border-black/5 text-[0.75rem] font-bold text-apple-text mb-4 text-center">
+              {template.stack}
+            </div>
+            <a href={template.link} target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-white border border-black/10 text-apple-text font-bold text-[0.85rem] rounded-lg hover:bg-gray-50 transition-colors text-center shadow-sm">
+              Usar template
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 6) Áreas Técnicas -->
+    <section class="max-w-[1200px] mx-auto px-6 md:px-12 mb-32 text-center">
+      <h2 class="text-2xl font-bold tracking-tight text-apple-text mb-10">Explora por área técnica</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {areas.map(area => (
+          <a href={`#${area.name.toLowerCase()}`} class="flex items-center gap-3 px-6 py-4 bg-white border border-black/10 rounded-2xl hover:border-apple-blue hover:text-apple-blue transition-colors hover:shadow-[0_10px_20px_rgba(0,0,0,0.04)] group">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" class="text-apple-muted group-hover:text-apple-blue transition-colors" set:html={area.icon}></svg>
+            <span class="font-bold text-[1rem]">{area.name}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- 7) CTA -->
+    <section class="max-w-[800px] mx-auto px-6 text-center pb-20 border-t border-black/5 pt-20">
+      <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold tracking-tight text-[#1D1D1F] mb-8">
+        No construyas tu portafolio solo.
+      </h2>
+      <a href="/unirse" class="inline-flex items-center gap-2 justify-center px-10 py-4 bg-[#0071E3] text-white text-[1.1rem] font-bold rounded-full hover:bg-[#0077ED] transition-transform hover:scale-[1.03] shadow-lg hover:shadow-xl">
+        Únete a la academia <span aria-hidden="true">&rarr;</span>
+      </a>
+    </section>
+
+  </main>
+</Layout>

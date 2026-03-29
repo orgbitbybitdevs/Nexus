@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Home",
+    "platform": "Platform",
+    "projects": "Projects",
+    "mentors": "Mentors",
+    "join": "Join"
+  },
+  "footer": {
+    "tagline": "Learn to build real systems.",
+    "github": "View organization on GitHub"
+  },
+  "cta": {
+    "joinAcademy": "Join the academy",
+    "explorePlatform": "Explore how it works",
+    "exploreProjects": "Explore projects",
+    "exploreMentors": "Explore mentors",
+    "viewGuides": "View guides & templates",
+    "viewRepo": "View project",
+    "useTemplate": "Use template",
+    "openGuide": "Open guide"
+  },
+  "badge": {
+    "inDevelopment": "In development",
+    "available": "Available",
+    "comingSoon": "Coming soon"
+  }
+}

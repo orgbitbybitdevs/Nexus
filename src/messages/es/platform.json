@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "Un entorno real de ingeniería.",
+    "subtitle": "Aprende construyendo sistemas reales con repositorios, colaboración y decisiones técnicas, no ejercicios aislados de principiante."
+  },
+  "howItWorks": {
+    "step1": { "label": "01", "title": "Te unes", "body": "Accedes a la academia y la comunidad oficial." },
+    "step2": { "label": "02", "title": "Acceso real", "body": "Ingresas a la organización oficial en GitHub." },
+    "step3": { "label": "03", "title": "Construyes", "body": "Trabajas en repositorios y sistemas de producción." },
+    "step4": { "label": "04", "title": "Colaboras", "body": "Recibes feedback y participas en revisiones de código." }
+  },
+  "system": {
+    "title": "Simula el entorno de la industria.",
+    "repoName": "heliosync-system"
+  },
+  "features": {
+    "title": "Qué hay dentro.",
+    "repos": { "title": "Repositorios", "body": "Proyectos estructurados como en la industria" },
+    "challenges": { "title": "Retos", "body": "Problemas que requieren diseño, no solo código" },
+    "codeReviews": { "title": "Code reviews", "body": "Aprendes a leer, escribir y mejorar código" },
+    "systems": { "title": "Sistemas", "body": "Integración de software y hardware" }
+  },
+  "collaboration": {
+    "title": "Colaboración real.",
+    "body": "Toma control del ciclo de vida del código. Participando activamente, no solo desarrollando en aislamiento, aprendes las mejores prácticas operativas y de revisión dentro de arquitecturas asíncronas de la industria."
+  },
+  "cta": {
+    "title": "Empieza a construir en un entorno real.",
+    "button": "Unirme a la academia"
+  }
+}

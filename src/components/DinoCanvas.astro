@@ -1,0 +1,25 @@
+<div class="flex-1 h-screen relative min-w-0 w-full lg:w-auto mt-[10vh] lg:mt-0" id="hero-dino">
+  <canvas id="dino-canvas" class="w-full h-full block cursor-grab active:cursor-grabbing opacity-0 transition-opacity duration-1000"></canvas>
+</div>
+
+<script>
+  import { initDino } from '../scripts/dino';
+  
+  const container = document.getElementById('hero-dino');
+  if (container) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        initDino('hero-dino', 'dino-canvas');
+        observer.disconnect();
+        
+        // Cargar con un pequeño fade-in
+        const canvas = document.getElementById('dino-canvas');
+        if (canvas) {
+          setTimeout(() => canvas.classList.remove('opacity-0'), 100);
+        }
+      }
+    }, { rootMargin: '200px' });
+    
+    observer.observe(container);
+  }
+</script>

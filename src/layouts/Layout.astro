@@ -1,0 +1,146 @@
+---
+import '../styles/global.css';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import type { UiLanguage } from '../i18n/config';
+import { languages } from '../i18n/config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: UiLanguage;
+}
+
+const lang: UiLanguage = Astro.props.lang ?? getLangFromUrl(Astro.url);
+const tc = useTranslations(lang, 'common');
+
+const {
+  title = 'BitByBit Academy',
+  description = tc('footer.tagline'),
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { path: `/${lang}`,           label: tc('nav.home')     },
+  { path: `/${lang}/plataforma`, label: tc('nav.platform') },
+  { path: `/${lang}/proyectos`,  label: tc('nav.projects') },
+  { path: `/${lang}/mentores`,   label: tc('nav.mentors')  },
+];
+
+// Alternate lang hrefs for <link rel="alternate"> — good for SEO
+const alternateLinks = Object.keys(languages).map(code => ({
+  code,
+  path: currentPath.replace(`/${lang}`, `/${code}`)
+}));
+const defaultPath = `/es${currentPath.replace(`/${lang}`, '')}`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <meta name="description" content={description} />
+    <!-- Hreflang for SEO -->
+    {alternateLinks.map(({ code, path }) => (
+      <link rel="alternate" hreflang={code} href={path} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={defaultPath} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-12 py-4 bg-apple-nav backdrop-blur-md border-b border-black/5 transition-all">
+      <a class="flex items-center gap-2.5 no-underline" href={`/${lang}`}>
+        <img src="/icon.png" alt="BitByBit Academy" class="w-8 h-8 object-contain" loading="lazy" decoding="async" />
+        <span class="font-sans font-bold text-sm tracking-tight text-apple-text">BitByBit Academy</span>
+      </a>
+      <div class="hidden md:flex relative p-1 bg-black/[0.03] rounded-full border border-black/[0.05]" id="nav-container">
+        <div id="nav-pill" class="absolute top-1 bottom-1 left-0 bg-apple-blue/15 backdrop-blur-md rounded-full transition-all duration-300 ease-out z-0 opacity-0 pointer-events-none"></div>
+        {navItems.map(item => {
+          const isActive = currentPath === item.path || (item.path !== `/${lang}` && currentPath.startsWith(item.path));
+          return (
+            <a
+              href={item.path}
+              class={`nav-link relative z-10 px-4 py-1.5 font-sans text-xs font-semibold transition-colors duration-300 no-underline rounded-full ${isActive ? 'text-apple-blue active-nav-item' : 'text-apple-muted hover:text-apple-text'}`}
+              data-active={isActive ? 'true' : 'false'}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </div>
+      <div class="flex items-center gap-5">
+        <!-- Language switcher -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 font-sans text-xs font-semibold text-apple-muted group-hover:text-apple-text transition-colors uppercase tracking-wider">
+            {lang}
+            <svg class="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          
+          <div class="absolute right-0 top-full mt-2 w-32 bg-white rounded-xl shadow-lg shadow-black/5 border border-black/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-1 group-hover:translate-y-0 z-50 overflow-hidden">
+            <div class="py-1">
+              {Object.entries(languages).map(([code, name]) => {
+                const isActive = code === lang;
+                const targetPath = currentPath.replace(`/${lang}`, `/${code}`);
+                return (
+                  <a 
+                    href={targetPath} 
+                    class={`block px-4 py-2.5 text-xs font-medium transition-colors ${isActive ? 'bg-apple-blue/5 text-apple-blue' : 'text-apple-muted hover:bg-black/5 hover:text-apple-text'}`}
+                  >
+                    <div class="flex items-center justify-between">
+                      <span>{name}</span>
+                      <span class="uppercase opacity-50 text-[10px] font-bold">{code}</span>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <a href="https://github.com/orgbitbybitdevs" target="_blank" rel="noopener noreferrer" class="text-apple-muted hover:text-apple-text transition-colors" title={tc('footer.github')}>
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+        <a href={`/${lang}/unirse`} class="font-sans text-xs font-medium bg-apple-blue text-white px-4 py-1.5 rounded-full hover:bg-apple-blue-hover transition-colors">{tc('cta.joinAcademy')}</a>
+      </div>
+    </nav>
+    <slot />
+    <script>
+      function setupNav() {
+        const container = document.getElementById('nav-container');
+        const pill = document.getElementById('nav-pill');
+        const links = document.querySelectorAll('.nav-link');
+
+        if (!container || !pill || links.length === 0) return;
+
+        let activeLink = document.querySelector('.active-nav-item') as HTMLElement;
+
+        function movePill(el: HTMLElement) {
+          if (!pill) return;
+          pill.style.opacity = '1';
+          pill.style.width = `${el.offsetWidth}px`;
+          pill.style.transform = `translateX(${el.offsetLeft}px)`;
+        }
+
+        if (activeLink) movePill(activeLink);
+
+        links.forEach(link => {
+          link.addEventListener('mouseenter', (e) => movePill(e.target as HTMLElement));
+        });
+
+        container.addEventListener('mouseleave', () => {
+          if (activeLink) movePill(activeLink);
+          else pill.style.opacity = '0';
+        });
+      }
+
+      setupNav();
+      document.addEventListener('astro:page-load', setupNav);
+    </script>
+  </body>
+</html>
