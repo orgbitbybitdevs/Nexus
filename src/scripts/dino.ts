@@ -17,15 +17,44 @@ export function initDino(containerId: string, canvasId: string) {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-  camera.position.set(0, 1.5, 6);
-  camera.lookAt(0, 0.5, 0);
+
+  function getResponsiveSettings() {
+    const w = window.innerWidth;
+    if (w < 640) {
+      return { cameraY: 1.25, cameraZ: 6.54, lookAtY: 0.6, targetSize: 6, modelYOffset: -0.35, planeY: -1.4 };
+    }
+    if (w < 1024) {
+      return { cameraY: 1.4, cameraZ: 5.0, lookAtY: 0.55, targetSize: 5.0, modelYOffset: -0.45, planeY: -1.45 };
+    }
+    return { cameraY: 1.5, cameraZ: 6.0, lookAtY: 0.5, targetSize: 4.0, modelYOffset: -0.5, planeY: -1.5 };
+  }
+
+  let settings = getResponsiveSettings();
+  camera.position.set(0, settings.cameraY, settings.cameraZ);
+  camera.lookAt(0, settings.lookAtY, 0);
+
+  let dinoModel: THREE.Group | null = null;
+  let modelCenter: THREE.Vector3 | null = null;
+  let modelMaxDim = 1;
 
   function resize() {
     if (!container || !renderer) return;
+    settings = getResponsiveSettings();
     const w = container.clientWidth, h = container.clientHeight;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
+    camera.position.set(0, settings.cameraY, settings.cameraZ);
+    camera.lookAt(0, settings.lookAtY, 0);
     camera.updateProjectionMatrix();
+
+    if (dinoModel && modelCenter) {
+      const scale = settings.targetSize / modelMaxDim;
+      dinoModel.scale.set(scale, scale, scale);
+      dinoModel.position.x = -modelCenter.x * scale;
+      dinoModel.position.y = -modelCenter.y * scale + settings.modelYOffset;
+      dinoModel.position.z = -modelCenter.z * scale;
+      plane.position.y = settings.planeY;
+    }
   }
   resize();
   window.addEventListener('resize', resize);
@@ -45,7 +74,6 @@ export function initDino(containerId: string, canvasId: string) {
   fillLight.position.set(-5, 3, -5);
   scene.add(fillLight);
 
-  let dinoModel: THREE.Group | null = null;
   const loader = new GLTFLoader();
   const modelUrl = '/model/dino.glb';
   
@@ -83,17 +111,16 @@ export function initDino(containerId: string, canvasId: string) {
         dinoModel = gltf.scene;
         
         const box = new THREE.Box3().setFromObject(dinoModel);
-        const center = box.getCenter(new THREE.Vector3());
+        modelCenter = box.getCenter(new THREE.Vector3());
         const size = box.getSize(new THREE.Vector3());
         
-        const maxDim = Math.max(size.x, size.y, size.z);
-        const targetSize = 4.0;
-        const scale = targetSize / maxDim;
+        modelMaxDim = Math.max(size.x, size.y, size.z);
+        const scale = settings.targetSize / modelMaxDim;
         dinoModel.scale.set(scale, scale, scale);
         
-        dinoModel.position.x = -center.x * scale;
-        dinoModel.position.y = -center.y * scale - 0.5;
-        dinoModel.position.z = -center.z * scale;
+        dinoModel.position.x = -modelCenter.x * scale;
+        dinoModel.position.y = -modelCenter.y * scale + settings.modelYOffset;
+        dinoModel.position.z = -modelCenter.z * scale;
         
         dinoModel.traverse((child) => {
           if ((child as THREE.Mesh).isMesh) {
@@ -125,7 +152,7 @@ export function initDino(containerId: string, canvasId: string) {
   const planeMat = new THREE.ShadowMaterial({ opacity: 0.1 });
   const plane = new THREE.Mesh(planeGeo, planeMat);
   plane.rotation.x = -Math.PI / 2;
-  plane.position.y = -1.5;
+  plane.position.y = settings.planeY;
   plane.receiveShadow = true;
   scene.add(plane);
 
