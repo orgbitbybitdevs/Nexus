@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "A real engineering environment.",
+    "subtitle": "Learn by building real systems with repositories, collaboration and technical decisions — not isolated beginner exercises."
+  },
+  "howItWorks": {
+    "step1": { "label": "01", "title": "You join", "body": "You access the academy and the official community." },
+    "step2": { "label": "02", "title": "Real access", "body": "You join the official GitHub organization." },
+    "step3": { "label": "03", "title": "You build", "body": "You work on repositories and production systems." },
+    "step4": { "label": "04", "title": "You collaborate", "body": "You receive feedback and participate in code reviews." }
+  },
+  "system": {
+    "title": "Simulate the industry environment.",
+    "repoName": "heliosync-system"
+  },
+  "features": {
+    "title": "What's inside.",
+    "repos": { "title": "Repositories", "body": "Projects structured like the industry" },
+    "challenges": { "title": "Challenges", "body": "Problems that require design, not just code" },
+    "codeReviews": { "title": "Code reviews", "body": "Learn to read, write and improve code" },
+    "systems": { "title": "Systems", "body": "Integration of software and hardware" }
+  },
+  "collaboration": {
+    "title": "Real collaboration.",
+    "body": "Take control of the code lifecycle. By actively participating — not just developing in isolation — you learn operational best practices and review workflows within industry-grade async architectures."
+  },
+  "cta": {
+    "title": "Start building in a real environment.",
+    "button": "Join the academy"
+  }
+}

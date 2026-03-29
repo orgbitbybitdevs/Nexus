@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import type { UiLanguage } from '../../i18n/config';
+import { languages } from '../../i18n/config';
+import { useTranslations } from '../../i18n/utils';
+import MentorCard from '../../components/MentorCard.astro';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: UiLanguage };
+const tc = useTranslations(lang, 'common');
+const th = useTranslations(lang, 'home');
+---
+
+<Layout lang={lang} title={`BitByBit Academy — ${th('hero.title')}`}>
+  <!-- Hero -->
+  <Hero lang={lang} />
+
+  <main class="bg-white text-apple-text overflow-x-hidden">
+
+    <!-- Philosophy -->
+    <section class="max-w-[1000px] mx-auto px-8 py-32 border-t border-black/5">
+      <div class="max-w-[680px]">
+        <h2 class="text-[clamp(2rem,3.5vw,2.8rem)] font-bold tracking-tight mb-6 leading-tight">
+          {th('philosophy.title')}
+        </h2>
+        <p class="text-[1.2rem] text-apple-muted font-medium leading-relaxed">
+          {th('philosophy.body')}
+        </p>
+      </div>
+    </section>
+
+    <!-- Platform Preview -->
+    <section class="max-w-[1200px] mx-auto px-8 pb-32">
+      <div class="bg-[#F5F5F7] rounded-[2.5rem] p-10 md:p-16 border border-black/5">
+        <div class="max-w-[580px] mb-16">
+          <h2 class="text-[clamp(2rem,3.5vw,2.8rem)] font-bold tracking-tight mb-4">
+            {th('platform.title')}
+          </h2>
+          <p class="text-[1.15rem] text-apple-muted font-medium leading-relaxed">
+            {th('platform.subtitle')}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { key: 'platform.realAccess' },
+            { key: 'platform.building' },
+            { key: 'platform.collaboration' },
+          ].map(({ key }) => (
+            <div class="bg-white rounded-2xl p-7 border border-black/5 shadow-sm hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-bold text-apple-text mb-2">{th(`${key}.title`)}</h3>
+              <p class="text-[0.95rem] text-apple-muted font-medium leading-relaxed">{th(`${key}.body`)}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-10">
+          <a
+            href={`/${lang}/plataforma`}
+            class="inline-flex items-center gap-2 font-semibold text-apple-blue hover:underline hover:underline-offset-4"
+          >
+            {tc('cta.explorePlatform')} <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="max-w-[1200px] mx-auto px-8 pb-32">
+      <div class="mb-14">
+        <h2 class="text-[clamp(2rem,3.5vw,2.8rem)] font-bold tracking-tight mb-4">{th('projects.title')}</h2>
+        <p class="text-[1.15rem] text-apple-muted font-medium leading-relaxed max-w-[720px]">
+          {th('projects.subtitle')}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          { key: 'projects.featured',   icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 8v4M12 16h.01' },
+          { key: 'projects.guides',     icon: 'M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z' },
+          { key: 'projects.systems',    icon: 'M18 20V10M12 20V4M6 20v-6' },
+          { key: 'projects.infra',      icon: 'M2 3h20M2 9h20M2 15h20M2 21h20' },
+        ].map(({ key, icon }) => (
+          <div class="bg-[#F5F5F7] rounded-2xl p-8 border border-black/5 hover:shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:-translate-y-0.5 transition-all duration-300 group">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" class="text-apple-muted mb-5 group-hover:text-apple-blue transition-colors">
+              <path d={icon} />
+            </svg>
+            <h3 class="text-[1.05rem] font-bold text-apple-text mb-2">{th(`${key}.name`)}</h3>
+            <p class="text-[0.9rem] text-apple-muted font-medium leading-relaxed">{th(`${key}.description`)}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 flex gap-6">
+        <a href={`/${lang}/proyectos`} class="inline-flex items-center gap-2 font-semibold text-apple-blue hover:underline hover:underline-offset-4">
+          {tc('cta.exploreProjects')} <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Mentors -->
+    <section class="max-w-[1200px] mx-auto px-8 pb-32 border-t border-black/5 pt-20">
+      <div class="mb-14">
+        <h2 class="text-[clamp(2rem,3.5vw,2.8rem)] font-bold tracking-tight mb-4">{th('mentors.title')}</h2>
+        <p class="text-[1.15rem] text-apple-muted font-medium">{th('mentors.subtitle')}</p>
+      </div>
+
+      <MentorCard
+        name="José Manuel Cortés Cerón"
+        role="Systems Engineer · AI & IoT"
+        tags={['Software', 'IoT', 'AI']}
+        githubHandle="deepdevjose"
+        githubUrl="https://github.com/deepdevjose"
+        image="/mentors/josepo.png"
+        profileUrl={`/${lang}/mentores/jose-manuel`}
+      />
+
+      <div class="mt-10">
+        <a href={`/${lang}/mentores`} class="inline-flex items-center gap-2 font-semibold text-apple-blue hover:underline hover:underline-offset-4">
+          {tc('cta.exploreMentors')} <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="max-w-[800px] mx-auto px-8 text-center pb-32 border-t border-black/5 pt-20">
+      <h2 class="text-[clamp(2rem,3.5vw,2.8rem)] font-bold tracking-tight mb-8">
+        {tc('footer.tagline')}
+      </h2>
+      <a
+        href={`/${lang}/unirse`}
+        class="inline-flex items-center justify-center px-10 py-4 bg-apple-blue text-white text-[1.05rem] font-semibold rounded-full hover:bg-apple-blue-hover transition-all hover:scale-[1.02] shadow-[0_8px_20px_rgba(0,102,204,0.25)]"
+      >
+        {tc('cta.joinAcademy')}
+      </a>
+    </section>
+
+  </main>
+</Layout>

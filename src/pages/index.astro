@@ -1,0 +1,6 @@
+---
+// Root redirect: / → /es
+// Astro's i18n middleware handles this when prefixDefaultLocale: true,
+// but we keep an explicit redirect as safety net.
+return Astro.redirect('/es', 301);
+---

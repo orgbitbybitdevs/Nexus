@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Projects.",
+    "subtitle": "Build, experiment and learn with real projects, guided repositories and technical templates designed for the academy."
+  },
+  "featured": {
+    "label": "Featured project",
+    "name": "CNN Visualizer",
+    "description": "An interactive browser experience to understand how a CNN processes handwritten numbers, from preprocessing to the final confidence distribution. The repository already defines the stack, model assets and a phased implementation roadmap."
+  },
+  "active": {
+    "title": "Active projects",
+    "subtitle": "Projects that evolve with new iterations, documentation and collaborative work.",
+    "iotSystem": {
+      "name": "IoT Telemetry System",
+      "description": "Distributed telemetry platform using local nodes and cloud aggregators."
+    }
+  },
+  "guides": {
+    "title": "Guides",
+    "subtitle": "The academy teaches and supports. Structured guides to learn fundamentals and apply them correctly from the start.",
+    "github": {
+      "name": "GitHub Foundations",
+      "desc": "Learn real collaboration workflows, Advanced Git and Pull Requests.",
+      "level": "Technical base"
+    },
+    "python": {
+      "name": "Python for Engineering",
+      "desc": "Python fundamentals focused on applications and systems.",
+      "level": "Beginner"
+    },
+    "softwareDev": {
+      "name": "Software Development Basics",
+      "desc": "Architecture, patterns and building real-world applications.",
+      "level": "Intermediate"
+    },
+    "networking": {
+      "name": "Networking Fundamentals",
+      "desc": "Master TCP/IP, DNS and the OSI model with hands-on labs.",
+      "level": "Technical base"
+    }
+  },
+  "templates": {
+    "title": "Templates",
+    "subtitle": "Base repositories to start with structure, best practices and solid technical judgement.",
+    "githubWorkflow": {
+      "name": "GitHub Workflow Template",
+      "desc": "Preconfigured base repository with Issues and PR templates.",
+      "stack": "GitHub Actions"
+    },
+    "pythonStarter": {
+      "name": "Python Project Starter",
+      "desc": "Standard structure for scalable backend projects.",
+      "stack": "Python · Pytest"
+    },
+    "engineeringDocs": {
+      "name": "Engineering Docs Template",
+      "desc": "Template for RFCs, architecture decisions and diagrams.",
+      "stack": "Markdown"
+    },
+    "networkingLab": {
+      "name": "Networking Practice Repo",
+      "desc": "Lab environments with ready-to-use base configurations.",
+      "stack": "Docker · Linux"
+    }
+  },
+  "areas": {
+    "title": "Explore by technical area",
+    "projectsCount": "{count, plural, one {# project} other {# projects}}"
+  },
+  "cta": {
+    "title": "Don't build your portfolio alone.",
+    "body": "Join the academy and build real systems with engineers who know what they're doing."
+  }
+}

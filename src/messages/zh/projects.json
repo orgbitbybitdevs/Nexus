@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "项目。",
+    "subtitle": "使用为学院设计的真实项目、指导代码库和技术模板进行构建、实验和学习。"
+  },
+  "featured": {
+    "label": "精选项目",
+    "name": "CNN 可视化器",
+    "description": "交互式浏览器体验，了解 CNN 如何处理手写数字，从预处理到最终的置信度分布。该代码库已经定义了技术栈、模型资产和阶段性实施路线图。"
+  },
+  "active": {
+    "title": "活跃项目",
+    "subtitle": "随着新迭代、文档和协作工作而发展的项目。",
+    "iotSystem": {
+      "name": "物联网遥测系统",
+      "description": "使用本地节点和云聚合器的分布式遥测平台。"
+    }
+  },
+  "guides": {
+    "title": "指南",
+    "subtitle": "学院教授和支持。结构化指南来学习基础知识并从一开始就正确地应用它们。",
+    "github": {
+      "name": "GitHub 基础",
+      "desc": "学习真正的协作工作流程、高级 Git 和拉取请求。",
+      "level": "技术基础"
+    },
+    "python": {
+      "name": "工程用 Python",
+      "desc": "专注于应用程序和系统的 Python 基础知识。",
+      "level": "初学者"
+    },
+    "softwareDev": {
+      "name": "软件开发基础",
+      "desc": "架构、模式和构建真实的应用程序。",
+      "level": "中级"
+    },
+    "networking": {
+      "name": "网络基础知识",
+      "desc": "通过动手实验掌握 TCP/IP、DNS 和 OSI 模型。",
+      "level": "技术基础"
+    }
+  },
+  "templates": {
+    "title": "模板",
+    "subtitle": "基础代码库以结构、最佳实践和扎实的技术判断力开始。",
+    "githubWorkflow": {
+      "name": "GitHub 工作流模板",
+      "desc": "具有 Issues 和 PR 模板的预配置基础代码库。",
+      "stack": "GitHub Actions"
+    },
+    "pythonStarter": {
+      "name": "Python 项目入门",
+      "desc": "适用于可扩展后端项目的标准结构。",
+      "stack": "Python · Pytest"
+    },
+    "engineeringDocs": {
+      "name": "工程文档模板",
+      "desc": "用于 RFC、架构决策和图表的模板。",
+      "stack": "Markdown"
+    },
+    "networkingLab": {
+      "name": "网络实践仓库",
+      "desc": "具有即用型基本配置的实验室环境。",
+      "stack": "Docker · Linux"
+    }
+  },
+  "areas": {
+    "title": "按技术领域探索",
+    "projectsCount": "{count, plural, one {# 个项目} other {# 个项目}}"
+  },
+  "cta": {
+    "title": "不要一个人构建你的作品集。",
+    "body": "加入学院，与知道自己在做什么的工程师一起构建真实系统。"
+  }
+}

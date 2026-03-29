@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "一个真实的工程环境。",
+    "subtitle": "通过使用代码库、协作和技术决策来构建真实系统进行学习——而不是孤立的初学者练习。"
+  },
+  "howItWorks": {
+    "step1": { "label": "01", "title": "你加入", "body": "你获得了学院和官方社区的访问权限。" },
+    "step2": { "label": "02", "title": "真实访问", "body": "你加入了官方的 GitHub 组织。" },
+    "step3": { "label": "03", "title": "你构建", "body": "你在代码库和生产系统上工作。" },
+    "step4": { "label": "04", "title": "你协作", "body": "你获得反馈并参与代码审查。" }
+  },
+  "system": {
+    "title": "模拟行业环境。",
+    "repoName": "heliosync-system"
+  },
+  "features": {
+    "title": "里面有什么。",
+    "repos": { "title": "代码库", "body": "像行业一样构建的项目" },
+    "challenges": { "title": "挑战", "body": "需要设计的问题，而不仅仅是代码" },
+    "codeReviews": { "title": "代码审查", "body": "学习阅读、编写和改进代码" },
+    "systems": { "title": "系统", "body": "软件和硬件的集成" }
+  },
+  "collaboration": {
+    "title": "真正的协作。",
+    "body": "掌控代码的生命周期。通过积极参与——而不仅仅是孤立地开发——你可以在行业级异步架构中学习操作最佳实践和审查工作流程。"
+  },
+  "cta": {
+    "title": "开始在真实环境中构建。",
+    "button": "加入学院"
+  }
+}
