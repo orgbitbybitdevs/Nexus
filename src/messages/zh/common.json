@@ -3,6 +3,7 @@
     "home": "首页",
     "platform": "平台",
     "projects": "项目",
+    "next": "NEXT",
     "mentors": "导师",
     "join": "加入"
   },
@@ -14,11 +15,14 @@
     "joinAcademy": "加入学院",
     "explorePlatform": "探索它是如何运作的",
     "exploreProjects": "探索项目",
+    "exploreNext": "探索 NEXT",
     "exploreMentors": "探索导师",
     "viewGuides": "查看指南和模板",
     "viewRepo": "查看项目",
     "useTemplate": "使用模板",
-    "openGuide": "打开指南"
+    "openGuide": "打开指南",
+    "workInProgress": "我们正在处理...",
+    "devSignature": "开发者敬上"
   },
   "badge": {
     "inDevelopment": "开发中",

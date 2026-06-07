@@ -43,6 +43,16 @@
       "description": "专为实践和应用从网络基础知识到计算架构的一切而设计的代码库。"
     }
   },
+  "next": {
+    "eyebrow": "公开倡议",
+    "title": "NEXT 是 BitByBit Academy 的一项计划。",
+    "subtitle": "用两天探索技术、人工智能与创新，并把想法变成真实项目。",
+    "price": "$350 MXN",
+    "limited": "名额有限",
+    "pill1": "技术",
+    "pill2": "人工智能",
+    "pill3": "创新"
+  },
   "mentors": {
     "title": "从事构建的人。",
     "subtitle": "向正在研究真实系统的工程师学习。"

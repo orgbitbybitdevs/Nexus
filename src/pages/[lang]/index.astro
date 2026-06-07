@@ -102,6 +102,41 @@ const th = useTranslations(lang, 'home');
       </div>
     </section>
 
+    <!-- NEXT -->
+    <section class="relative min-h-[100svh] overflow-hidden bg-[#050506] text-white px-5 sm:px-8 pt-28 sm:pt-36 pb-24 sm:pb-32 flex items-center">
+      <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 sm:gap-14 items-center w-full">
+        <div class="relative z-10 order-2 lg:order-1">
+          <p class="text-xs font-black uppercase tracking-[0.18em] text-white/42 mb-5">{th('next.eyebrow')}</p>
+          <img src="/next/next_letters.png" alt="NEXT" class="w-[min(60vw,240px)] h-auto object-contain mb-8 sm:mb-10 mix-blend-screen" loading="lazy" decoding="async" />
+          <h2 class="text-[clamp(2.35rem,11vw,4.7rem)] font-black tracking-normal leading-[0.95] mb-6 sm:mb-7">
+            {th('next.title')}
+          </h2>
+          <p class="text-[1rem] md:text-[1.3rem] text-white/62 font-medium leading-relaxed max-w-[620px] mb-8 sm:mb-9">
+            {th('next.subtitle')}
+          </p>
+          <div class="flex flex-wrap gap-2 mb-10">
+            {[th('next.pill1'), th('next.pill2'), th('next.pill3')].map((pill) => (
+              <span class="px-3.5 py-2 rounded-full border border-white/10 bg-white/[0.06] text-white/74 text-sm font-bold">{pill}</span>
+            ))}
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+            <a href={`/${lang}/next`} class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-black rounded-full font-bold hover:bg-white/88 transition-colors w-full sm:w-auto">
+              {tc('cta.exploreNext')} <span aria-hidden="true" class="ml-2">&rarr;</span>
+            </a>
+            <div>
+              <p class="text-2xl font-black tracking-normal">{th('next.price')}</p>
+              <p class="text-sm font-semibold text-white/42">{th('next.limited')}</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative h-[280px] sm:min-h-[340px] flex items-center justify-center order-1 lg:order-2">
+          <div class="next-cube-wrap w-[min(72vw,500px)] max-h-full">
+            <img src="/next/next_cube.png" alt="" class="next-cube-float w-full max-h-full h-auto object-contain" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Mentors -->
     <section class="max-w-[1200px] mx-auto px-8 pb-32 border-t border-black/5 pt-20">
       <div class="mb-14">
@@ -131,12 +166,14 @@ const th = useTranslations(lang, 'home');
       <h2 class="text-[clamp(2rem,3.5vw,2.8rem)] font-bold tracking-tight mb-8">
         {tc('footer.tagline')}
       </h2>
-      <a
-        href={`/${lang}/unirse`}
-        class="inline-flex items-center justify-center px-10 py-4 bg-apple-blue text-white text-[1.05rem] font-semibold rounded-full hover:bg-apple-blue-hover transition-all hover:scale-[1.02] shadow-[0_8px_20px_rgba(0,102,204,0.25)]"
+      <button
+        type="button"
+        data-join-cta
+        aria-disabled="true"
+        class="inline-flex items-center justify-center px-10 py-4 bg-apple-blue text-white text-[1.05rem] font-semibold rounded-full opacity-50 cursor-not-allowed shadow-[0_8px_20px_rgba(0,102,204,0.25)]"
       >
         {tc('cta.joinAcademy')}
-      </a>
+      </button>
     </section>
 
   </main>

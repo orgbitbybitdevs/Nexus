@@ -3,6 +3,7 @@
     "home": "Inicio",
     "platform": "Plataforma",
     "projects": "Proyectos",
+    "next": "NEXT",
     "mentors": "Mentores",
     "join": "Unirse"
   },
@@ -14,11 +15,14 @@
     "joinAcademy": "Unirme a la academia",
     "explorePlatform": "Explorar cómo funciona",
     "exploreProjects": "Explorar proyectos",
+    "exploreNext": "Explorar NEXT",
     "exploreMentors": "Explorar mentores",
     "viewGuides": "Ver guías y templates",
     "viewRepo": "Ver proyecto",
     "useTemplate": "Usar template",
-    "openGuide": "Abrir guía"
+    "openGuide": "Abrir guía",
+    "workInProgress": "Estamos trabajando en ello...",
+    "devSignature": "att. el dev"
   },
   "badge": {
     "inDevelopment": "En desarrollo",

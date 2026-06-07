@@ -43,6 +43,16 @@
       "description": "Repositories designed to practice and apply everything from networking fundamentals to computational architecture."
     }
   },
+  "next": {
+    "eyebrow": "Public initiative",
+    "title": "NEXT lives inside BitByBit Academy.",
+    "subtitle": "Two days to explore technology, artificial intelligence and innovation, then turn ideas into real projects.",
+    "price": "$350 MXN",
+    "limited": "Limited seats",
+    "pill1": "Technology",
+    "pill2": "Artificial intelligence",
+    "pill3": "Innovation"
+  },
   "mentors": {
     "title": "People who build.",
     "subtitle": "Learn from engineers working on real systems."

@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "title": "NEXT — BitByBit Academy",
+    "description": "NEXT es una iniciativa educativa y tecnológica para jóvenes que quieren explorar ideas y convertirlas en proyectos reales."
+  },
+  "hero": {
+    "headline": "Construye lo que sigue.",
+    "line1": "Tecnología.",
+    "line2": "Inteligencia artificial.",
+    "line3": "Innovación.",
+    "subtitle": "Dos días para explorar ideas y convertirlas en proyectos.",
+    "price": "$350 MXN",
+    "limited": "Cupo limitado",
+    "cta": "Reservar lugar"
+  },
+  "intro": {
+    "title": "Una experiencia para quienes quieren crear",
+    "p1": "NEXT es una iniciativa educativa y tecnológica para jóvenes que buscan entender cómo está cambiando el mundo y cómo pueden formar parte de esa transformación.",
+    "p2": "No se trata solo de aprender sobre inteligencia artificial. Se trata de descubrir oportunidades, desarrollar habilidades, trabajar en equipo y construir algo real.",
+    "quote": "No importa qué estudies. Importa qué construyes mientras lo haces.",
+    "p3": "NEXT no promueve una institución de educación superior en particular ni orienta a los estudiantes hacia una carrera específica.",
+    "p4": "Su objetivo es fomentar una cultura de aprendizaje continuo, curiosidad, innovación y desarrollo personal.",
+    "p5": "La tecnología está transformando todas las áreas: ingeniería, medicina, diseño, administración, educación, comunicación, arte y emprendimiento.",
+    "p6": "El futuro no pertenece a una sola carrera. Pertenece a quienes siguen aprendiendo."
+  },
+  "days": {
+    "title": "Experiencia de dos días",
+    "day1": "Día 1 · Entender",
+    "day1Body": "Una sesión inspiracional para conocer el presente y futuro de la tecnología.",
+    "day1Goal": "El objetivo es que cada estudiante pueda visualizar un futuro más amplio y comprenda que existen más oportunidades de las que muchas veces imagina.",
+    "day2": "Día 2 · Construir",
+    "day2Body": "Un taller práctico para convertir ideas en proyectos. Los participantes trabajarán en equipos bajo una dinámica inspirada en una startup tecnológica.",
+    "day2Goal": "Cada equipo deberá proponer una idea, organizarse, investigar, diseñar y construir un MVP: una primera versión funcional de su proyecto."
+  },
+  "lists": {
+    "day1": "Inteligencia artificial y nuevas oportunidades.|Profesiones emergentes.|Cómo está cambiando la forma de aprender y trabajar.|Desinformación sobre la industria tecnológica.|Proyectos reales y caminos posibles para jóvenes.|Preguntas, conversación y orientación.",
+    "day2": "Lluvia de ideas.|Formación de equipos.|Asignación de roles.|Investigación rápida.|Uso de herramientas de inteligencia artificial.|Desarrollo de un prototipo o MVP.|Presentación final del proyecto.",
+    "includes": "Experiencia de dos días.|Conferencia inspiracional.|Taller práctico y colaborativo.|Introducción a herramientas de inteligencia artificial.|Desarrollo de un proyecto en equipo.|Presentación final.|Material digital.|Certificado de participación."
+  },
+  "flow": {
+    "title": "De la idea al MVP",
+    "items": "Idea|Equipo|Investigación|Diseño|Desarrollo|MVP|Presentación",
+    "body": "NEXT está diseñado para que los estudiantes no solo escuchen sobre innovación, sino que vivan el proceso de crear algo desde cero."
+  },
+  "includes": {
+    "title": "¿Qué incluye?",
+    "audienceTitle": "¿Para quién es?",
+    "audienceBody": "Para estudiantes de educación media superior con curiosidad por la tecnología, la inteligencia artificial, la innovación, el emprendimiento o la creación de proyectos.",
+    "noExperience": "No se necesita experiencia previa. Solo ganas de aprender, crear y construir."
+  },
+  "initiator": {
+    "title": "Acerca del iniciador",
+    "name": "José Manuel Cortés Cerón",
+    "role": "Software Engineer · AI Researcher",
+    "schoolZh": "西交利物浦大学",
+    "school": "Xi'an Jiaotong-Liverpool University",
+    "body": "NEXT nace con la visión de acercar a más jóvenes a las oportunidades reales que existen en la tecnología, la innovación y la educación, comenzando desde nuestra región y proyectándose hacia nuevos espacios."
+  },
+  "info": {
+    "title": "Información clave",
+    "duration": "Duración: 2 días",
+    "mode": "Modalidad: Presencial",
+    "cost": "Costo: $350 MXN",
+    "seats": "Cupo: Limitado",
+    "result": "Resultado: Proyecto final en equipo + presentación"
+  }
+}

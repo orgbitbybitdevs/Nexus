@@ -25,7 +25,7 @@ const t = useTranslations(lang, "mentors");
         class="inline-flex items-center gap-2 text-sm font-medium text-apple-muted hover:text-apple-text transition-colors mb-12 self-start lg:ml-[calc(50%-450px)]"
       >
         <span aria-hidden="true">&larr;</span>
-        {lang === "es" ? "Volver a mentores" : "Back to mentors"}
+        {t("jose.back")}
       </a>
 
       <div
@@ -64,9 +64,9 @@ const t = useTranslations(lang, "mentors");
                   icon: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z",
                 },
                 {
-                  href: "https://deepdev-portfolio.vercel.app",
+                  href: "https://josepo-s-portfolio.pages.dev/",
                   label: "Portfolio",
-                  handle: "deepdev-portfolio",
+                  handle: "josepo-s-portfolio",
                   icon: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z M2 12h20 M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z",
                 },
                 {
@@ -149,21 +149,10 @@ const t = useTranslations(lang, "mentors");
             class="prose prose-lg prose-apple max-w-none mb-14 text-apple-text leading-relaxed"
           >
             <p class="mb-4">
-              Me especializo en arquitectura de sistemas distribuidos,
-              construyendo puentes altamente escalables entre el hardware (IoT)
-              y la inteligencia artificial para crear soluciones tecnológicas
-              eficientes e interactivas que resuelvan problemas fundamentales de
-              la vida real.
+              {t("jose.bio1")}
             </p>
             <p>
-              En la academia, mi filosofía es simple: <strong
-                >ensuciarse las manos con código de producción real desde el día
-                cero.</strong
-              > Jamás enseñaré algoritmos que nunca usarás ni tutoriales desfasados;
-              construimos pipelines de ingeniería y repositorios de software completos.
-              Te enseñaré a modelar arquitecturas complejas, optimizar el uso de procesamiento
-              en el cliente y estructurar lógica escalable para agentes o interfaces
-              web puras.
+              {t("jose.bio2Before")}<strong>{t("jose.bio2Strong")}</strong>{t("jose.bio2After")}
             </p>
           </div>
 
@@ -171,7 +160,7 @@ const t = useTranslations(lang, "mentors");
             <h2
               class="text-sm font-bold tracking-widest uppercase text-apple-muted mb-5"
             >
-              {lang === "es" ? "Contexto Académico" : "Academic Background"}
+              {t("jose.academicTitle")}
             </h2>
             <div class="flex flex-col gap-4">
               <div class="flex items-start gap-4">
@@ -196,11 +185,10 @@ const t = useTranslations(lang, "mentors");
                   <p
                     class="text-[0.95rem] font-bold text-apple-text leading-tight mb-0.5"
                   >
-                    Ingeniería en Tecnologías de la Información y Comunicaciones
+                    {t("jose.degree")}
                   </p>
                   <p class="text-[0.85rem] font-medium text-apple-muted">
-                    Instituto Tecnológico Superior de Occidente del Estado de
-                    Hidalgo
+                    {t("jose.school")}
                   </p>
                 </div>
               </div>
@@ -227,10 +215,10 @@ const t = useTranslations(lang, "mentors");
                   <p
                     class="text-[0.95rem] font-bold text-apple-text leading-tight mb-0.5"
                   >
-                    Research Collaboration
+                    {t("jose.research")}
                   </p>
                   <p class="text-[0.85rem] font-medium text-apple-muted">
-                    Xi'an Jiaotong–Liverpool University (西交利物浦大学)
+                    {t("jose.researchSchool")}
                   </p>
                 </div>
               </div>
@@ -240,9 +228,7 @@ const t = useTranslations(lang, "mentors");
           <div>
             <h2 class="text-2xl font-bold tracking-tight text-apple-text mb-6">
               {
-                lang === "es"
-                  ? "Contribuciones recientes"
-                  : "Recent contributions"
+                t("jose.contributionsTitle")
               }
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -276,9 +262,7 @@ const t = useTranslations(lang, "mentors");
                   class="text-[0.92rem] font-medium text-apple-muted line-clamp-2 mt-auto"
                 >
                   {
-                    lang === "es"
-                      ? "Plataforma fundacional de la academia y sistema interactivo nativo."
-                      : "Foundational academy platform and native interactive system."
+                    t("jose.nexusDescription")
                   }
                 </p>
               </a>
@@ -315,9 +299,7 @@ const t = useTranslations(lang, "mentors");
                   class="text-[0.92rem] font-medium text-apple-muted line-clamp-2 mt-auto"
                 >
                   {
-                    lang === "es"
-                      ? "Motor de inferencia WebGPU descentralizado y con cache inteligente."
-                      : "Decentralized WebGPU inference engine with intelligent caching."
+                    t("jose.vlmDescription")
                   }
                 </p>
               </a>

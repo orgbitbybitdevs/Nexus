@@ -27,9 +27,9 @@ const tc = useTranslations(lang, 'common');
           <p class="text-[1.15rem] md:text-[1.25rem] text-[#6E6E73] font-medium leading-relaxed mb-10">
             {t('hero.subtitle')}
           </p>
-          <a href={`/${lang}/unirse`} class="inline-flex items-center justify-center px-8 py-3.5 bg-[#0071E3] text-white font-semibold rounded-full hover:bg-[#0077ED] transition-colors shadow-sm">
+          <button type="button" data-join-cta aria-disabled="true" class="inline-flex items-center justify-center px-8 py-3.5 bg-[#0071E3] text-white font-semibold rounded-full opacity-50 cursor-not-allowed shadow-sm">
             {tc('cta.joinAcademy')}
-          </a>
+          </button>
         </div>
         <!-- Derecha: Mock GitHub Preview -->
         <div class="relative w-full aspect-[4/3] bg-[#F5F5F7] rounded-3xl border border-black/5 shadow-[0_20px_40px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col transform lg:-rotate-2 hover:rotate-0 transition-transform duration-500">
@@ -247,9 +247,9 @@ system.<span class="text-[#0071E3]">publish</span>(<span class="text-[#0F7A59]">
       <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold tracking-tight text-[#1D1D1F] mb-8">
         {t('cta.title')}
       </h2>
-      <a href={`/${lang}/unirse`} class="inline-flex items-center justify-center px-10 py-4 bg-[#0071E3] text-white text-[1.1rem] font-bold rounded-full hover:bg-[#0077ED] transition-transform hover:scale-[1.03] shadow-lg hover:shadow-xl">
+      <button type="button" data-join-cta aria-disabled="true" class="inline-flex items-center justify-center px-10 py-4 bg-[#0071E3] text-white text-[1.1rem] font-bold rounded-full opacity-50 cursor-not-allowed shadow-lg">
         {t('cta.button')}
-      </a>
+      </button>
     </section>
 
   </main>

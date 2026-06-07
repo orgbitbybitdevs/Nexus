@@ -5,6 +5,19 @@
   },
   "jose": {
     "role": "Systems Engineer · AI & IoT",
-    "profile": "Ver perfil"
+    "profile": "Ver perfil",
+    "back": "Volver a mentores",
+    "bio1": "Me especializo en arquitectura de sistemas distribuidos, construyendo puentes altamente escalables entre el hardware (IoT) y la inteligencia artificial para crear soluciones tecnológicas eficientes e interactivas que resuelvan problemas fundamentales de la vida real.",
+    "bio2Before": "En la academia, mi filosofía es simple: ",
+    "bio2Strong": "ensuciarse las manos con código de producción real desde el día cero.",
+    "bio2After": " Jamás enseñaré algoritmos que nunca usarás ni tutoriales desfasados; construimos pipelines de ingeniería y repositorios de software completos. Te enseñaré a modelar arquitecturas complejas, optimizar el uso de procesamiento en el cliente y estructurar lógica escalable para agentes o interfaces web puras.",
+    "academicTitle": "Contexto Académico",
+    "degree": "Ingeniería en Tecnologías de la Información y Comunicaciones",
+    "school": "Instituto Tecnológico Superior de Occidente del Estado de Hidalgo",
+    "research": "Colaboración de investigación",
+    "researchSchool": "Xi'an Jiaotong-Liverpool University (西交利物浦大学)",
+    "contributionsTitle": "Contribuciones recientes",
+    "nexusDescription": "Plataforma fundacional de la academia y sistema interactivo nativo.",
+    "vlmDescription": "Motor de inferencia WebGPU descentralizado y con cache inteligente."
   }
 }

@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import type { UiLanguage } from '../../i18n/config';
+import { languages } from '../../i18n/config';
+import { useTranslations } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: UiLanguage };
+const t = useTranslations(lang, 'next');
+const flowItems = t('flow.items').split('|');
+const day1Items = t('lists.day1').split('|');
+const day2Items = t('lists.day2').split('|');
+const includeItems = t('lists.includes').split('|');
+---
+
+<Layout lang={lang} title={t('meta.title')} description={t('meta.description')}>
+  <main class="next-page min-h-screen bg-[#050506] text-white overflow-hidden">
+    <section class="relative min-h-[100svh] lg:h-screen flex items-center px-5 sm:px-6 pt-24 sm:pt-28 pb-12 sm:pb-20">
+      <div class="max-w-[1220px] mx-auto grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 sm:gap-12 lg:gap-16 items-center w-full relative z-10">
+        <div class="order-2 lg:order-1">
+          <img src="/next/next_letters.png" alt="NEXT" class="w-[min(68vw,300px)] h-auto object-contain mb-8 sm:mb-12 mix-blend-screen" loading="eager" decoding="async" />
+          <h1 class="text-[clamp(3.5rem,15vw,8.5rem)] font-black leading-[0.9] tracking-normal mb-6 sm:mb-8">
+            {t('hero.headline')}
+          </h1>
+          <div class="space-y-1 text-[clamp(1.05rem,5vw,1.8rem)] font-semibold text-white/72 mb-7 sm:mb-10">
+            <p>{t('hero.line1')}</p>
+            <p>{t('hero.line2')}</p>
+            <p>{t('hero.line3')}</p>
+          </div>
+          <p class="text-[1rem] md:text-[1.35rem] text-white/64 font-medium leading-relaxed max-w-[520px] mb-8 sm:mb-10">
+            {t('hero.subtitle')}
+          </p>
+          <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+            <button type="button" data-join-cta aria-disabled="true" class="inline-flex items-center justify-center px-8 py-3.5 bg-white text-black rounded-full text-[1rem] font-bold opacity-90 cursor-not-allowed shadow-[0_18px_45px_rgba(255,255,255,0.12)] w-full sm:w-auto">
+              {t('hero.cta')}
+            </button>
+            <div>
+              <p class="text-2xl font-black tracking-normal">{t('hero.price')}</p>
+              <p class="text-sm font-semibold text-white/48">{t('hero.limited')}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2 relative h-[32svh] min-h-[220px] sm:h-[40svh] lg:h-auto lg:min-h-[620px] flex items-center justify-center">
+          <div class="next-cube-wrap w-[min(76vw,560px)] max-h-full">
+            <img src="/next/next_cube.png" alt="" class="next-cube-float w-full max-h-full h-auto object-contain" loading="eager" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-[1120px] mx-auto px-5 sm:px-6 py-20 sm:py-28 border-t border-white/10">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] gap-12">
+        <h2 class="text-[clamp(2.3rem,5vw,4.5rem)] font-black tracking-normal leading-[0.95]">{t('intro.title')}</h2>
+        <div class="space-y-6 text-[1.05rem] md:text-[1.22rem] leading-relaxed text-white/66 font-medium">
+          <p>{t('intro.p1')}</p>
+          <p>{t('intro.p2')}</p>
+          <p class="text-white text-[1.45rem] md:text-[1.85rem] font-black leading-tight py-4">{t('intro.quote')}</p>
+          <p>{t('intro.p3')}</p>
+          <p>{t('intro.p4')}</p>
+          <p>{t('intro.p5')}</p>
+          <p class="text-white/86">{t('intro.p6')}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-[1120px] mx-auto px-5 sm:px-6 py-18 sm:py-24">
+      <h2 class="text-4xl md:text-6xl font-black tracking-normal mb-12">{t('days.title')}</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {[
+          { title: t('days.day1'), body: t('days.day1Body'), goal: t('days.day1Goal'), items: day1Items },
+          { title: t('days.day2'), body: t('days.day2Body'), goal: t('days.day2Goal'), items: day2Items },
+        ].map(({ title, body, goal, items }) => (
+          <article class="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-7 md:p-9">
+            <h3 class="text-2xl font-black mb-4">{title}</h3>
+            <p class="text-white/64 font-medium leading-relaxed mb-7">{body}</p>
+            <ul class="space-y-3 mb-7">
+              {items.map((item) => (
+                <li class="flex gap-3 text-sm font-semibold text-white/76">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-white/70 flex-shrink-0"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="text-white/82 font-semibold leading-relaxed">{goal}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="max-w-[1120px] mx-auto px-5 sm:px-6 py-18 sm:py-24">
+      <div class="rounded-[2rem] border border-white/10 bg-white text-black p-8 md:p-12">
+        <h2 class="text-3xl md:text-5xl font-black tracking-normal mb-10">{t('flow.title')}</h2>
+        <div class="flex flex-wrap gap-3 mb-10">
+          {flowItems.map((item) => (
+            <span class="px-4 py-2 rounded-full bg-[#050506] text-white text-sm font-bold">{item}</span>
+          ))}
+        </div>
+        <p class="text-[1.1rem] md:text-[1.3rem] text-black/64 font-semibold leading-relaxed max-w-[760px]">{t('flow.body')}</p>
+      </div>
+    </section>
+
+    <section class="max-w-[1120px] mx-auto px-5 sm:px-6 py-18 sm:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14">
+        <div>
+          <h2 class="text-3xl md:text-5xl font-black tracking-normal mb-8">{t('includes.title')}</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {includeItems.map((item) => (
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-sm font-bold text-white/76">{item}</div>
+            ))}
+          </div>
+        </div>
+        <div class="lg:pt-16">
+          <h2 class="text-3xl font-black tracking-normal mb-5">{t('includes.audienceTitle')}</h2>
+          <p class="text-white/66 font-medium leading-relaxed text-[1.08rem] mb-6">{t('includes.audienceBody')}</p>
+          <p class="text-white font-bold text-[1.25rem] leading-snug">{t('includes.noExperience')}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-[1120px] mx-auto px-5 sm:px-6 py-20 sm:py-24 border-t border-white/10">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-12 items-start">
+        <div>
+          <p class="text-sm font-black uppercase tracking-widest text-white/38 mb-6">{t('initiator.title')}</p>
+          <h2 class="text-4xl md:text-6xl font-black tracking-normal mb-4">{t('initiator.name')}</h2>
+          <p class="text-xl font-bold text-white/62 mb-8">{t('initiator.role')}</p>
+          <p class="text-2xl font-black mb-1">{t('initiator.schoolZh')}</p>
+          <p class="text-white/58 font-semibold mb-10">{t('initiator.school')}</p>
+          <p class="text-[1.1rem] md:text-[1.25rem] text-white/66 font-medium leading-relaxed max-w-[720px]">{t('initiator.body')}</p>
+        </div>
+        <div class="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-8">
+          <h3 class="text-2xl font-black mb-7">{t('info.title')}</h3>
+          <div class="space-y-4">
+            {[t('info.duration'), t('info.mode'), t('info.cost'), t('info.seats'), t('info.result')].map((item) => (
+              <p class="border-b border-white/10 pb-4 text-white/76 font-bold">{item}</p>
+            ))}
+          </div>
+          <button type="button" data-join-cta aria-disabled="true" class="mt-8 w-full inline-flex items-center justify-center px-8 py-3.5 bg-white text-black rounded-full text-[1rem] font-bold opacity-90 cursor-not-allowed">
+            {t('hero.cta')}
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

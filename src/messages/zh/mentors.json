@@ -5,6 +5,19 @@
   },
   "jose": {
     "role": "系统工程师 · AI & IoT",
-    "profile": "查看个人资料"
+    "profile": "查看个人资料",
+    "back": "返回导师",
+    "bio1": "我专注于分布式系统架构，在硬件（IoT）与人工智能之间构建高度可扩展的桥梁，用高效、交互式的技术方案解决现实中的基础问题。",
+    "bio2Before": "在学院里，我的理念很简单：",
+    "bio2Strong": "从第一天开始就直接接触真实的生产代码。",
+    "bio2After": " 我不会教授你永远用不到的算法，也不会使用过时的教程；我们会构建工程流水线和完整的软件仓库。我会教你建模复杂架构、优化客户端处理，并为智能体或纯 Web 界面组织可扩展的逻辑。",
+    "academicTitle": "学术背景",
+    "degree": "信息与通信技术工程",
+    "school": "伊达尔戈州西部高等技术学院",
+    "research": "研究合作",
+    "researchSchool": "西交利物浦大学 (Xi'an Jiaotong-Liverpool University)",
+    "contributionsTitle": "近期贡献",
+    "nexusDescription": "学院的基础平台和原生交互系统。",
+    "vlmDescription": "具备智能缓存的去中心化 WebGPU 推理引擎。"
   }
 }
