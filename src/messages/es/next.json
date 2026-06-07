@@ -1,52 +1,52 @@
 {
   "meta": {
     "title": "NEXT — BitByBit Academy",
-    "description": "NEXT es una iniciativa educativa y tecnológica para jóvenes que quieren explorar ideas y convertirlas en proyectos reales."
+    "description": "NEXT es una experiencia de dos días para explorar tecnología, IA e innovación construyendo un proyecto real."
   },
   "hero": {
     "headline": "Construye lo que sigue.",
-    "line1": "Tecnología.",
-    "line2": "Inteligencia artificial.",
-    "line3": "Innovación.",
-    "subtitle": "Dos días para explorar ideas y convertirlas en proyectos.",
+    "line1": "IA.",
+    "line2": "Ideas.",
+    "line3": "Proyectos.",
+    "subtitle": "Dos días. Una idea. Un primer producto.",
     "price": "$350 MXN",
     "limited": "Cupo limitado",
     "cta": "Reservar lugar"
   },
   "intro": {
-    "title": "Una experiencia para quienes quieren crear",
-    "p1": "NEXT es una iniciativa educativa y tecnológica para jóvenes que buscan entender cómo está cambiando el mundo y cómo pueden formar parte de esa transformación.",
-    "p2": "No se trata solo de aprender sobre inteligencia artificial. Se trata de descubrir oportunidades, desarrollar habilidades, trabajar en equipo y construir algo real.",
-    "quote": "No importa qué estudies. Importa qué construyes mientras lo haces.",
-    "p3": "NEXT no promueve una institución de educación superior en particular ni orienta a los estudiantes hacia una carrera específica.",
-    "p4": "Su objetivo es fomentar una cultura de aprendizaje continuo, curiosidad, innovación y desarrollo personal.",
-    "p5": "La tecnología está transformando todas las áreas: ingeniería, medicina, diseño, administración, educación, comunicación, arte y emprendimiento.",
-    "p6": "El futuro no pertenece a una sola carrera. Pertenece a quienes siguen aprendiendo."
+    "title": "Crea algo real.",
+    "p1": "NEXT es una experiencia para explorar tecnología, inteligencia artificial e innovación haciendo.",
+    "p2": "Llegas con curiosidad. Sales con un MVP, un equipo y una forma más clara de ver el futuro.",
+    "quote": "El futuro se entiende construyéndolo.",
+    "p3": "",
+    "p4": "",
+    "p5": "",
+    "p6": "No necesitas experiencia. Solo ganas de empezar."
   },
   "days": {
-    "title": "Experiencia de dos días",
+    "title": "Dos días. De cero a demo.",
     "day1": "Día 1 · Entender",
-    "day1Body": "Una sesión inspiracional para conocer el presente y futuro de la tecnología.",
-    "day1Goal": "El objetivo es que cada estudiante pueda visualizar un futuro más amplio y comprenda que existen más oportunidades de las que muchas veces imagina.",
+    "day1Body": "Una mirada clara al presente de la tecnología, la IA y las oportunidades que abre.",
+    "day1Goal": "Ver más lejos. Elegir mejor. Empezar con dirección.",
     "day2": "Día 2 · Construir",
-    "day2Body": "Un taller práctico para convertir ideas en proyectos. Los participantes trabajarán en equipos bajo una dinámica inspirada en una startup tecnológica.",
-    "day2Goal": "Cada equipo deberá proponer una idea, organizarse, investigar, diseñar y construir un MVP: una primera versión funcional de su proyecto."
+    "day2Body": "Equipos, herramientas y una idea convertida en prototipo.",
+    "day2Goal": "Un MVP listo para presentar."
   },
   "lists": {
-    "day1": "Inteligencia artificial y nuevas oportunidades.|Profesiones emergentes.|Cómo está cambiando la forma de aprender y trabajar.|Desinformación sobre la industria tecnológica.|Proyectos reales y caminos posibles para jóvenes.|Preguntas, conversación y orientación.",
-    "day2": "Lluvia de ideas.|Formación de equipos.|Asignación de roles.|Investigación rápida.|Uso de herramientas de inteligencia artificial.|Desarrollo de un prototipo o MVP.|Presentación final del proyecto.",
-    "includes": "Experiencia de dos días.|Conferencia inspiracional.|Taller práctico y colaborativo.|Introducción a herramientas de inteligencia artificial.|Desarrollo de un proyecto en equipo.|Presentación final.|Material digital.|Certificado de participación."
+    "day1": "IA y nuevas oportunidades.|Profesiones emergentes.|Proyectos reales.|Preguntas y orientación.",
+    "day2": "Ideas.|Equipos.|Prototipo con IA.|Presentación final.",
+    "includes": "Dos días de experiencia.|Conferencia inspiracional.|Taller práctico.|Proyecto en equipo.|Presentación final.|Material digital.|Certificado."
   },
   "flow": {
-    "title": "De la idea al MVP",
-    "items": "Idea|Equipo|Investigación|Diseño|Desarrollo|MVP|Presentación",
-    "body": "NEXT está diseñado para que los estudiantes no solo escuchen sobre innovación, sino que vivan el proceso de crear algo desde cero."
+    "title": "De idea a demo.",
+    "items": "Idea|Equipo|Diseño|Prototipo|Demo",
+    "body": "Un recorrido simple para pasar de pensar a construir."
   },
   "includes": {
     "title": "¿Qué incluye?",
     "audienceTitle": "¿Para quién es?",
-    "audienceBody": "Para estudiantes de educación media superior con curiosidad por la tecnología, la inteligencia artificial, la innovación, el emprendimiento o la creación de proyectos.",
-    "noExperience": "No se necesita experiencia previa. Solo ganas de aprender, crear y construir."
+    "audienceBody": "Para estudiantes con curiosidad por la tecnología, la IA, la innovación o la creación de proyectos.",
+    "noExperience": "Sin experiencia previa. Solo curiosidad."
   },
   "initiator": {
     "title": "Acerca del iniciador",
@@ -54,7 +54,7 @@
     "role": "Software Engineer · AI Researcher",
     "schoolZh": "西交利物浦大学",
     "school": "Xi'an Jiaotong-Liverpool University",
-    "body": "NEXT nace con la visión de acercar a más jóvenes a las oportunidades reales que existen en la tecnología, la innovación y la educación, comenzando desde nuestra región y proyectándose hacia nuevos espacios."
+    "body": "NEXT nace para acercar a más jóvenes a oportunidades reales en tecnología, innovación y educación."
   },
   "info": {
     "title": "Información clave",
@@ -62,6 +62,6 @@
     "mode": "Modalidad: Presencial",
     "cost": "Costo: $350 MXN",
     "seats": "Cupo: Limitado",
-    "result": "Resultado: Proyecto final en equipo + presentación"
+    "result": "Resultado: MVP en equipo + demo"
   }
 }
