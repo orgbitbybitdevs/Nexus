@@ -1,59 +1,115 @@
-# 🌌 Nexus Academy - Plataforma Web Oficial
+# BitByBit Academy
 
-¡Bienvenido al repositorio oficial de la plataforma web de **Nexus Academy**! 
+Sitio web oficial de BitByBit Academy, construido con Astro, Tailwind CSS y Three.js.
 
-Esta es la base de código que da vida a nuestra educación digital, construida con enfoques modernos de desarrollo web para ofrecer una experiencia rápida, interactiva y de primera calidad a todos los miembros de la comunidad y estudiantes.
+El proyecto presenta la academia, sus proyectos, plataforma, mentores y la iniciativa NEXT: una experiencia educativa de dos dias enfocada en tecnologia, inteligencia artificial, innovacion y construccion de prototipos reales.
 
-## 🚀 Sobre el Proyecto
+## Stack
 
-Aunque este repositorio aloja la página web oficial y en producción de nuestra academia, apoyamos firmemente el aprendizaje colaborativo. Si eres estudiante, mentor o un desarrollador apasionado, **¡te invitamos a clonarlo, explorarlo y proponer mejoras!** 
+- Astro 6
+- Tailwind CSS 4
+- TypeScript
+- Three.js
+- React
+- i18n nativo de Astro con rutas para `es`, `en` y `zh`
 
-La idea es que la misma plataforma y repositorio sirvan como un entorno práctico de aprendizaje, demostrando buenas prácticas y una arquitectura moderna.
+## Rutas principales
 
-## 🛠️ Stack Tecnológico
+- `/es` - Home
+- `/es/plataforma` - Plataforma
+- `/es/proyectos` - Proyectos
+- `/es/next` - NEXT
+- `/es/mentores` - Mentores
+- `/es/mentores/jose-manuel` - Perfil de mentor
 
-La plataforma está desarrollada utilizando herramientas modernas y de alto rendimiento:
+El locale por defecto es `es`, pero el sitio tambien genera versiones en ingles y chino:
 
-- **[Astro](https://astro.build/)**: Framework web principal, optimizado para entregar sitios ultrarrápidos gracias a su arquitectura de islas.
-- **[Three.js](https://threejs.org/)**: Motor de renderizado en WebGL para integrar experiencias 3D y elementos interactivos avanzados (como nuestro robot en portada).
-- **TypeScript & CSS Vanilla**: Para una lógica tipada robusta y una rápida ejecución de estilos.
-- **Cloudflare Pages**: Utilizamos GitHub Actions para automatizar el despliegue global de nuestro sitio generado estáticamente.
+- `/en/...`
+- `/zh/...`
 
-## 💻 Desarrollo Local
+## Desarrollo local
 
-Si deseas probar la plataforma en tu propio equipo, sigue estos pasos:
+Requisitos:
 
-1. **Clona el repositorio:**
-   ```bash
-   git clone https://github.com/orgbitbybitdevs/Nexus.git
-   cd Nexus
-   ```
+- Node.js `>=22.12.0`
+- npm
 
-2. **Instala las dependencias:**
-   Asegúrate de tener Node.js instalado (versión 20+ recomendada).
-   ```bash
-   npm install
-   ```
+Instalacion:
 
-3. **Inicia el servidor de desarrollo:**
-   ```bash
-   npm run dev
-   ```
+```bash
+npm install
+```
 
-4. **Explora:**
-   Abre tu navegador y visita `http://localhost:4321` para ver el entorno ejecutándose en vivo.
+Servidor de desarrollo:
 
-## 🤝 Cómo Contribuir
+```bash
+npm run dev
+```
 
-Dado que fomentamos la filosofía Open Source, cualquier aportación es bienvenida. Si notas un error, quieres sumar una funcionalidad o mejorar un diseño:
+Astro normalmente levanta el sitio en:
 
-1. Haz un **fork** de este repositorio.
-2. Crea una **rama** para tu cambio o mejora (`git checkout -b feature/mejora-increible`).
-3. Realiza tus **commits** expresando con claridad qué se modificó.
-4. Haz **push** a tu rama en GitHub (`git push origin feature/mejora-increible`).
-5. Abre un **Pull Request** hacia este repositorio original detallando tus cambios.
+```text
+http://localhost:4321
+```
 
-Nuestro equipo revisará tu código, te dará retroalimentación y, de estar todo correcto, ¡será integrado a la plataforma oficial!
+Validacion:
 
----
-*Construido con pasión por el equipo de ingeniería de Nexus Academy.*
+```bash
+npm run check
+```
+
+Build de produccion:
+
+```bash
+npm run build
+```
+
+Preview del build:
+
+```bash
+npm run preview
+```
+
+## Estructura
+
+```text
+src/
+  components/       Componentes reutilizables
+  i18n/             Configuracion y helpers de traduccion
+  layouts/          Layout base del sitio
+  messages/         Textos por idioma y namespace
+  pages/            Rutas Astro
+  scripts/          Logica interactiva, incluyendo Three.js
+  styles/           Estilos globales
+
+public/
+  icon.png
+  mentors/
+  model/
+  next/
+```
+
+## Contenido e i18n
+
+Los textos viven en `src/messages/{lang}/{namespace}.json`.
+
+Idiomas disponibles:
+
+- `es` - Espanol
+- `en` - English
+- `zh` - 中文
+
+Namespaces actuales:
+
+- `common`
+- `home`
+- `platform`
+- `projects`
+- `mentors`
+- `next`
+
+## Notas
+
+Este repositorio todavia conserva el nombre de carpeta `Nexus` por historia del proyecto, pero la identidad actual del sitio es BitByBit Academy.
+
+NEXT vive dentro del ecosistema de BitByBit Academy y tiene su propia pagina, assets y copy.
