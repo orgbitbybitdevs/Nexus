@@ -55,32 +55,22 @@
     "quote": "NEXT 启发、激活并连接。"
   },
   "routes": {
-    "title": "继续学习的路径",
+    "title": "继续构建的路径",
+    "subtitle": "软件。硬件。人工智能。IoT。机器人。",
+    "body": "NEXT 之后，学生会获得一份延续学习指南，其中包含根据兴趣方向筛选的免费路径和资源：编程、人工智能、云、电子、IoT、机器人、自动化和智能系统。",
+    "bridge": "编程构建逻辑。机电一体化把这种逻辑连接到物理世界。",
     "disclaimer": "上述路径属于各自的官方平台。NEXT 引导并连接学生使用可获得的学习资源；凭证、徽章或证书由对应平台颁发。",
-    "ibmSkillsBuild": {
-      "mark": "IBM",
-      "title": "IBM SkillsBuild",
-      "body": "免费课程、数字技能和凭证，帮助开始技术学习路径。"
+    "softwareAi": {
+      "eyebrow": "面向编程方向",
+      "mark": "AI",
+      "title": "Software & AI",
+      "items": "IBM SkillsBuild|IBM Z Xplore|Google Cloud Skills Boost|Microsoft Learn|BitByBit Academy|GitHub / GitHub Education"
     },
-    "ibmZ": {
-      "mark": "Z",
-      "title": "IBM Z Xplore",
-      "body": "通过实践路径了解 mainframe、IBM Z 和有指导的技术挑战。"
-    },
-    "google": {
-      "mark": "G",
-      "title": "Google Cloud Skills Boost",
-      "body": "实验室、云路径、人工智能和技能徽章，用来验证实践能力。"
-    },
-    "microsoft": {
-      "mark": "MS",
-      "title": "Microsoft Learn",
-      "body": "学习 Azure、人工智能、开发、云和专业工具的免费路径。"
-    },
-    "bitbybit": {
-      "mark": "BbB",
-      "title": "BitByBit Academy",
-      "body": "关于人工智能、计算机科学、软件和项目构建的原创课程。"
+    "hardwareSmartSystems": {
+      "eyebrow": "面向机电与电子方向",
+      "mark": "IoT",
+      "title": "Hardware & Smart Systems",
+      "items": "Arduino Education|Raspberry Pi Foundation|Wokwi|Edge Impulse|ARM Education|ESP32 / IoT projects|BitByBit Hardware Labs"
     }
   },
   "continuity": {

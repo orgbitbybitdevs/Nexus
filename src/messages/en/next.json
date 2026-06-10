@@ -55,32 +55,22 @@
     "quote": "NEXT inspires, activates and connects."
   },
   "routes": {
-    "title": "Paths to keep learning",
+    "title": "Paths to keep building",
+    "subtitle": "Software. Hardware. AI. IoT. Robotics.",
+    "body": "After NEXT, students receive a continuity guide with free paths and selected resources according to their area of interest: programming, artificial intelligence, cloud, electronics, IoT, robotics, automation and intelligent systems.",
+    "bridge": "Programming builds the logic. Mechatronics connects that logic with the physical world.",
     "disclaimer": "The paths mentioned belong to their respective official platforms. NEXT guides and connects students with available learning resources; credentials, badges or certificates are issued by each corresponding platform.",
-    "ibmSkillsBuild": {
-      "mark": "IBM",
-      "title": "IBM SkillsBuild",
-      "body": "Free courses, digital skills and credentials to begin a path in technology."
+    "softwareAi": {
+      "eyebrow": "For programming",
+      "mark": "AI",
+      "title": "Software & AI",
+      "items": "IBM SkillsBuild|IBM Z Xplore|Google Cloud Skills Boost|Microsoft Learn|BitByBit Academy|GitHub / GitHub Education"
     },
-    "ibmZ": {
-      "mark": "Z",
-      "title": "IBM Z Xplore",
-      "body": "A practical path to discover mainframe, IBM Z and guided technology challenges."
-    },
-    "google": {
-      "mark": "G",
-      "title": "Google Cloud Skills Boost",
-      "body": "Labs, cloud paths, AI and skill badges to validate practical abilities."
-    },
-    "microsoft": {
-      "mark": "MS",
-      "title": "Microsoft Learn",
-      "body": "Free paths to learn Azure, AI, development, cloud and professional tools."
-    },
-    "bitbybit": {
-      "mark": "BbB",
-      "title": "BitByBit Academy",
-      "body": "Original courses on artificial intelligence, computer science, software and project building."
+    "hardwareSmartSystems": {
+      "eyebrow": "For mechatronics and electronics",
+      "mark": "IoT",
+      "title": "Hardware & Smart Systems",
+      "items": "Arduino Education|Raspberry Pi Foundation|Wokwi|Edge Impulse|ARM Education|ESP32 / IoT projects|BitByBit Hardware Labs"
     }
   },
   "continuity": {
