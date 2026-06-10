@@ -1,67 +1,117 @@
 {
   "meta": {
     "title": "NEXT — BitByBit Academy",
-    "description": "NEXT is an educational and technology initiative for young people who want to explore ideas and turn them into real projects."
+    "description": "NEXT is a two-day experience to explore technology, AI and innovation while building an MVP and a path to keep learning."
   },
   "hero": {
     "headline": "Build what comes next.",
     "line1": "Technology.",
     "line2": "Artificial intelligence.",
     "line3": "Innovation.",
-    "subtitle": "Two days to explore ideas and turn them into projects.",
-    "price": "$350 MXN",
+    "subtitle": "Two days to explore ideas, build an MVP and discover real paths to keep learning.",
+    "priceLabel": "Investment",
+    "price": "$249 MXN",
     "limited": "Limited seats",
     "cta": "Reserve a seat"
   },
   "intro": {
-    "title": "An experience for people who want to create",
-    "p1": "NEXT is an educational and technology initiative for young people who want to understand how the world is changing and how they can be part of that transformation.",
-    "p2": "It is not only about learning artificial intelligence. It is about discovering opportunities, developing skills, working in teams and building something real.",
-    "quote": "It does not matter what you study. What matters is what you build while you do it.",
-    "p3": "NEXT does not promote a specific higher education institution or guide students toward one specific career path.",
-    "p4": "Its purpose is to encourage a culture of continuous learning, curiosity, innovation and personal development.",
-    "p5": "Technology is transforming every field: engineering, medicine, design, business, education, communication, art and entrepreneurship.",
-    "p6": "The future does not belong to one career. It belongs to those who keep learning."
+    "title": "What is NEXT",
+    "p1": "NEXT is an experience for exploring technology, artificial intelligence and innovation by doing.",
+    "p2": "You arrive with curiosity. You leave with an MVP and a path to keep learning.",
+    "quote": "The future is understood by building it.",
+    "p6": "No experience is needed. Just the desire to start."
+  },
+  "notOnlyAi": {
+    "title": "It is not only artificial intelligence.",
+    "body": "NEXT is not about teaching a trendy tool. It helps students understand how technology is transforming every field and how they can use it to create, learn and make better decisions about their future.",
+    "quote": "It does not matter what you study. What matters is what you build while you do it."
   },
   "days": {
-    "title": "A two-day experience",
+    "title": "Two days. Understand + Build.",
     "day1": "Day 1 · Understand",
-    "day1Body": "An inspirational session to understand the present and future of technology.",
-    "day1Goal": "The goal is for each student to imagine a broader future and understand that there are more opportunities than they often realize.",
+    "day1Body": "A clear look at today's technology, AI and the opportunities they open.",
+    "day1Goal": "See further. Choose better. Start with direction.",
     "day2": "Day 2 · Build",
-    "day2Body": "A practical workshop to turn ideas into projects. Participants will work in teams through a dynamic inspired by a technology startup.",
-    "day2Goal": "Each team will propose an idea, organize, research, design and build an MVP: a first functional version of their project."
+    "day2Body": "Teams, tools and an idea turned into a prototype.",
+    "day2Goal": "An MVP ready to present."
   },
   "lists": {
-    "day1": "Artificial intelligence and new opportunities.|Emerging professions.|How learning and work are changing.|Misinformation about the technology industry.|Real projects and possible paths for young people.|Questions, conversation and guidance.",
-    "day2": "Brainstorming.|Team formation.|Role assignment.|Fast research.|Use of artificial intelligence tools.|Prototype or MVP development.|Final project presentation.",
-    "includes": "Two-day experience.|Inspirational talk.|Practical collaborative workshop.|Introduction to artificial intelligence tools.|Team project development.|Final presentation.|Digital material.|Certificate of participation."
+    "day1": "AI and new opportunities.|Emerging professions.|Real projects.|Questions and guidance.",
+    "day2": "Ideas.|Teams.|AI-powered prototype.|Final presentation.",
+    "includes": "Two-day experience.|Vocational and technology activation conversation.|Practical workshop.|Team project.|MVP or prototype.|Final presentation.|Digital material.|Catalog of free learning paths.|Follow-up guidance.|Certificate of participation."
   },
   "flow": {
-    "title": "From idea to MVP",
-    "items": "Idea|Team|Research|Design|Development|MVP|Presentation",
-    "body": "NEXT is designed so students do not just hear about innovation, but experience the process of creating something from zero."
+    "title": "From idea to MVP.",
+    "items": "Idea|Team|Design|Prototype|Demo",
+    "body": "A simple path from thinking to building."
   },
   "includes": {
-    "title": "What is included?",
-    "audienceTitle": "Who is it for?",
-    "audienceBody": "For upper secondary students who are curious about technology, artificial intelligence, innovation, entrepreneurship or project creation.",
-    "noExperience": "No previous experience is needed. Just the desire to learn, create and build."
+    "title": "What is included?"
+  },
+  "after": {
+    "title": "After NEXT",
+    "subtitle": "The experience does not end on the second day.",
+    "body": "NEXT also works as an entry point to free learning paths, digital credentials and introductory courses so students can continue developing skills after the event.",
+    "quote": "NEXT inspires, activates and connects."
+  },
+  "routes": {
+    "title": "Paths to keep learning",
+    "disclaimer": "The paths mentioned belong to their respective official platforms. NEXT guides and connects students with available learning resources; credentials, badges or certificates are issued by each corresponding platform.",
+    "ibmSkillsBuild": {
+      "mark": "IBM",
+      "title": "IBM SkillsBuild",
+      "body": "Free courses, digital skills and credentials to begin a path in technology."
+    },
+    "ibmZ": {
+      "mark": "Z",
+      "title": "IBM Z Xplore",
+      "body": "A practical path to discover mainframe, IBM Z and guided technology challenges."
+    },
+    "google": {
+      "mark": "G",
+      "title": "Google Cloud Skills Boost",
+      "body": "Labs, cloud paths, AI and skill badges to validate practical abilities."
+    },
+    "microsoft": {
+      "mark": "MS",
+      "title": "Microsoft Learn",
+      "body": "Free paths to learn Azure, AI, development, cloud and professional tools."
+    },
+    "bitbybit": {
+      "mark": "BbB",
+      "title": "BitByBit Academy",
+      "body": "Original courses on artificial intelligence, computer science, software and project building."
+    }
+  },
+  "continuity": {
+    "title": "An experience with continuity.",
+    "items": "Inspire|Activate|Build|Connect|Continue",
+    "body": "NEXT does not end with the final presentation. After the event, students receive guidance to keep learning through digital paths, free courses and resources selected according to their interests."
+  },
+  "audience": {
+    "title": "Who is it for?",
+    "body": "For students curious about technology, AI, innovation or project creation.",
+    "noExperience": "No previous experience. Just curiosity."
   },
   "initiator": {
     "title": "About the initiator",
     "name": "José Manuel Cortés Cerón",
-    "role": "Software Engineer · AI Researcher",
+    "role": "Software Engineer · AI Researcher · Founder, BitByBit Academy",
     "schoolZh": "西交利物浦大学",
     "school": "Xi'an Jiaotong-Liverpool University",
-    "body": "NEXT was born from the vision of bringing more young people closer to the real opportunities that exist in technology, innovation and education, starting in our region and expanding into new spaces."
+    "body": "NEXT was born from a simple vision: bringing more young people closer to real learning, technology and innovation opportunities by connecting inspiration, practice and concrete paths for continuous learning."
   },
   "info": {
     "title": "Key information",
     "duration": "Duration: 2 days",
     "mode": "Format: In person",
-    "cost": "Cost: $350 MXN",
+    "cost": "Investment: $249 MXN",
     "seats": "Seats: Limited",
-    "result": "Outcome: Final team project + presentation"
+    "result": "Outcome: Team MVP + learning path"
+  },
+  "finalCta": {
+    "title": "Start with an idea. Leave with a path.",
+    "meta": "Limited seats · In-person experience · First NEXT edition",
+    "price": "Investment: $249 MXN"
   }
 }

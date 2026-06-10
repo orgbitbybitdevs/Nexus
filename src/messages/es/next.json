@@ -1,30 +1,33 @@
 {
   "meta": {
     "title": "NEXT — BitByBit Academy",
-    "description": "NEXT es una experiencia de dos días para explorar tecnología, IA e innovación construyendo un proyecto real."
+    "description": "NEXT es una experiencia de dos días para explorar tecnología, IA e innovación construyendo un MVP y una ruta para seguir aprendiendo."
   },
   "hero": {
     "headline": "Construye lo que sigue.",
-    "line1": "IA.",
-    "line2": "Ideas.",
-    "line3": "Proyectos.",
-    "subtitle": "Dos días. Una idea. Un primer producto.",
-    "price": "$350 MXN",
+    "line1": "Tecnología.",
+    "line2": "Inteligencia artificial.",
+    "line3": "Innovación.",
+    "subtitle": "Dos días para explorar ideas, construir un MVP y descubrir rutas reales para seguir aprendiendo.",
+    "priceLabel": "Inversión",
+    "price": "$249 MXN",
     "limited": "Cupo limitado",
     "cta": "Reservar lugar"
   },
   "intro": {
-    "title": "Crea algo real.",
+    "title": "Qué es NEXT",
     "p1": "NEXT es una experiencia para explorar tecnología, inteligencia artificial e innovación haciendo.",
-    "p2": "Llegas con curiosidad. Sales con un MVP, un equipo y una forma más clara de ver el futuro.",
+    "p2": "Llegas con curiosidad. Sales con un MVP y una ruta para seguir aprendiendo.",
     "quote": "El futuro se entiende construyéndolo.",
-    "p3": "",
-    "p4": "",
-    "p5": "",
     "p6": "No necesitas experiencia. Solo ganas de empezar."
   },
+  "notOnlyAi": {
+    "title": "No es solo inteligencia artificial.",
+    "body": "NEXT no busca enseñar una herramienta de moda. Busca ayudar a los estudiantes a entender cómo la tecnología está transformando todas las áreas y cómo pueden usarla para crear, aprender y tomar mejores decisiones sobre su futuro.",
+    "quote": "No importa qué estudies. Importa qué construyes mientras lo haces."
+  },
   "days": {
-    "title": "Dos días. De cero a demo.",
+    "title": "Dos días. Entender + Construir.",
     "day1": "Día 1 · Entender",
     "day1Body": "Una mirada clara al presente de la tecnología, la IA y las oportunidades que abre.",
     "day1Goal": "Ver más lejos. Elegir mejor. Empezar con dirección.",
@@ -35,33 +38,80 @@
   "lists": {
     "day1": "IA y nuevas oportunidades.|Profesiones emergentes.|Proyectos reales.|Preguntas y orientación.",
     "day2": "Ideas.|Equipos.|Prototipo con IA.|Presentación final.",
-    "includes": "Dos días de experiencia.|Conferencia inspiracional.|Taller práctico.|Proyecto en equipo.|Presentación final.|Material digital.|Certificado."
+    "includes": "Dos días de experiencia.|Conversatorio de activación vocacional y tecnológica.|Taller práctico.|Proyecto en equipo.|MVP o prototipo.|Presentación final.|Material digital.|Catálogo de rutas gratuitas.|Orientación posterior.|Constancia de participación."
   },
   "flow": {
-    "title": "De idea a demo.",
+    "title": "De idea a MVP.",
     "items": "Idea|Equipo|Diseño|Prototipo|Demo",
     "body": "Un recorrido simple para pasar de pensar a construir."
   },
   "includes": {
-    "title": "¿Qué incluye?",
-    "audienceTitle": "¿Para quién es?",
-    "audienceBody": "Para estudiantes con curiosidad por la tecnología, la IA, la innovación o la creación de proyectos.",
+    "title": "¿Qué incluye?"
+  },
+  "after": {
+    "title": "Después de NEXT",
+    "subtitle": "La experiencia no termina el segundo día.",
+    "body": "NEXT también funciona como punto de entrada hacia rutas de aprendizaje gratuitas, credenciales digitales y cursos introductorios para que los estudiantes puedan continuar desarrollando habilidades después del evento.",
+    "quote": "NEXT inspira, activa y conecta."
+  },
+  "routes": {
+    "title": "Rutas para seguir aprendiendo",
+    "disclaimer": "Las rutas mencionadas pertenecen a sus respectivas plataformas oficiales. NEXT orienta y conecta a los estudiantes con recursos de aprendizaje disponibles; las credenciales, badges o certificados son emitidos por cada plataforma correspondiente.",
+    "ibmSkillsBuild": {
+      "mark": "IBM",
+      "title": "IBM SkillsBuild",
+      "body": "Cursos gratuitos, habilidades digitales y credenciales para iniciar una ruta en tecnología."
+    },
+    "ibmZ": {
+      "mark": "Z",
+      "title": "IBM Z Xplore",
+      "body": "Ruta práctica para descubrir mainframe, IBM Z y retos tecnológicos guiados."
+    },
+    "google": {
+      "mark": "G",
+      "title": "Google Cloud Skills Boost",
+      "body": "Laboratorios, rutas de nube, IA y skill badges para validar habilidades prácticas."
+    },
+    "microsoft": {
+      "mark": "MS",
+      "title": "Microsoft Learn",
+      "body": "Rutas gratuitas para aprender Azure, IA, desarrollo, nube y herramientas profesionales."
+    },
+    "bitbybit": {
+      "mark": "BbB",
+      "title": "BitByBit Academy",
+      "body": "Cursos propios sobre inteligencia artificial, ciencias de la computación, software y construcción de proyectos."
+    }
+  },
+  "continuity": {
+    "title": "Una experiencia con continuidad.",
+    "items": "Inspirar|Activar|Construir|Conectar|Continuar",
+    "body": "NEXT no termina con la presentación final. Después del evento, los estudiantes reciben orientación para continuar aprendiendo mediante rutas digitales, cursos gratuitos y recursos seleccionados según sus intereses."
+  },
+  "audience": {
+    "title": "¿Para quién es?",
+    "body": "Para estudiantes con curiosidad por la tecnología, la IA, la innovación o la creación de proyectos.",
     "noExperience": "Sin experiencia previa. Solo curiosidad."
   },
   "initiator": {
     "title": "Acerca del iniciador",
     "name": "José Manuel Cortés Cerón",
-    "role": "Software Engineer · AI Researcher",
+    "role": "Software Engineer · AI Researcher · Founder, BitByBit Academy",
     "schoolZh": "西交利物浦大学",
     "school": "Xi'an Jiaotong-Liverpool University",
-    "body": "NEXT nace para acercar a más jóvenes a oportunidades reales en tecnología, innovación y educación."
+    "body": "NEXT nace desde una visión simple: acercar a más jóvenes a oportunidades reales de aprendizaje, tecnología e innovación, conectando inspiración, práctica y rutas concretas de formación continua."
   },
   "info": {
     "title": "Información clave",
     "duration": "Duración: 2 días",
     "mode": "Modalidad: Presencial",
-    "cost": "Costo: $350 MXN",
+    "cost": "Inversión: $249 MXN",
     "seats": "Cupo: Limitado",
-    "result": "Resultado: MVP en equipo + demo"
+    "result": "Resultado: MVP en equipo + ruta de aprendizaje"
+  },
+  "finalCta": {
+    "title": "Empieza con una idea. Sal con una ruta.",
+    "meta": "Cupo limitado · Experiencia presencial · Primera edición NEXT",
+    "price": "Inversión: $249 MXN"
   }
 }
