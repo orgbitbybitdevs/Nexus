@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "NEXT Resources — BitByBit Academy",
+    "description": "Rutas gratuitas y recursos seleccionados para seguir construyendo después de NEXT."
+  },
+  "hero": {
+    "title": "NEXT Resources",
+    "headline": "Sigue construyendo después de NEXT.",
+    "body": "Rutas gratuitas y recursos seleccionados para aprender software, IA, hardware, robótica, IoT, diseño y ciberseguridad.",
+    "cta": "Empieza por tu perfil"
+  },
+  "selector": {
+    "title": "Elige tu ruta",
+    "body": "Primero ubícate. Después eliges el primer recurso y construyes algo pequeño.",
+    "button": "Ver ruta"
+  },
+  "recommended": {
+    "label": "Ruta recomendada",
+    "resources": "Recursos iniciales",
+    "objective": "Objetivo",
+    "catalog": "Ver catálogo completo",
+    "open": "Abrir recurso"
+  },
+  "catalog": {
+    "title": "Catálogo completo",
+    "body": "Abre solo el track que te interese. Cada recurso tiene una versión corta y detalles para profundizar.",
+    "visit": "Ir al recurso",
+    "details": "Ver detalles",
+    "learn": "Qué puedes aprender",
+    "ideal": "Para quién es",
+    "firstStep": "Primer paso recomendado",
+    "official": "Link oficial",
+    "level": "Nivel",
+    "cost": "Costo",
+    "credentials": "Credenciales"
+  },
+  "glossary": {
+    "title": "Glosario de conceptos",
+    "body": "Palabras útiles para entender mejor las rutas sin perderte en tecnicismos."
+  },
+  "note": {
+    "title": "Nota importante",
+    "body": "NEXT no emite certificaciones oficiales de IBM, Google, Microsoft, Cisco, Arduino, Raspberry Pi, Figma, Canva ni otras plataformas externas. NEXT orienta y conecta a los estudiantes con recursos oficiales o ampliamente reconocidos. Las credenciales, badges o certificados son emitidos directamente por cada plataforma, de acuerdo con sus propias condiciones, disponibilidad y requisitos."
+  },
+  "finalCta": {
+    "line1": "No necesitas tomar todos los cursos.",
+    "line2": "Elige una ruta. Termina un recurso. Construye un proyecto. Compártelo.",
+    "brand": "NEXT · Construye lo que sigue.",
+    "button": "Volver a NEXT"
+  }
+}

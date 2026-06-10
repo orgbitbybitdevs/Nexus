@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "NEXT Resources — BitByBit Academy",
+    "description": "Free paths and selected resources to keep building after NEXT."
+  },
+  "hero": {
+    "title": "NEXT Resources",
+    "headline": "Keep building after NEXT.",
+    "body": "Free paths and selected resources to learn software, AI, hardware, robotics, IoT, design and cybersecurity.",
+    "cta": "Start with your profile"
+  },
+  "selector": {
+    "title": "Choose your path",
+    "body": "Find your direction first. Then pick one starting resource and build something small.",
+    "button": "View path"
+  },
+  "recommended": {
+    "label": "Recommended path",
+    "resources": "Starting resources",
+    "objective": "Objective",
+    "catalog": "View full catalog",
+    "open": "Open resource"
+  },
+  "catalog": {
+    "title": "Full catalog",
+    "body": "Open only the track that fits you. Each resource has a short version and details to go deeper.",
+    "visit": "Go to resource",
+    "details": "View details",
+    "learn": "What you can learn",
+    "ideal": "Who it is for",
+    "firstStep": "Recommended first step",
+    "official": "Official link",
+    "level": "Level",
+    "cost": "Cost",
+    "credentials": "Credentials"
+  },
+  "glossary": {
+    "title": "Concept glossary",
+    "body": "Useful terms to understand the paths without getting lost in jargon."
+  },
+  "note": {
+    "title": "Important note",
+    "body": "NEXT does not issue official certifications from IBM, Google, Microsoft, Cisco, Arduino, Raspberry Pi, Figma, Canva or other external platforms. NEXT guides and connects students with official or widely recognized resources. Credentials, badges or certificates are issued directly by each platform according to its own conditions, availability and requirements."
+  },
+  "finalCta": {
+    "line1": "You do not need to take every course.",
+    "line2": "Choose a path. Finish one resource. Build a project. Share it.",
+    "brand": "NEXT · Build what comes next.",
+    "button": "Back to NEXT"
+  }
+}

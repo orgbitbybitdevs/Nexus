@@ -1,0 +1,1007 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import type { UiLanguage } from '../../../i18n/config';
+import { languages } from '../../../i18n/config';
+import { useTranslations } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+type TrackId = 'software' | 'hardware' | 'creative' | 'cybersecurity';
+type ProfileId = 'start' | 'programming' | 'mechatronics' | 'ai' | 'design';
+type Localized = Record<UiLanguage, string>;
+type Resource = {
+  id: string;
+  track: TrackId;
+  logo: string;
+  name: string;
+  tags: string;
+  level: string;
+  cost: string;
+  credentials?: string;
+  summary: string;
+  ideal: string;
+  firstStep?: string;
+  learn: string[];
+  url: string;
+};
+
+const { lang } = Astro.params as { lang: UiLanguage };
+const t = useTranslations(lang, 'nextResources');
+const l = (value: Localized) => value[lang] ?? value.es;
+
+const ui = {
+  beginner: l({ es: 'Principiante', en: 'Beginner', zh: '初学者' }),
+  beginnerIntermediate: l({ es: 'Principiante a intermedio', en: 'Beginner to intermediate', zh: '初级到中级' }),
+  beginnerAdvanced: l({ es: 'Principiante a avanzado', en: 'Beginner to advanced', zh: '初级到高级' }),
+  intermediate: l({ es: 'Intermedio', en: 'Intermediate', zh: '中级' }),
+  intermediateAdvanced: l({ es: 'Intermedio a avanzado', en: 'Intermediate to advanced', zh: '中级到高级' }),
+  demandingBeginner: l({ es: 'Principiante exigente', en: 'Demanding beginner', zh: '有挑战的初学者' }),
+  free: l({ es: 'Gratuito', en: 'Free', zh: '免费' }),
+  freePaid: l({ es: 'Gratis y opciones de pago', en: 'Free and paid options', zh: '免费和付费选项' }),
+  variable: l({ es: 'Puede variar', en: 'May vary', zh: '可能不同' }),
+  yesSome: l({ es: 'Sí, según ruta', en: 'Yes, depending on path', zh: '视路径而定' }),
+  some: l({ es: 'Algunas rutas', en: 'Some paths', zh: '部分路径' }),
+  no: l({ es: 'No aplica', en: 'Not applicable', zh: '不适用' }),
+};
+
+const tracks: Array<{ id: TrackId; title: string; body: string; bridge?: string }> = [
+  {
+    id: 'software',
+    title: 'Software & AI',
+    body: l({
+      es: 'Aprende a programar, documentar, crear proyectos y construir un portafolio tecnico.',
+      en: 'Learn to program, document, create projects and build a technical portfolio.',
+      zh: '学习编程、记录项目、创建作品并建立技术作品集。',
+    }),
+  },
+  {
+    id: 'hardware',
+    title: 'Hardware, Robotics & IoT',
+    body: l({
+      es: 'Para mecatronica, electronica, robotica, sensores, automatizacion e IA aplicada al mundo fisico.',
+      en: 'For mechatronics, electronics, robotics, sensors, automation and AI applied to the physical world.',
+      zh: '面向机电、电子、机器人、传感器、自动化和物理世界中的 AI。',
+    }),
+    bridge: l({
+      es: 'El software crea inteligencia. El hardware le da cuerpo. NEXT conecta ambos mundos.',
+      en: 'Software creates intelligence. Hardware gives it a body. NEXT connects both worlds.',
+      zh: '软件创造智能，硬件赋予身体。NEXT 连接两个世界。',
+    }),
+  },
+  {
+    id: 'creative',
+    title: 'Creative, Design & Product',
+    body: l({
+      es: 'Disena, comunica, organiza ideas, crea prototipos visuales y presenta proyectos.',
+      en: 'Design, communicate, organize ideas, create visual prototypes and present projects.',
+      zh: '设计、沟通、整理想法、创建视觉原型并展示项目。',
+    }),
+  },
+  {
+    id: 'cybersecurity',
+    title: 'Cybersecurity & Digital Responsibility',
+    body: l({
+      es: 'Explora seguridad digital, privacidad, redes, pensamiento critico y uso responsable.',
+      en: 'Explore digital security, privacy, networking, critical thinking and responsible use.',
+      zh: '探索数字安全、隐私、网络、批判性思维和负责任的技术使用。',
+    }),
+  },
+];
+
+const resources: Resource[] = [
+  {
+    id: 'ibm-skillsbuild',
+    track: 'software',
+    logo: 'IBM',
+    name: 'IBM SkillsBuild',
+    tags: l({ es: 'Tecnologia · IA · Habilidades digitales', en: 'Technology · AI · Digital skills', zh: '技术 · AI · 数字技能' }),
+    level: ui.beginner,
+    cost: ui.free,
+    credentials: ui.some,
+    summary: l({ es: 'Cursos gratuitos y credenciales para iniciar una ruta en tecnologia.', en: 'Free courses and credentials to begin a path in technology.', zh: '帮助开启技术学习路径的免费课程和凭证。' }),
+    ideal: l({ es: 'Estudiantes que no saben por donde empezar.', en: 'Students who do not know where to start.', zh: '还不知道从哪里开始的学生。' }),
+    firstStep: l({ es: 'Empieza con una ruta introductoria de tecnologia o IA.', en: 'Start with an introductory technology or AI path.', zh: '从技术或 AI 入门路径开始。' }),
+    learn: [l({ es: 'Fundamentos digitales', en: 'Digital fundamentals', zh: '数字基础' }), l({ es: 'Inteligencia artificial', en: 'Artificial intelligence', zh: '人工智能' }), l({ es: 'Ciberseguridad y datos', en: 'Cybersecurity and data', zh: '网络安全和数据' }), l({ es: 'Habilidades profesionales', en: 'Professional skills', zh: '职业技能' })],
+    url: 'https://skillsbuild.org/',
+  },
+  {
+    id: 'ibm-credentials',
+    track: 'software',
+    logo: 'IBM',
+    name: 'IBM SkillsBuild · Digital Credentials',
+    tags: l({ es: 'Credenciales · Evidencia · Portafolio', en: 'Credentials · Evidence · Portfolio', zh: '凭证 · 证明 · 作品集' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.freePaid,
+    credentials: ui.yesSome,
+    summary: l({ es: 'Insignias verificables para CV, LinkedIn o portafolio.', en: 'Verifiable badges for a CV, LinkedIn or portfolio.', zh: '可用于简历、LinkedIn 或作品集的可验证徽章。' }),
+    ideal: l({ es: 'Quienes quieren evidencia visible de aprendizaje.', en: 'Learners who want visible evidence of progress.', zh: '想展示学习证据的学生。' }),
+    learn: [l({ es: 'Credenciales digitales', en: 'Digital credentials', zh: '数字凭证' }), l({ es: 'Insignias compartibles', en: 'Shareable badges', zh: '可分享徽章' })],
+    url: 'https://skillsbuild.org/students/digital-credentials',
+  },
+  {
+    id: 'ibm-z-xplore',
+    track: 'software',
+    logo: 'Z',
+    name: 'IBM Z Xplore',
+    tags: l({ es: 'Mainframe · Retos · Sistemas empresariales', en: 'Mainframe · Challenges · Enterprise systems', zh: '大型机 · 挑战 · 企业系统' }),
+    level: ui.beginnerAdvanced,
+    cost: ui.free,
+    credentials: ui.yesSome,
+    summary: l({ es: 'Retos practicos para descubrir IBM Z y sistemas empresariales.', en: 'Practical challenges to discover IBM Z and enterprise systems.', zh: '通过实践挑战了解 IBM Z 和企业系统。' }),
+    ideal: l({ es: 'Programacion interesada en banca, gobierno y grandes organizaciones.', en: 'Programming students curious about banks, government and large organizations.', zh: '对银行、政府和大型组织技术感兴趣的编程学生。' }),
+    firstStep: l({ es: 'Comienza por el nivel Fundamentals.', en: 'Start with the Fundamentals level.', zh: '从 Fundamentals 级别开始。' }),
+    learn: ['IBM Z', 'Mainframe', 'Python', 'JCL', 'z/OS'],
+    url: 'https://www.ibm.com/products/z/resources/zxplore',
+  },
+  {
+    id: 'microsoft-learn',
+    track: 'software',
+    logo: 'MS',
+    name: 'Microsoft Learn',
+    tags: l({ es: 'Azure · IA · Datos · Desarrollo', en: 'Azure · AI · Data · Development', zh: 'Azure · AI · 数据 · 开发' }),
+    level: ui.beginnerAdvanced,
+    cost: ui.freePaid,
+    credentials: ui.some,
+    summary: l({ es: 'Modulos cortos y rutas organizadas de nube, IA, datos y desarrollo.', en: 'Short modules and organized paths for cloud, AI, data and development.', zh: '关于云、AI、数据和开发的短模块与学习路径。' }),
+    ideal: l({ es: 'Estudiantes que quieren rutas estructuradas y practicas.', en: 'Students who want structured, practical paths.', zh: '想要结构化实践路径的学生。' }),
+    firstStep: l({ es: 'Busca rutas Fundamentals o introduccion a IA.', en: 'Look for Fundamentals or AI introduction paths.', zh: '搜索 Fundamentals 或 AI 入门路径。' }),
+    learn: ['Azure', l({ es: 'IA', en: 'AI', zh: 'AI' }), l({ es: 'Datos', en: 'Data', zh: '数据' }), l({ es: 'Seguridad', en: 'Security', zh: '安全' }), 'GitHub'],
+    url: 'https://learn.microsoft.com/es-es/training/',
+  },
+  {
+    id: 'google-skills',
+    track: 'software',
+    logo: 'Google',
+    name: 'Google Skills',
+    tags: l({ es: 'IA · Nube · Productividad', en: 'AI · Cloud · Productivity', zh: 'AI · 云 · 生产力' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.freePaid,
+    credentials: ui.some,
+    summary: l({ es: 'Rutas practicas de IA, nube, datos y skill badges.', en: 'Practical paths for AI, cloud, data and skill badges.', zh: 'AI、云、数据和技能徽章的实践路径。' }),
+    ideal: l({ es: 'Quienes quieren iniciar con IA generativa y nube.', en: 'Learners starting with generative AI and cloud.', zh: '想从生成式 AI 和云开始的学生。' }),
+    firstStep: l({ es: 'Empieza con una ruta introductoria de IA generativa.', en: 'Start with an introductory generative AI path.', zh: '从生成式 AI 入门路径开始。' }),
+    learn: [l({ es: 'IA generativa', en: 'Generative AI', zh: '生成式 AI' }), 'Google Cloud', l({ es: 'Datos', en: 'Data', zh: '数据' }), l({ es: 'Laboratorios', en: 'Labs', zh: '实验' })],
+    url: 'https://www.skills.google/',
+  },
+  {
+    id: 'google-cloud-skills-boost',
+    track: 'software',
+    logo: 'Google',
+    name: 'Google Cloud Skills Boost',
+    tags: l({ es: 'Labs · Cloud · Skill badges', en: 'Labs · Cloud · Skill badges', zh: '实验 · 云 · 技能徽章' }),
+    level: ui.beginnerAdvanced,
+    cost: ui.freePaid,
+    credentials: ui.yesSome,
+    summary: l({ es: 'Laboratorios guiados para practicar en entornos cloud.', en: 'Guided labs to practice in cloud environments.', zh: '在云环境中练习的引导式实验。' }),
+    ideal: l({ es: 'Estudiantes que quieren practicar cloud con ejercicios guiados.', en: 'Students who want guided cloud practice.', zh: '想通过引导练习学习云的学生。' }),
+    learn: [l({ es: 'Cloud computing', en: 'Cloud computing', zh: '云计算' }), l({ es: 'IA generativa', en: 'Generative AI', zh: '生成式 AI' }), l({ es: 'Infraestructura', en: 'Infrastructure', zh: '基础设施' }), l({ es: 'Seguridad', en: 'Security', zh: '安全' })],
+    url: 'https://www.cloudskillsboost.google/',
+  },
+  {
+    id: 'google-ai-essentials',
+    track: 'software',
+    logo: 'Google',
+    name: 'Google AI Essentials',
+    tags: l({ es: 'IA generativa · Prompts · Productividad', en: 'Generative AI · Prompts · Productivity', zh: '生成式 AI · 提示词 · 生产力' }),
+    level: ui.beginner,
+    cost: ui.variable,
+    credentials: ui.some,
+    summary: l({ es: 'Uso practico y responsable de IA generativa para estudiar y crear.', en: 'Practical, responsible use of generative AI for study and creation.', zh: '用于学习和创作的生成式 AI 实用与负责使用。' }),
+    ideal: l({ es: 'Quienes quieren usar IA para estudiar, investigar y organizarse.', en: 'Students who want to use AI to study, research and organize.', zh: '想用 AI 学习、研究和整理的学生。' }),
+    learn: [l({ es: 'Prompts', en: 'Prompts', zh: '提示词' }), l({ es: 'Productividad con IA', en: 'AI productivity', zh: 'AI 生产力' }), l({ es: 'Uso responsable', en: 'Responsible use', zh: '负责任使用' })],
+    url: 'https://www.skills.google/paths/2336',
+  },
+  {
+    id: 'github-skills',
+    track: 'software',
+    logo: 'GitHub',
+    name: 'GitHub Skills',
+    tags: l({ es: 'GitHub · Versiones · Portafolio', en: 'GitHub · Version control · Portfolio', zh: 'GitHub · 版本控制 · 作品集' }),
+    level: ui.beginner,
+    cost: ui.free,
+    credentials: ui.no,
+    summary: l({ es: 'Aprende a documentar, colaborar y compartir proyectos tecnicos.', en: 'Learn to document, collaborate and share technical projects.', zh: '学习记录、协作和分享技术项目。' }),
+    ideal: l({ es: 'Programacion que quiere construir portafolio.', en: 'Programming students building a portfolio.', zh: '想建立作品集的编程学生。' }),
+    firstStep: l({ es: 'Toma Introduction to GitHub.', en: 'Take Introduction to GitHub.', zh: '学习 Introduction to GitHub。' }),
+    learn: [l({ es: 'Repositorios', en: 'Repositories', zh: '仓库' }), 'Commits', 'Pull requests', 'Issues', 'GitHub Pages', 'GitHub Actions'],
+    url: 'https://skills.github.com/',
+  },
+  {
+    id: 'intro-github',
+    track: 'software',
+    logo: 'GitHub',
+    name: 'Introduction to GitHub',
+    tags: l({ es: 'Primer repositorio · Ramas · Colaboracion', en: 'First repo · Branches · Collaboration', zh: '第一个仓库 · 分支 · 协作' }),
+    level: ui.beginner,
+    cost: ui.free,
+    summary: l({ es: 'Primeros pasos para usar GitHub desde cero.', en: 'First steps for using GitHub from scratch.', zh: '从零开始使用 GitHub 的第一步。' }),
+    ideal: l({ es: 'Estudiantes que nunca han usado GitHub.', en: 'Students who have never used GitHub.', zh: '从未使用过 GitHub 的学生。' }),
+    learn: [l({ es: 'Repositorios', en: 'Repositories', zh: '仓库' }), 'Commits', l({ es: 'Ramas', en: 'Branches', zh: '分支' }), l({ es: 'Evidencia de aprendizaje', en: 'Learning evidence', zh: '学习证明' })],
+    url: 'https://github.com/skills/introduction-to-github',
+  },
+  {
+    id: 'freecodecamp',
+    track: 'software',
+    logo: 'FCC',
+    name: 'freeCodeCamp',
+    tags: l({ es: 'Web · JavaScript · Python · Certificaciones', en: 'Web · JavaScript · Python · Certifications', zh: 'Web · JavaScript · Python · 证书' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.free,
+    credentials: ui.yesSome,
+    summary: l({ es: 'Programacion desde cero con practica constante y certificaciones gratuitas.', en: 'Programming from scratch with constant practice and free certifications.', zh: '通过持续练习和免费证书从零学习编程。' }),
+    ideal: l({ es: 'Quienes quieren aprender desarrollo web desde cero.', en: 'Learners starting web development from zero.', zh: '想从零学习 Web 开发的学生。' }),
+    firstStep: l({ es: 'Empieza con Responsive Web Design.', en: 'Start with Responsive Web Design.', zh: '从 Responsive Web Design 开始。' }),
+    learn: ['HTML', 'CSS', 'JavaScript', 'Python', 'APIs', l({ es: 'Bases de datos', en: 'Databases', zh: '数据库' })],
+    url: 'https://www.freecodecamp.org/',
+  },
+  {
+    id: 'cs50x',
+    track: 'software',
+    logo: 'CS50',
+    name: 'CS50x · Harvard Introduction to Computer Science',
+    tags: l({ es: 'Computacion · Algoritmos · Python', en: 'Computer science · Algorithms · Python', zh: '计算机科学 · 算法 · Python' }),
+    level: ui.demandingBeginner,
+    cost: ui.freePaid,
+    credentials: ui.some,
+    summary: l({ es: 'Base fuerte en ciencias de la computacion y pensamiento computacional.', en: 'A strong foundation in computer science and computational thinking.', zh: '计算机科学和计算思维的坚实基础。' }),
+    ideal: l({ es: 'Estudiantes que quieren fundamentos reales antes de especializarse.', en: 'Students who want real foundations before specializing.', zh: '想在专业化之前打好基础的学生。' }),
+    firstStep: l({ es: 'Tomalo si quieres una base fuerte.', en: 'Take it if you want a strong base.', zh: '如果想打牢基础，从这里开始。' }),
+    learn: ['C', 'Python', 'SQL', l({ es: 'Algoritmos', en: 'Algorithms', zh: '算法' }), l({ es: 'Estructuras de datos', en: 'Data structures', zh: '数据结构' })],
+    url: 'https://cs50.harvard.edu/x/',
+  },
+  {
+    id: 'kaggle-learn',
+    track: 'software',
+    logo: 'Kaggle',
+    name: 'Kaggle Learn',
+    tags: l({ es: 'Python · Datos · Machine learning', en: 'Python · Data · Machine learning', zh: 'Python · 数据 · 机器学习' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.free,
+    summary: l({ es: 'Aprende IA desde datos reales, notebooks y practica corta.', en: 'Learn AI through real data, notebooks and short practice.', zh: '通过真实数据、notebook 和短练习学习 AI。' }),
+    ideal: l({ es: 'Quienes quieren aprender IA desde datos.', en: 'Students who want to learn AI from data.', zh: '想从数据入手学习 AI 的学生。' }),
+    firstStep: 'Python -> Pandas -> Intro to Machine Learning.',
+    learn: ['Python', 'Pandas', l({ es: 'Visualizacion', en: 'Visualization', zh: '可视化' }), l({ es: 'Machine learning', en: 'Machine learning', zh: '机器学习' })],
+    url: 'https://www.kaggle.com/learn',
+  },
+  {
+    id: 'kaggle-ml',
+    track: 'software',
+    logo: 'Kaggle',
+    name: 'Kaggle · Intro to Machine Learning',
+    tags: l({ es: 'Modelos · Validacion · Prediccion', en: 'Models · Validation · Prediction', zh: '模型 · 验证 · 预测' }),
+    level: ui.beginner,
+    cost: ui.free,
+    summary: l({ es: 'Fundamentos practicos para crear tus primeros modelos de IA.', en: 'Practical foundations to create your first AI models.', zh: '创建第一个 AI 模型的实践基础。' }),
+    ideal: l({ es: 'Estudiantes listos para entrenar modelos simples.', en: 'Students ready to train simple models.', zh: '准备训练简单模型的学生。' }),
+    learn: [l({ es: 'Entrenamiento', en: 'Training', zh: '训练' }), l({ es: 'Validacion', en: 'Validation', zh: '验证' }), l({ es: 'Prediccion', en: 'Prediction', zh: '预测' })],
+    url: 'https://www.kaggle.com/learn/intro-to-machine-learning',
+  },
+  {
+    id: 'huggingface-learn',
+    track: 'software',
+    logo: 'HF',
+    name: 'Hugging Face Learn',
+    tags: l({ es: 'LLMs · Transformers · Modelos abiertos', en: 'LLMs · Transformers · Open models', zh: 'LLM · Transformers · 开放模型' }),
+    level: ui.intermediate,
+    cost: ui.free,
+    summary: l({ es: 'Explora IA moderna, modelos abiertos, vision, audio y agentes.', en: 'Explore modern AI, open models, vision, audio and agents.', zh: '探索现代 AI、开放模型、视觉、音频和智能体。' }),
+    ideal: l({ es: 'Quienes ya saben algo de Python.', en: 'Learners with some Python knowledge.', zh: '已经懂一点 Python 的学生。' }),
+    firstStep: l({ es: 'Comienza con el LLM Course.', en: 'Start with the LLM Course.', zh: '从 LLM Course 开始。' }),
+    learn: ['LLMs', 'Transformers', 'Datasets', 'Tokenizers', l({ es: 'Agentes', en: 'Agents', zh: '智能体' })],
+    url: 'https://huggingface.co/learn',
+  },
+  {
+    id: 'huggingface-llm',
+    track: 'software',
+    logo: 'HF',
+    name: 'Hugging Face · LLM Course',
+    tags: l({ es: 'NLP · LLMs · Hugging Face Hub', en: 'NLP · LLMs · Hugging Face Hub', zh: 'NLP · LLM · Hugging Face Hub' }),
+    level: ui.intermediate,
+    cost: ui.free,
+    summary: l({ es: 'Curso de modelos de lenguaje y ecosistema Hugging Face.', en: 'A course on language models and the Hugging Face ecosystem.', zh: '关于语言模型和 Hugging Face 生态的课程。' }),
+    ideal: l({ es: 'Interesados en IA generativa y modelos abiertos.', en: 'Students interested in generative AI and open models.', zh: '对生成式 AI 和开放模型感兴趣的学生。' }),
+    learn: ['LLMs', 'NLP', 'Transformers', 'Datasets', 'Tokenizers'],
+    url: 'https://huggingface.co/learn/llm-course/en/chapter1/1',
+  },
+];
+
+resources.push(
+  {
+    id: 'arduino',
+    track: 'hardware',
+    logo: 'Arduino',
+    name: 'Arduino',
+    tags: l({ es: 'Electronica · Sensores · Prototipos', en: 'Electronics · Sensors · Prototypes', zh: '电子 · 传感器 · 原型' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.freePaid,
+    summary: l({ es: 'Electronica, programacion, sensores, actuadores y prototipado fisico.', en: 'Electronics, programming, sensors, actuators and physical prototyping.', zh: '电子、编程、传感器、执行器和物理原型。' }),
+    ideal: l({ es: 'Mecatronica, electronica, robotica o IoT.', en: 'Mechatronics, electronics, robotics or IoT students.', zh: '机电、电子、机器人或 IoT 学生。' }),
+    firstStep: l({ es: 'Empieza con LED, boton, sensor de temperatura y servo.', en: 'Start with an LED, button, temperature sensor and servo.', zh: '从 LED、按钮、温度传感器和舵机开始。' }),
+    learn: [l({ es: 'Microcontroladores', en: 'Microcontrollers', zh: '微控制器' }), l({ es: 'Sensores', en: 'Sensors', zh: '传感器' }), l({ es: 'Motores', en: 'Motors', zh: '电机' }), l({ es: 'Entradas y salidas', en: 'Inputs and outputs', zh: '输入输出' })],
+    url: 'https://www.arduino.cc/',
+  },
+  {
+    id: 'arduino-education',
+    track: 'hardware',
+    logo: 'Arduino',
+    name: 'Arduino Education',
+    tags: l({ es: 'Cursos · Kits · Robotica', en: 'Courses · Kits · Robotics', zh: '课程 · 套件 · 机器人' }),
+    level: ui.beginnerAdvanced,
+    cost: ui.freePaid,
+    credentials: ui.some,
+    summary: l({ es: 'Cursos, kits y recursos educativos para electronica y programacion.', en: 'Courses, kits and education resources for electronics and programming.', zh: '用于电子和编程学习的课程、套件和教育资源。' }),
+    ideal: l({ es: 'Quienes quieren una ruta mas formal con Arduino.', en: 'Students who want a more formal Arduino path.', zh: '想通过 Arduino 进行更正式学习的学生。' }),
+    learn: [l({ es: 'Electronica', en: 'Electronics', zh: '电子' }), l({ es: 'Programacion', en: 'Programming', zh: '编程' }), l({ es: 'Robotica', en: 'Robotics', zh: '机器人' }), 'IoT'],
+    url: 'https://www.arduino.cc/education',
+  },
+  {
+    id: 'raspberry-pi-foundation',
+    track: 'hardware',
+    logo: 'RPF',
+    name: 'Raspberry Pi Foundation',
+    tags: l({ es: 'Python · Computacion fisica · Proyectos', en: 'Python · Physical computing · Projects', zh: 'Python · 物理计算 · 项目' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.freePaid,
+    summary: l({ es: 'Recursos educativos para conectar software con hardware.', en: 'Education resources to connect software with hardware.', zh: '连接软件与硬件的教育资源。' }),
+    ideal: l({ es: 'Estudiantes que quieren aprendizaje practico.', en: 'Students who want hands-on learning.', zh: '想要实践学习的学生。' }),
+    learn: ['Python', l({ es: 'Electronica', en: 'Electronics', zh: '电子' }), l({ es: 'Computacion fisica', en: 'Physical computing', zh: '物理计算' }), l({ es: 'Juegos y web', en: 'Games and web', zh: '游戏和 Web' })],
+    url: 'https://www.raspberrypi.org/',
+  },
+  {
+    id: 'raspberry-pi-projects',
+    track: 'hardware',
+    logo: 'RPF',
+    name: 'Raspberry Pi Projects',
+    tags: l({ es: 'Guias · Electronica · Creatividad', en: 'Guides · Electronics · Creativity', zh: '指南 · 电子 · 创意' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.free,
+    summary: l({ es: 'Proyectos guiados para aprender creando paso a paso.', en: 'Guided projects to learn by building step by step.', zh: '通过一步步构建来学习的项目指南。' }),
+    ideal: l({ es: 'Quienes quieren construir proyectos concretos.', en: 'Students who want to build concrete projects.', zh: '想构建具体项目的学生。' }),
+    learn: [l({ es: 'Programacion', en: 'Programming', zh: '编程' }), l({ es: 'Electronica', en: 'Electronics', zh: '电子' }), l({ es: 'Sensores', en: 'Sensors', zh: '传感器' }), l({ es: 'Web', en: 'Web', zh: 'Web' })],
+    url: 'https://projects.raspberrypi.org/',
+  },
+  {
+    id: 'wokwi',
+    track: 'hardware',
+    logo: 'Wokwi',
+    name: 'Wokwi',
+    tags: l({ es: 'Simulacion · Arduino · ESP32', en: 'Simulation · Arduino · ESP32', zh: '仿真 · Arduino · ESP32' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.freePaid,
+    summary: l({ es: 'Simula Arduino, ESP32, STM32, sensores y componentes desde el navegador.', en: 'Simulate Arduino, ESP32, STM32, sensors and components in the browser.', zh: '在浏览器中仿真 Arduino、ESP32、STM32、传感器和组件。' }),
+    ideal: l({ es: 'Estudiantes sin hardware fisico disponible.', en: 'Students without physical hardware available.', zh: '暂时没有实体硬件的学生。' }),
+    firstStep: l({ es: 'Crea un proyecto con ESP32 o Arduino y simula sensores.', en: 'Create an ESP32 or Arduino project and simulate sensors.', zh: '创建 ESP32 或 Arduino 项目并仿真传感器。' }),
+    learn: ['Arduino', 'ESP32', 'MicroPython', l({ es: 'Sensores', en: 'Sensors', zh: '传感器' }), 'IoT'],
+    url: 'https://wokwi.com/',
+  },
+  {
+    id: 'wokwi-docs',
+    track: 'hardware',
+    logo: 'Wokwi',
+    name: 'Wokwi Docs',
+    tags: l({ es: 'Documentacion · Placas · Sensores', en: 'Docs · Boards · Sensors', zh: '文档 · 开发板 · 传感器' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.free,
+    summary: l({ es: 'Documentacion oficial para aprender que puedes simular.', en: 'Official docs to learn what you can simulate.', zh: '了解可仿真内容的官方文档。' }),
+    ideal: l({ es: 'Quienes quieren explorar placas y componentes compatibles.', en: 'Students exploring compatible boards and parts.', zh: '想探索兼容开发板和组件的学生。' }),
+    learn: [l({ es: 'Placas compatibles', en: 'Compatible boards', zh: '兼容开发板' }), l({ es: 'Componentes', en: 'Components', zh: '组件' }), l({ es: 'Guias de simulacion', en: 'Simulation guides', zh: '仿真指南' })],
+    url: 'https://docs.wokwi.com/',
+  },
+  {
+    id: 'wokwi-esp32',
+    track: 'hardware',
+    logo: 'ESP32',
+    name: 'Wokwi ESP32 Simulator',
+    tags: l({ es: 'ESP32 · Wi-Fi · IoT', en: 'ESP32 · Wi-Fi · IoT', zh: 'ESP32 · Wi-Fi · IoT' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.freePaid,
+    summary: l({ es: 'Simulador para proyectos IoT con ESP32.', en: 'Simulator for IoT projects with ESP32.', zh: '用于 ESP32 IoT 项目的仿真器。' }),
+    ideal: l({ es: 'Mecatronica e IoT.', en: 'Mechatronics and IoT students.', zh: '机电和 IoT 学生。' }),
+    learn: ['ESP32', 'Wi-Fi', 'MicroPython', l({ es: 'Sensores', en: 'Sensors', zh: '传感器' }), 'IoT'],
+    url: 'https://wokwi.com/esp32',
+  },
+  {
+    id: 'tinkercad',
+    track: 'hardware',
+    logo: 'TCAD',
+    name: 'Tinkercad',
+    tags: l({ es: 'Circuitos · Diseno 3D · Bloques', en: 'Circuits · 3D design · Blocks', zh: '电路 · 3D 设计 · 图形编程' }),
+    level: ui.beginner,
+    cost: ui.free,
+    summary: l({ es: 'Diseno 3D, electronica y programacion visual desde navegador.', en: '3D design, electronics and visual programming in the browser.', zh: '浏览器中的 3D 设计、电子和可视化编程。' }),
+    ideal: l({ es: 'Quienes quieren empezar visualmente con circuitos.', en: 'Students who want a visual start with circuits.', zh: '想通过可视化方式开始电路学习的学生。' }),
+    firstStep: l({ es: 'Crea un circuito con LED, resistencia y boton.', en: 'Create a circuit with an LED, resistor and button.', zh: '创建一个 LED、电阻和按钮电路。' }),
+    learn: [l({ es: 'Circuitos', en: 'Circuits', zh: '电路' }), 'Arduino', l({ es: 'Simulacion', en: 'Simulation', zh: '仿真' }), l({ es: 'Diseno 3D', en: '3D design', zh: '3D 设计' })],
+    url: 'https://www.tinkercad.com/',
+  },
+  {
+    id: 'edge-impulse',
+    track: 'hardware',
+    logo: 'Edge',
+    name: 'Edge Impulse',
+    tags: l({ es: 'TinyML · Sensores · Sistemas embebidos', en: 'TinyML · Sensors · Embedded systems', zh: 'TinyML · 传感器 · 嵌入式系统' }),
+    level: ui.intermediateAdvanced,
+    cost: ui.freePaid,
+    summary: l({ es: 'Machine learning para sensores, microcontroladores y dispositivos.', en: 'Machine learning for sensors, microcontrollers and devices.', zh: '面向传感器、微控制器和设备的机器学习。' }),
+    ideal: l({ es: 'Quienes quieren mezclar IA con hardware.', en: 'Students who want to combine AI with hardware.', zh: '想把 AI 与硬件结合的学生。' }),
+    firstStep: l({ es: 'Prueba una clasificacion con sensores o audio.', en: 'Try a classification project with sensors or audio.', zh: '尝试传感器或音频分类项目。' }),
+    learn: ['TinyML', l({ es: 'Datos de sensores', en: 'Sensor data', zh: '传感器数据' }), l({ es: 'Vision', en: 'Vision', zh: '视觉' }), l({ es: 'Despliegue en dispositivos', en: 'Device deployment', zh: '设备部署' })],
+    url: 'https://www.edgeimpulse.com/',
+  },
+  {
+    id: 'edge-impulse-docs',
+    track: 'hardware',
+    logo: 'Edge',
+    name: 'Edge Impulse Docs',
+    tags: l({ es: 'Edge AI · Embedded ML · Guias', en: 'Edge AI · Embedded ML · Guides', zh: '边缘 AI · 嵌入式 ML · 指南' }),
+    level: ui.beginnerAdvanced,
+    cost: ui.free,
+    summary: l({ es: 'Guias oficiales para comenzar con edge AI y embedded ML.', en: 'Official guides to start with edge AI and embedded ML.', zh: '开始 edge AI 和嵌入式 ML 的官方指南。' }),
+    ideal: l({ es: 'Mecatronica, robotica, IoT e IA aplicada.', en: 'Mechatronics, robotics, IoT and applied AI students.', zh: '机电、机器人、IoT 和应用 AI 学生。' }),
+    learn: [l({ es: 'Edge AI', en: 'Edge AI', zh: '边缘 AI' }), 'TinyML', l({ es: 'Datos de sensores', en: 'Sensor data', zh: '传感器数据' })],
+    url: 'https://docs.edgeimpulse.com/',
+  },
+  {
+    id: 'arm-education',
+    track: 'hardware',
+    logo: 'Arm',
+    name: 'Arm Education',
+    tags: l({ es: 'Embebidos · Arquitectura · IoT', en: 'Embedded · Architecture · IoT', zh: '嵌入式 · 架构 · IoT' }),
+    level: ui.intermediate,
+    cost: ui.freePaid,
+    summary: l({ es: 'Sistemas embebidos, arquitectura Arm, microcontroladores e IoT.', en: 'Embedded systems, Arm architecture, microcontrollers and IoT.', zh: '嵌入式系统、Arm 架构、微控制器和 IoT。' }),
+    ideal: l({ es: 'Quienes quieren pasar de Arduino a embebidos profesionales.', en: 'Students moving from Arduino to professional embedded systems.', zh: '想从 Arduino 走向专业嵌入式系统的学生。' }),
+    learn: [l({ es: 'Sistemas embebidos', en: 'Embedded systems', zh: '嵌入式系统' }), l({ es: 'Arquitectura', en: 'Architecture', zh: '架构' }), l({ es: 'Microcontroladores', en: 'Microcontrollers', zh: '微控制器' }), 'IoT'],
+    url: 'https://www.arm.com/resources/education',
+  },
+  {
+    id: 'arm-online-courses',
+    track: 'hardware',
+    logo: 'Arm',
+    name: 'Arm Education · Online Courses',
+    tags: l({ es: 'Cursos · Embebidos · Arquitectura', en: 'Courses · Embedded · Architecture', zh: '课程 · 嵌入式 · 架构' }),
+    level: ui.intermediate,
+    cost: ui.variable,
+    summary: l({ es: 'Cursos online sobre sistemas embebidos y arquitectura Arm.', en: 'Online courses on embedded systems and Arm architecture.', zh: '关于嵌入式系统和 Arm 架构的在线课程。' }),
+    ideal: l({ es: 'Estudiantes avanzados de electronica o mecatronica.', en: 'Advanced electronics or mechatronics students.', zh: '进阶电子或机电学生。' }),
+    learn: [l({ es: 'Embebidos', en: 'Embedded systems', zh: '嵌入式' }), l({ es: 'Arquitectura Arm', en: 'Arm architecture', zh: 'Arm 架构' })],
+    url: 'https://www.arm.com/resources/education/online-courses',
+  },
+  {
+    id: 'fritzing',
+    track: 'hardware',
+    logo: 'FZ',
+    name: 'Fritzing',
+    tags: l({ es: 'Diagramas · PCB · Documentacion', en: 'Diagrams · PCB · Documentation', zh: '图表 · PCB · 文档' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.variable,
+    summary: l({ es: 'Documenta circuitos, prototipos electronicos y disenos PCB.', en: 'Document circuits, electronic prototypes and PCB designs.', zh: '记录电路、电子原型和 PCB 设计。' }),
+    ideal: l({ es: 'Quienes ya arman circuitos y quieren documentarlos.', en: 'Students who build circuits and want to document them.', zh: '已经会搭电路并想正确记录的学生。' }),
+    learn: [l({ es: 'Diagramas de protoboard', en: 'Breadboard diagrams', zh: '面包板图' }), l({ es: 'Esquematicos', en: 'Schematics', zh: '原理图' }), 'PCB'],
+    url: 'https://fritzing.org/',
+  },
+  {
+    id: 'fritzing-started',
+    track: 'hardware',
+    logo: 'FZ',
+    name: 'Fritzing · Getting Started',
+    tags: l({ es: 'Primeros pasos · Arduino · Documentacion', en: 'Getting started · Arduino · Documentation', zh: '入门 · Arduino · 文档' }),
+    level: ui.beginner,
+    cost: ui.variable,
+    summary: l({ es: 'Primeros pasos para documentar proyectos de electronica basica.', en: 'First steps for documenting basic electronics projects.', zh: '记录基础电子项目的第一步。' }),
+    ideal: l({ es: 'Proyectos de Arduino, sensores o electronica basica.', en: 'Arduino, sensor or basic electronics projects.', zh: 'Arduino、传感器或基础电子项目。' }),
+    learn: [l({ es: 'Documentacion visual', en: 'Visual documentation', zh: '可视化文档' }), l({ es: 'Circuitos basicos', en: 'Basic circuits', zh: '基础电路' })],
+    url: 'https://fritzing.org/learning/get-started',
+  },
+  {
+    id: 'node-red',
+    track: 'hardware',
+    logo: 'Node',
+    name: 'Node-RED',
+    tags: l({ es: 'IoT · Automatizacion · Dashboards', en: 'IoT · Automation · Dashboards', zh: 'IoT · 自动化 · 仪表盘' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.free,
+    summary: l({ es: 'Programacion visual para sensores, APIs, MQTT y dashboards.', en: 'Visual programming for sensors, APIs, MQTT and dashboards.', zh: '用于传感器、API、MQTT 和仪表盘的可视化编程。' }),
+    ideal: l({ es: 'Quienes quieren conectar sistemas sin programar todo desde cero.', en: 'Students who want to connect systems without coding everything from scratch.', zh: '想连接系统但不想全部从零编程的学生。' }),
+    learn: [l({ es: 'Flujos visuales', en: 'Visual flows', zh: '可视化流程' }), 'MQTT', l({ es: 'Dashboards', en: 'Dashboards', zh: '仪表盘' }), 'APIs', 'IoT'],
+    url: 'https://nodered.org/',
+  },
+  {
+    id: 'mqtt-essentials',
+    track: 'hardware',
+    logo: 'MQTT',
+    name: 'HiveMQ MQTT Essentials',
+    tags: l({ es: 'MQTT · IoT · Comunicacion', en: 'MQTT · IoT · Communication', zh: 'MQTT · IoT · 通信' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.free,
+    summary: l({ es: 'Entiende como se comunican sensores, dispositivos y dashboards.', en: 'Understand how sensors, devices and dashboards communicate.', zh: '理解传感器、设备和仪表盘如何通信。' }),
+    ideal: l({ es: 'IoT, IIoT, automatizacion y dashboards.', en: 'IoT, IIoT, automation and dashboards.', zh: 'IoT、IIoT、自动化和仪表盘。' }),
+    learn: ['MQTT', 'Broker', 'Publisher', 'Subscriber', 'Topics'],
+    url: 'https://www.hivemq.com/mqtt/',
+  }
+);
+
+resources.push(
+  {
+    id: 'canva-school',
+    track: 'creative',
+    logo: 'Canva',
+    name: 'Canva Design School',
+    tags: l({ es: 'Diseno · Presentaciones · Branding', en: 'Design · Presentations · Branding', zh: '设计 · 演示 · 品牌' }),
+    level: ui.beginner,
+    cost: ui.freePaid,
+    summary: l({ es: 'Mejora proyectos, exposiciones, flyers y pitch decks.', en: 'Improve projects, presentations, flyers and pitch decks.', zh: '提升项目、展示、海报和 pitch deck。' }),
+    ideal: l({ es: 'Estudiantes que quieren comunicar mejor sus proyectos.', en: 'Students who want to communicate projects better.', zh: '想更好表达项目的学生。' }),
+    learn: [l({ es: 'Diseno basico', en: 'Basic design', zh: '基础设计' }), l({ es: 'Presentaciones', en: 'Presentations', zh: '演示' }), l({ es: 'Tipografia', en: 'Typography', zh: '字体' }), 'Branding'],
+    url: 'https://www.canva.com/design-school/',
+  },
+  {
+    id: 'canva-courses',
+    track: 'creative',
+    logo: 'Canva',
+    name: 'Canva Design School · Courses',
+    tags: l({ es: 'Cursos cortos · Creatividad', en: 'Short courses · Creativity', zh: '短课程 · 创意' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.freePaid,
+    summary: l({ es: 'Cursos especificos para aprender diseno en formato corto.', en: 'Specific courses to learn design in short format.', zh: '通过短课程学习设计。' }),
+    ideal: l({ es: 'Quienes prefieren cursos breves.', en: 'Students who prefer short courses.', zh: '喜欢短课程的学生。' }),
+    learn: [l({ es: 'Diseno visual', en: 'Visual design', zh: '视觉设计' }), l({ es: 'Presentaciones', en: 'Presentations', zh: '演示' })],
+    url: 'https://www.canva.com/design-school/courses/',
+  },
+  {
+    id: 'canva-students',
+    track: 'creative',
+    logo: 'Canva',
+    name: 'Canva · Design Skills for Students',
+    tags: l({ es: 'Estudiantes · Presentaciones · Visuales', en: 'Students · Presentations · Visuals', zh: '学生 · 演示 · 视觉' }),
+    level: ui.beginner,
+    cost: ui.freePaid,
+    summary: l({ es: 'Habilidades de diseno para proyectos escolares y contenido visual.', en: 'Design skills for school projects and visual content.', zh: '用于学校项目和视觉内容的设计技能。' }),
+    ideal: l({ es: 'Estudiantes que quieren mejorar entregables visuales.', en: 'Students who want better visual deliverables.', zh: '想提升视觉作业质量的学生。' }),
+    learn: [l({ es: 'Comunicacion visual', en: 'Visual communication', zh: '视觉沟通' }), l({ es: 'Contenido escolar', en: 'School content', zh: '学校内容' })],
+    url: 'https://www.canva.com/design-school/courses/canva-design-skills-for-students',
+  },
+  {
+    id: 'figma-learn',
+    track: 'creative',
+    logo: 'Figma',
+    name: 'Figma Learn',
+    tags: l({ es: 'UX/UI · Prototipos · Colaboracion', en: 'UX/UI · Prototypes · Collaboration', zh: 'UX/UI · 原型 · 协作' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.freePaid,
+    summary: l({ es: 'Disena apps, paginas web y productos digitales antes de programarlos.', en: 'Design apps, websites and digital products before coding them.', zh: '在编程前设计应用、网页和数字产品。' }),
+    ideal: l({ es: 'Quienes quieren disenar productos digitales.', en: 'Students who want to design digital products.', zh: '想设计数字产品的学生。' }),
+    learn: ['UX/UI', l({ es: 'Prototipos', en: 'Prototypes', zh: '原型' }), l({ es: 'Componentes', en: 'Components', zh: '组件' }), 'Auto layout'],
+    url: 'https://help.figma.com/hc/en-us',
+  },
+  {
+    id: 'figma-basics',
+    track: 'creative',
+    logo: 'Figma',
+    name: 'Figma Design Basics',
+    tags: l({ es: 'Fundamentos · UX · UI', en: 'Basics · UX · UI', zh: '基础 · UX · UI' }),
+    level: ui.beginner,
+    cost: ui.free,
+    summary: l({ es: 'Fundamentos para entender como disenar productos digitales.', en: 'Basics for understanding digital product design.', zh: '理解数字产品设计的基础。' }),
+    ideal: l({ es: 'Principiantes en diseno de interfaces.', en: 'Beginners in interface design.', zh: '界面设计初学者。' }),
+    learn: ['UX', 'UI', l({ es: 'Prototipado', en: 'Prototyping', zh: '原型制作' })],
+    url: 'https://www.figma.com/resource-library/design-basics/',
+  },
+  {
+    id: 'figma-beginners',
+    track: 'creative',
+    logo: 'Figma',
+    name: 'Figma Design for Beginners',
+    tags: l({ es: 'Curso · Portafolio · Proyecto', en: 'Course · Portfolio · Project', zh: '课程 · 作品集 · 项目' }),
+    level: ui.beginner,
+    cost: ui.free,
+    summary: l({ es: 'Curso practico para crear un sitio tipo portafolio desde cero.', en: 'Practical course to create a portfolio-style site from scratch.', zh: '从零创建作品集网站的实践课程。' }),
+    ideal: l({ es: 'Quienes quieren aprender Figma con un proyecto real.', en: 'Students who want to learn Figma through a real project.', zh: '想通过真实项目学习 Figma 的学生。' }),
+    learn: [l({ es: 'Diseno web', en: 'Web design', zh: '网页设计' }), l({ es: 'Portafolio', en: 'Portfolio', zh: '作品集' }), 'Figma'],
+    url: 'https://help.figma.com/hc/en-us/articles/30848209492887-Course-overview-Figma-Design-for-beginners-2025',
+  },
+  {
+    id: 'notion-guides',
+    track: 'creative',
+    logo: 'Notion',
+    name: 'Notion Guides',
+    tags: l({ es: 'Organizacion · Documentacion · Proyectos', en: 'Organization · Documentation · Projects', zh: '组织 · 文档 · 项目' }),
+    level: ui.beginner,
+    cost: ui.freePaid,
+    summary: l({ es: 'Organiza ideas, tareas, avances y documentacion de proyectos.', en: 'Organize ideas, tasks, progress and project documentation.', zh: '整理想法、任务、进展和项目文档。' }),
+    ideal: l({ es: 'Equipos que quieren trabajar con orden.', en: 'Teams that want to work with clarity.', zh: '想有序协作的团队。' }),
+    learn: [l({ es: 'Paginas', en: 'Pages', zh: '页面' }), l({ es: 'Bases de datos', en: 'Databases', zh: '数据库' }), l({ es: 'Tareas', en: 'Tasks', zh: '任务' }), l({ es: 'Gestion de proyectos', en: 'Project management', zh: '项目管理' })],
+    url: 'https://www.notion.com/help/guides',
+  },
+  {
+    id: 'notion-basics',
+    track: 'creative',
+    logo: 'Notion',
+    name: 'Notion Basics',
+    tags: l({ es: 'Primeros pasos · Organizacion', en: 'Getting started · Organization', zh: '入门 · 组织' }),
+    level: ui.beginner,
+    cost: ui.freePaid,
+    summary: l({ es: 'Primeros pasos para estudiantes que nunca han usado Notion.', en: 'First steps for students who have never used Notion.', zh: '从未使用过 Notion 的学生的第一步。' }),
+    ideal: l({ es: 'Quienes quieren ordenar su aprendizaje.', en: 'Students who want to organize their learning.', zh: '想整理学习过程的学生。' }),
+    learn: [l({ es: 'Paginas', en: 'Pages', zh: '页面' }), l({ es: 'Organizacion personal', en: 'Personal organization', zh: '个人组织' })],
+    url: 'https://www.notion.com/help/category/new-to-notion',
+  },
+  {
+    id: 'notion-school',
+    track: 'creative',
+    logo: 'Notion',
+    name: 'Notion for School',
+    tags: l({ es: 'Escuela · Notas · Tareas', en: 'School · Notes · Tasks', zh: '学校 · 笔记 · 任务' }),
+    level: ui.beginner,
+    cost: ui.freePaid,
+    summary: l({ es: 'Organizacion escolar, notas, tareas, proyectos y vida estudiantil.', en: 'School organization, notes, tasks, projects and student life.', zh: '学校组织、笔记、任务、项目和学生生活。' }),
+    ideal: l({ es: 'Estudiantes que quieren ordenar su semestre.', en: 'Students who want to organize their semester.', zh: '想规划学期的学生。' }),
+    learn: [l({ es: 'Notas', en: 'Notes', zh: '笔记' }), l({ es: 'Tareas', en: 'Tasks', zh: '任务' }), l({ es: 'Proyectos', en: 'Projects', zh: '项目' })],
+    url: 'https://www.notion.com/help/guides/setting-up-notion-for-school',
+  }
+);
+
+resources.push(
+  {
+    id: 'cisco-netacad',
+    track: 'cybersecurity',
+    logo: 'Cisco',
+    name: 'Cisco Networking Academy',
+    tags: l({ es: 'Redes · Ciberseguridad · Python', en: 'Networking · Cybersecurity · Python', zh: '网络 · 网络安全 · Python' }),
+    level: ui.beginnerIntermediate,
+    cost: ui.freePaid,
+    credentials: ui.some,
+    summary: l({ es: 'Explora redes, ciberseguridad, Python, Packet Tracer e infraestructura.', en: 'Explore networking, cybersecurity, Python, Packet Tracer and infrastructure.', zh: '探索网络、网络安全、Python、Packet Tracer 和基础设施。' }),
+    ideal: l({ es: 'Quienes quieren explorar redes, seguridad o infraestructura.', en: 'Students exploring networking, security or infrastructure.', zh: '想探索网络、安全或基础设施的学生。' }),
+    learn: [l({ es: 'Redes', en: 'Networking', zh: '网络' }), l({ es: 'Ciberseguridad', en: 'Cybersecurity', zh: '网络安全' }), 'Python', 'Packet Tracer'],
+    url: 'https://www.netacad.com/',
+  },
+  {
+    id: 'cisco-cybersecurity',
+    track: 'cybersecurity',
+    logo: 'Cisco',
+    name: 'Cisco · Introduction to Cybersecurity',
+    tags: l({ es: 'Privacidad · Amenazas · Carrera', en: 'Privacy · Threats · Career', zh: '隐私 · 威胁 · 职业' }),
+    level: ui.beginner,
+    cost: ui.free,
+    credentials: ui.some,
+    summary: l({ es: 'Introduccion para proteger tu vida digital y conocer ciberseguridad.', en: 'Introduction to protect your digital life and discover cybersecurity.', zh: '保护数字生活并了解网络安全的入门课程。' }),
+    ideal: l({ es: 'Estudiantes que quieren empezar en seguridad informatica.', en: 'Students who want to start in cybersecurity.', zh: '想进入网络安全领域的学生。' }),
+    learn: [l({ es: 'Amenazas digitales', en: 'Digital threats', zh: '数字威胁' }), l({ es: 'Privacidad', en: 'Privacy', zh: '隐私' }), l({ es: 'Proteccion de datos', en: 'Data protection', zh: '数据保护' })],
+    url: 'https://www.netacad.com/courses/introduction-to-cybersecurity',
+  },
+  {
+    id: 'cisco-packet-tracer',
+    track: 'cybersecurity',
+    logo: 'Cisco',
+    name: 'Cisco · Getting Started with Cisco Packet Tracer',
+    tags: l({ es: 'Simulacion · Redes · Topologias', en: 'Simulation · Networks · Topologies', zh: '仿真 · 网络 · 拓扑' }),
+    level: ui.beginner,
+    cost: ui.free,
+    summary: l({ es: 'Simulacion de redes para infraestructura y telecomunicaciones.', en: 'Network simulation for infrastructure and telecommunications.', zh: '用于基础设施和通信的网络仿真。' }),
+    ideal: l({ es: 'Interesados en redes, infraestructura y telecomunicaciones.', en: 'Students interested in networking, infrastructure and telecom.', zh: '对网络、基础设施和通信感兴趣的学生。' }),
+    learn: [l({ es: 'Simulacion de redes', en: 'Network simulation', zh: '网络仿真' }), l({ es: 'Dispositivos de red', en: 'Network devices', zh: '网络设备' }), l({ es: 'Topologias', en: 'Topologies', zh: '拓扑' })],
+    url: 'https://www.netacad.com/courses/getting-started-cisco-packet-tracer',
+  },
+  {
+    id: 'google-cybersecurity',
+    track: 'cybersecurity',
+    logo: 'Google',
+    name: 'Google Cybersecurity Certificate',
+    tags: l({ es: 'Seguridad · Linux · SIEM', en: 'Security · Linux · SIEM', zh: '安全 · Linux · SIEM' }),
+    level: ui.beginner,
+    cost: ui.variable,
+    credentials: ui.yesSome,
+    summary: l({ es: 'Ruta profesional introductoria en ciberseguridad.', en: 'Introductory professional path in cybersecurity.', zh: '网络安全职业入门路径。' }),
+    ideal: l({ es: 'Quienes quieren conocer una ruta profesional en seguridad.', en: 'Students exploring a professional security path.', zh: '想了解安全职业路径的学生。' }),
+    learn: [l({ es: 'Seguridad', en: 'Security', zh: '安全' }), 'Linux', 'Python', 'SQL', 'SIEM', l({ es: 'Respuesta a incidentes', en: 'Incident response', zh: '事件响应' })],
+    url: 'https://grow.google/certificates/cybersecurity/',
+  },
+  {
+    id: 'google-cybersecurity-coursera',
+    track: 'cybersecurity',
+    logo: 'Google',
+    name: 'Google Cybersecurity Certificate · Coursera',
+    tags: l({ es: 'Certificado · Cursos · Seguridad', en: 'Certificate · Courses · Security', zh: '证书 · 课程 · 安全' }),
+    level: ui.beginner,
+    cost: ui.variable,
+    credentials: ui.yesSome,
+    summary: l({ es: 'Serie de cursos del certificado profesional de Google.', en: 'Course series for the Google professional certificate.', zh: 'Google 职业证书课程系列。' }),
+    ideal: l({ es: 'Quienes quieren una ruta estructurada completa.', en: 'Students who want a complete structured path.', zh: '想要完整结构化路径的学生。' }),
+    learn: [l({ es: 'Fundamentos de seguridad', en: 'Security fundamentals', zh: '安全基础' }), 'Linux', 'Python', 'SQL'],
+    url: 'https://www.coursera.org/professional-certificates/google-cybersecurity',
+  }
+);
+
+const byId = Object.fromEntries(resources.map((resource) => [resource.id, resource]));
+const profileDefinitions: Array<{ id: ProfileId; icon: string; title: string; description: string; objective: string; resourceIds: string[] }> = [
+  {
+    id: 'start',
+    icon: '?',
+    title: l({ es: 'No se que estudiar', en: 'I do not know what to study', zh: '还不知道学什么' }),
+    description: l({ es: 'Descubre que area te interesa y construye una primera direccion.', en: 'Discover what area interests you and build a first direction.', zh: '发现你感兴趣的方向并建立第一条路线。' }),
+    objective: l({ es: 'Descubrir que area te interesa y construir una primera direccion.', en: 'Discover what area interests you and build a first direction.', zh: '发现兴趣领域并建立第一条学习方向。' }),
+    resourceIds: ['ibm-skillsbuild', 'google-ai-essentials', 'microsoft-learn', 'canva-school', 'notion-basics'],
+  },
+  {
+    id: 'programming',
+    icon: '</>',
+    title: l({ es: 'Programacion', en: 'Programming', zh: '编程' }),
+    description: l({ es: 'Aprende fundamentos, GitHub, desarrollo web, IA y portafolio tecnico.', en: 'Learn foundations, GitHub, web development, AI and technical portfolio.', zh: '学习基础、GitHub、Web 开发、AI 和技术作品集。' }),
+    objective: l({ es: 'Construir fundamentos, aprender herramientas profesionales y crear portafolio.', en: 'Build foundations, learn professional tools and create a portfolio.', zh: '建立基础、学习专业工具并创建作品集。' }),
+    resourceIds: ['github-skills', 'freecodecamp', 'cs50x', 'microsoft-learn', 'ibm-z-xplore'],
+  },
+  {
+    id: 'mechatronics',
+    icon: 'IoT',
+    title: l({ es: 'Mecatronica', en: 'Mechatronics', zh: '机电一体化' }),
+    description: l({ es: 'Conecta electronica, sensores, programacion e IA aplicada.', en: 'Connect electronics, sensors, programming and applied AI.', zh: '连接电子、传感器、编程和应用 AI。' }),
+    objective: l({ es: 'Conectar electronica, sensores, programacion e inteligencia artificial aplicada.', en: 'Connect electronics, sensors, programming and applied artificial intelligence.', zh: '连接电子、传感器、编程和应用人工智能。' }),
+    resourceIds: ['arduino', 'wokwi', 'tinkercad', 'raspberry-pi-projects', 'edge-impulse'],
+  },
+  {
+    id: 'ai',
+    icon: 'AI',
+    title: l({ es: 'Inteligencia Artificial', en: 'Artificial Intelligence', zh: '人工智能' }),
+    description: l({ es: 'Entiende IA desde productividad, datos, modelos y aplicaciones reales.', en: 'Understand AI through productivity, data, models and real applications.', zh: '从生产力、数据、模型和真实应用理解 AI。' }),
+    objective: l({ es: 'Entender IA desde productividad, datos, modelos y aplicaciones reales.', en: 'Understand AI from productivity, data, models and real applications.', zh: '从生产力、数据、模型和实际应用理解 AI。' }),
+    resourceIds: ['google-ai-essentials', 'ibm-skillsbuild', 'kaggle-learn', 'huggingface-learn', 'edge-impulse'],
+  },
+  {
+    id: 'design',
+    icon: 'UX',
+    title: l({ es: 'Diseno / Emprendimiento', en: 'Design / Entrepreneurship', zh: '设计 / 创业' }),
+    description: l({ es: 'Convierte ideas en propuestas visuales, prototipos y proyectos presentables.', en: 'Turn ideas into visual proposals, prototypes and presentable projects.', zh: '把想法变成视觉方案、原型和可展示项目。' }),
+    objective: l({ es: 'Convertir ideas en propuestas visuales, prototipos y proyectos presentables.', en: 'Turn ideas into visual proposals, prototypes and presentable projects.', zh: '把想法转化为视觉提案、原型和可展示项目。' }),
+    resourceIds: ['canva-school', 'figma-basics', 'figma-beginners', 'notion-guides', 'github-skills'],
+  },
+];
+
+const profileData = Object.fromEntries(
+  profileDefinitions.map((profile) => [
+    profile.id,
+    {
+      title: profile.title,
+      objective: profile.objective,
+      resources: profile.resourceIds.map((id) => {
+        const resource = byId[id];
+        return { name: resource.name, summary: resource.summary, url: resource.url };
+      }),
+    },
+  ])
+);
+
+const glossary = [
+  { term: 'Badge', body: l({ es: 'Insignia digital que muestra que completaste una actividad, curso o reto.', en: 'A digital badge showing that you completed an activity, course or challenge.', zh: '表示你完成了活动、课程或挑战的数字徽章。' }) },
+  { term: 'MVP', body: l({ es: 'Version minima de una idea que permite probar si funciona y aprender rapido.', en: 'The smallest useful version of an idea that lets you test and learn quickly.', zh: '一个想法的最小可用版本，用来快速测试和学习。' }) },
+  { term: 'GitHub', body: l({ es: 'Plataforma para guardar codigo, colaborar y mostrar proyectos tecnicos.', en: 'A platform to store code, collaborate and show technical projects.', zh: '用于保存代码、协作和展示技术项目的平台。' }) },
+  { term: 'IoT', body: l({ es: 'Internet de las Cosas: dispositivos fisicos conectados que envian o reciben datos.', en: 'Internet of Things: connected physical devices that send or receive data.', zh: '物联网：可以发送或接收数据的联网物理设备。' }) },
+  { term: 'Mainframe', body: l({ es: 'Computadora empresarial de alta capacidad usada por bancos, aerolineas, gobiernos y grandes organizaciones.', en: 'A high-capacity enterprise computer used by banks, airlines, governments and large organizations.', zh: '银行、航空、政府和大型组织使用的高容量企业计算机。' }) },
+  { term: 'TinyML', body: l({ es: 'Machine learning ejecutado en dispositivos pequenos como microcontroladores y sensores.', en: 'Machine learning running on small devices such as microcontrollers and sensors.', zh: '运行在微控制器和传感器等小型设备上的机器学习。' }) },
+  { term: l({ es: 'Portafolio', en: 'Portfolio', zh: '作品集' }), body: l({ es: 'Coleccion de proyectos que demuestra lo que sabes construir.', en: 'A collection of projects that proves what you can build.', zh: '展示你能构建什么的项目集合。' }) },
+];
+
+const recommendationJson = JSON.stringify(profileData).replace(/</g, '\\u003c');
+---
+
+<Layout lang={lang} title={t('meta.title')} description={t('meta.description')}>
+  <main class="next-page min-h-screen bg-[#050506] text-white overflow-hidden">
+    <section class="relative px-5 sm:px-6 pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="max-w-[1120px] mx-auto">
+        <p class="text-sm font-black uppercase tracking-[0.18em] text-white/38 mb-5">{t('hero.title')}</p>
+        <h1 class="text-[clamp(3.2rem,10vw,7.5rem)] font-black leading-[0.92] tracking-normal max-w-[960px] mb-7">{t('hero.headline')}</h1>
+        <p class="text-[1.08rem] md:text-[1.35rem] leading-relaxed text-white/64 font-medium max-w-[720px] mb-9">{t('hero.body')}</p>
+        <a href="#profiles" class="inline-flex items-center justify-center px-8 py-3.5 bg-white text-black rounded-full text-[1rem] font-bold hover:bg-white/88 transition-colors w-full sm:w-auto">
+          {t('hero.cta')} <span aria-hidden="true" class="ml-2">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="profiles" class="max-w-[1120px] mx-auto px-5 sm:px-6 py-18 sm:py-24 border-t border-white/10 scroll-mt-24">
+      <div class="mb-10 max-w-[760px]">
+        <h2 class="text-3xl md:text-5xl font-black tracking-normal mb-4">{t('selector.title')}</h2>
+        <p class="text-white/64 font-medium leading-relaxed text-[1.05rem] md:text-[1.2rem]">{t('selector.body')}</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {profileDefinitions.map((profile, index) => (
+          <button type="button" data-profile={profile.id} class={`profile-card text-left rounded-[1.5rem] border p-5 min-h-[220px] transition-all ${index === 0 ? 'is-active border-white bg-white text-black' : 'border-white/10 bg-white/[0.04] text-white hover:bg-white/[0.08]'}`}>
+            <span class="profile-card__icon h-11 w-11 rounded-xl flex items-center justify-center text-sm font-black mb-5">{profile.icon}</span>
+            <h3 class="text-xl font-black leading-tight mb-3">{profile.title}</h3>
+            <p class="profile-card__description text-sm font-semibold leading-relaxed mb-5">{profile.description}</p>
+            <span class="profile-card__action text-sm font-black">{t('selector.button')}</span>
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <section class="max-w-[1120px] mx-auto px-5 sm:px-6 py-10 sm:py-14">
+      <div class="rounded-[1.75rem] border border-white/10 bg-white text-black p-6 md:p-9">
+        <p class="text-xs font-black uppercase tracking-[0.16em] text-black/38 mb-3">{t('recommended.label')}</p>
+        <div class="grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] gap-8">
+          <div>
+            <h2 id="recommendation-title" class="text-3xl md:text-5xl font-black tracking-normal leading-tight mb-5">{profileData.start.title}</h2>
+            <p class="text-sm font-black uppercase tracking-[0.14em] text-black/36 mb-2">{t('recommended.objective')}</p>
+            <p id="recommendation-objective" class="text-[1.05rem] font-semibold leading-relaxed text-black/64">{profileData.start.objective}</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-black mb-5">{t('recommended.resources')}</h3>
+            <div id="recommendation-list" class="grid grid-cols-1 gap-3">
+              {profileData.start.resources.map((resource, index) => (
+                <a href={resource.url} target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-black/8 bg-black/[0.03] p-4 hover:bg-black/[0.06] transition-colors">
+                  <p class="text-xs font-black text-black/36 mb-2">{String(index + 1).padStart(2, '0')}</p>
+                  <h4 class="font-black leading-tight mb-1">{resource.name}</h4>
+                  <p class="text-sm font-semibold text-black/58 leading-relaxed">{resource.summary}</p>
+                </a>
+              ))}
+            </div>
+            <a href="#catalog" class="mt-6 inline-flex items-center justify-center px-6 py-3 bg-[#050506] text-white rounded-full text-sm font-black hover:bg-black/88 transition-colors w-full sm:w-auto">
+              {t('recommended.catalog')} <span aria-hidden="true" class="ml-2">↓</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalog" class="max-w-[1120px] mx-auto px-5 sm:px-6 py-18 sm:py-24 scroll-mt-24">
+      <div class="mb-10 max-w-[820px]">
+        <h2 class="text-3xl md:text-5xl font-black tracking-normal mb-4">{t('catalog.title')}</h2>
+        <p class="text-white/64 font-medium leading-relaxed text-[1.05rem] md:text-[1.2rem]">{t('catalog.body')}</p>
+      </div>
+      <div class="space-y-5">
+        {tracks.map((track) => (
+          <details class="group rounded-[1.5rem] border border-white/10 bg-white/[0.04] overflow-hidden" open={track.id === 'software' || track.id === 'hardware'}>
+            <summary class="cursor-pointer list-none p-6 md:p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <h3 class="text-2xl md:text-3xl font-black">{track.title}</h3>
+                <p class="text-white/56 font-semibold leading-relaxed mt-2 max-w-[760px]">{track.body}</p>
+                {track.bridge && <p class="text-white font-black leading-snug mt-4 max-w-[680px]">{track.bridge}</p>}
+              </div>
+              <span class="h-10 w-10 rounded-full bg-white text-black flex items-center justify-center font-black flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 px-4 md:px-6 pb-6">
+              {resources.filter((resource) => resource.track === track.id).map((resource) => (
+                <article class="rounded-[1.25rem] bg-white text-black p-5 flex flex-col min-h-[360px]">
+                  <div class="h-10 w-fit min-w-10 px-3 rounded-xl bg-[#050506] text-white flex items-center justify-center text-xs font-black mb-5">{resource.logo}</div>
+                  <h4 class="text-xl font-black leading-tight mb-2">{resource.name}</h4>
+                  <p class="text-sm font-black text-black/42 mb-5">{resource.tags}</p>
+                  <div class="grid grid-cols-1 gap-2 text-sm font-semibold text-black/60 mb-5">
+                    <p><span class="font-black text-black">{t('catalog.level')}:</span> {resource.level}</p>
+                    <p><span class="font-black text-black">{t('catalog.cost')}:</span> {resource.cost}</p>
+                    <p><span class="font-black text-black">{t('catalog.credentials')}:</span> {resource.credentials ?? ui.no}</p>
+                  </div>
+                  <p class="text-sm font-semibold leading-relaxed text-black/62 mb-5">{resource.summary}</p>
+                  <div class="mt-auto flex flex-col gap-3">
+                    <a href={resource.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 bg-[#050506] text-white rounded-full text-sm font-black hover:bg-black/88 transition-colors">
+                      {t('catalog.visit')}
+                    </a>
+                    <details class="rounded-2xl border border-black/8 bg-black/[0.03]">
+                      <summary class="cursor-pointer list-none px-4 py-3 text-sm font-black">{t('catalog.details')}</summary>
+                      <div class="px-4 pb-4 text-sm font-semibold text-black/62 leading-relaxed space-y-4">
+                        <div>
+                          <p class="font-black text-black mb-2">{t('catalog.learn')}</p>
+                          <ul class="space-y-1">
+                            {resource.learn.map((item) => <li>• {item}</li>)}
+                          </ul>
+                        </div>
+                        <p><span class="font-black text-black">{t('catalog.ideal')}:</span> {resource.ideal}</p>
+                        {resource.firstStep && <p><span class="font-black text-black">{t('catalog.firstStep')}:</span> {resource.firstStep}</p>}
+                        <a href={resource.url} target="_blank" rel="noopener noreferrer" class="font-black text-black underline underline-offset-4">{t('catalog.official')}</a>
+                      </div>
+                    </details>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
+      <p class="text-xs md:text-sm text-white/42 font-semibold leading-relaxed mt-6 max-w-[880px]">{t('note.body')}</p>
+    </section>
+
+    <section class="max-w-[1120px] mx-auto px-5 sm:px-6 py-18 sm:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] gap-10">
+        <div>
+          <h2 class="text-3xl md:text-5xl font-black tracking-normal mb-4">{t('glossary.title')}</h2>
+          <p class="text-white/64 font-medium leading-relaxed">{t('glossary.body')}</p>
+        </div>
+        <div class="space-y-3">
+          {glossary.map((item) => (
+            <details class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+              <summary class="cursor-pointer list-none font-black text-lg">{item.term}</summary>
+              <p class="text-white/62 font-medium leading-relaxed mt-3">{item.body}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-[1120px] mx-auto px-5 sm:px-6 py-18 sm:py-24">
+      <div class="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-7 md:p-9">
+        <h2 class="text-2xl md:text-3xl font-black tracking-normal mb-4">{t('note.title')}</h2>
+        <p class="text-white/62 font-medium leading-relaxed max-w-[940px]">{t('note.body')}</p>
+      </div>
+    </section>
+
+    <section class="max-w-[920px] mx-auto px-5 sm:px-6 pt-10 pb-24 sm:pb-32 text-center">
+      <p class="text-2xl md:text-4xl font-black leading-tight mb-5">{t('finalCta.line1')}</p>
+      <p class="text-[1.05rem] md:text-[1.35rem] text-white/64 font-semibold leading-relaxed mb-7">{t('finalCta.line2')}</p>
+      <p class="text-3xl md:text-5xl font-black mb-9">{t('finalCta.brand')}</p>
+      <a href={`/${lang}/next`} class="inline-flex items-center justify-center px-9 py-4 bg-white text-black rounded-full text-[1rem] font-bold hover:bg-white/88 transition-colors w-full sm:w-auto">
+        {t('finalCta.button')}
+      </a>
+    </section>
+  </main>
+
+  <script type="application/json" id="next-profile-data" set:html={recommendationJson}></script>
+  <script>
+    const dataScript = document.getElementById('next-profile-data');
+    const profileData = dataScript?.textContent ? JSON.parse(dataScript.textContent) : {};
+    const buttons = Array.from(document.querySelectorAll('[data-profile]'));
+    const title = document.getElementById('recommendation-title');
+    const objective = document.getElementById('recommendation-objective');
+    const list = document.getElementById('recommendation-list');
+
+    function renderProfile(profileId) {
+      const profile = profileData[profileId] || profileData.start;
+      if (!profile || !title || !objective || !list) return;
+
+      title.textContent = profile.title;
+      objective.textContent = profile.objective;
+      list.innerHTML = profile.resources.map((resource, index) => `
+        <a href="${resource.url}" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-black/8 bg-black/[0.03] p-4 hover:bg-black/[0.06] transition-colors">
+          <p class="text-xs font-black text-black/36 mb-2">${String(index + 1).padStart(2, '0')}</p>
+          <h4 class="font-black leading-tight mb-1">${resource.name}</h4>
+          <p class="text-sm font-semibold text-black/58 leading-relaxed">${resource.summary}</p>
+        </a>
+      `).join('');
+
+      buttons.forEach((button) => {
+        const isActive = button.getAttribute('data-profile') === profileId;
+        button.classList.toggle('is-active', isActive);
+        button.classList.toggle('border-white', isActive);
+        button.classList.toggle('bg-white', isActive);
+        button.classList.toggle('text-black', isActive);
+        button.classList.toggle('border-white/10', !isActive);
+        button.classList.toggle('bg-white/[0.04]', !isActive);
+        button.classList.toggle('text-white', !isActive);
+      });
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const profileId = button.getAttribute('data-profile') || 'start';
+        renderProfile(profileId);
+        document.getElementById('recommendation-title')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+  </script>
+  <style>
+    .profile-card .profile-card__icon {
+      background: #fff;
+      color: #050506;
+    }
+
+    .profile-card .profile-card__description {
+      color: rgba(255, 255, 255, 0.54);
+    }
+
+    .profile-card .profile-card__action {
+      color: #fff;
+    }
+
+    .profile-card.is-active .profile-card__icon {
+      background: #050506;
+      color: #fff;
+    }
+
+    .profile-card.is-active .profile-card__description {
+      color: rgba(0, 0, 0, 0.58);
+    }
+
+    .profile-card.is-active .profile-card__action {
+      color: #050506;
+    }
+  </style>
+</Layout>

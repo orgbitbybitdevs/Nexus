@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "NEXT Resources — BitByBit Academy",
+    "description": "NEXT 之后继续构建的免费路径和精选资源。"
+  },
+  "hero": {
+    "title": "NEXT Resources",
+    "headline": "NEXT 之后继续构建。",
+    "body": "用于学习软件、人工智能、硬件、机器人、IoT、设计和网络安全的免费路径与精选资源。",
+    "cta": "从你的方向开始"
+  },
+  "selector": {
+    "title": "选择你的路径",
+    "body": "先找到方向，再选择一个起点资源，并构建一个小项目。",
+    "button": "查看路径"
+  },
+  "recommended": {
+    "label": "推荐路径",
+    "resources": "起点资源",
+    "objective": "目标",
+    "catalog": "查看完整目录",
+    "open": "打开资源"
+  },
+  "catalog": {
+    "title": "完整目录",
+    "body": "只打开你感兴趣的 track。每个资源都有简短介绍和可展开详情。",
+    "visit": "前往资源",
+    "details": "查看详情",
+    "learn": "可以学习什么",
+    "ideal": "适合谁",
+    "firstStep": "推荐第一步",
+    "official": "官方链接",
+    "level": "水平",
+    "cost": "费用",
+    "credentials": "证书"
+  },
+  "glossary": {
+    "title": "概念词汇表",
+    "body": "帮助你理解学习路径的常用词。"
+  },
+  "note": {
+    "title": "重要说明",
+    "body": "NEXT 不颁发 IBM、Google、Microsoft、Cisco、Arduino、Raspberry Pi、Figma、Canva 或其他外部平台的官方证书。NEXT 的作用是引导学生连接到官方或广泛认可的学习资源。证书、badge 或 credential 由对应平台根据其条件、可用性和要求直接颁发。"
+  },
+  "finalCta": {
+    "line1": "你不需要完成所有课程。",
+    "line2": "选择一条路径。完成一个资源。构建一个项目。分享它。",
+    "brand": "NEXT · 构建下一步。",
+    "button": "返回 NEXT"
+  }
+}
