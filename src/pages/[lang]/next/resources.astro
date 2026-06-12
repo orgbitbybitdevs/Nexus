@@ -46,6 +46,17 @@ const ui = {
   no: l({ es: 'No aplica', en: 'Not applicable', zh: '不适用' }),
 };
 
+const laptopLab = {
+  eyebrow: l({ es: 'Recurso destacado', en: 'Featured resource', zh: '精选资源' }),
+  title: l({ es: 'Antes de comprar una computadora', en: 'Before buying a computer', zh: '购买电脑之前' }),
+  body: l({
+    es: 'No elijas por marca, apariencia o publicidad. Descubre primero qué especificaciones necesitas.',
+    en: 'Do not choose by brand, looks or advertising. Discover what specifications you need first.',
+    zh: '不要只看品牌、外观或广告。先了解你真正需要的配置。',
+  }),
+  cta: l({ es: 'Abrir NEXT Laptop Lab', en: 'Open NEXT Laptop Lab', zh: '打开 NEXT Laptop Lab' }),
+};
+
 const tracks: Array<{ id: TrackId; title: string; body: string; bridge?: string }> = [
   {
     id: 'software',
@@ -799,6 +810,20 @@ const recommendationJson = JSON.stringify(profileData).replace(/</g, '\\u003c');
       </div>
     </section>
 
+    <section class="max-w-[1120px] mx-auto px-5 sm:px-6 pb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.78fr_1.22fr] gap-6 items-center border border-white/10 bg-white p-6 md:p-8 text-black">
+        <div class="h-24 w-24 bg-[#050506] text-white flex items-center justify-center text-xl font-black tracking-normal">LAB</div>
+        <div>
+          <p class="text-xs font-black uppercase tracking-[0.16em] text-black/38 mb-3">{laptopLab.eyebrow}</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-normal mb-4">{laptopLab.title}</h2>
+          <p class="text-[1.05rem] md:text-[1.2rem] text-black/62 font-semibold leading-relaxed max-w-[760px] mb-7">{laptopLab.body}</p>
+          <a href={`/${lang}/next/laptop-lab`} class="inline-flex items-center justify-center px-7 py-3 bg-[#050506] text-white text-sm font-black hover:bg-black/88 transition-colors w-full sm:w-auto">
+            {laptopLab.cta} <span aria-hidden="true" class="ml-2">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section id="profiles" class="max-w-[1120px] mx-auto px-5 sm:px-6 py-18 sm:py-24 border-t border-white/10 scroll-mt-24">
       <div class="mb-10 max-w-[760px]">
         <h2 class="text-3xl md:text-5xl font-black tracking-normal mb-4">{t('selector.title')}</h2>
@@ -943,13 +968,13 @@ const recommendationJson = JSON.stringify(profileData).replace(/</g, '\\u003c');
     const objective = document.getElementById('recommendation-objective');
     const list = document.getElementById('recommendation-list');
 
-    function renderProfile(profileId) {
+    function renderProfile(profileId: string) {
       const profile = profileData[profileId] || profileData.start;
       if (!profile || !title || !objective || !list) return;
 
       title.textContent = profile.title;
       objective.textContent = profile.objective;
-      list.innerHTML = profile.resources.map((resource, index) => `
+      list.innerHTML = profile.resources.map((resource: { url: string; name: string; summary: string }, index: number) => `
         <a href="${resource.url}" target="_blank" rel="noopener noreferrer" class="group rounded-2xl border border-black/8 bg-black/[0.03] p-4 hover:bg-black/[0.06] transition-colors">
           <p class="text-xs font-black text-black/36 mb-2">${String(index + 1).padStart(2, '0')}</p>
           <h4 class="font-black leading-tight mb-1">${resource.name}</h4>

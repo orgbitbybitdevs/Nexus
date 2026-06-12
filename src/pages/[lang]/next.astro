@@ -19,6 +19,26 @@ const routeFamilies = [
   { key: 'softwareAi', items: t('routes.softwareAi.items').split('|') },
   { key: 'hardwareSmartSystems', items: t('routes.hardwareSmartSystems.items').split('|') },
 ];
+const laptopLab = {
+  es: {
+    eyebrow: 'Herramienta NEXT',
+    title: 'NEXT Laptop Lab',
+    body: 'Descubre qué computadora necesitas realmente según tu carrera, tus proyectos y la vida que quieres construir.',
+    cta: 'Analizar mi equipo ideal',
+  },
+  en: {
+    eyebrow: 'NEXT tool',
+    title: 'NEXT Laptop Lab',
+    body: 'Discover what computer you really need according to your career, projects and the life you want to build.',
+    cta: 'Analyze my ideal setup',
+  },
+  zh: {
+    eyebrow: 'NEXT 工具',
+    title: 'NEXT Laptop Lab',
+    body: '根据你的专业、项目和想要构建的生活，了解真正需要的电脑配置。',
+    cta: '分析我的理想设备',
+  },
+}[lang];
 ---
 
 <Layout lang={lang} title={t('meta.title')} description={t('meta.description')}>
@@ -131,6 +151,22 @@ const routeFamilies = [
           <p class="text-white text-[1.2rem] font-black leading-snug mb-5">{t('after.subtitle')}</p>
           <p class="text-white/66 font-medium leading-relaxed text-[1.08rem] mb-7">{t('after.body')}</p>
           <p class="text-white font-black text-[1.55rem] leading-tight">{t('after.quote')}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-[1120px] mx-auto px-5 sm:px-6 py-10 sm:py-14">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.72fr_1.28fr] gap-6 items-stretch border border-white/10 bg-white/[0.04] p-6 md:p-8">
+        <div class="flex items-center">
+          <div class="h-20 w-20 bg-white text-black flex items-center justify-center text-xl font-black tracking-normal">LAB</div>
+        </div>
+        <div>
+          <p class="text-xs font-black uppercase tracking-[0.16em] text-white/36 mb-3">{laptopLab.eyebrow}</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-normal mb-4">{laptopLab.title}</h2>
+          <p class="text-[1.05rem] md:text-[1.2rem] text-white/64 font-medium leading-relaxed max-w-[740px] mb-7">{laptopLab.body}</p>
+          <a href={`/${lang}/next/laptop-lab`} class="inline-flex items-center justify-center px-7 py-3 bg-white text-black text-sm font-black hover:bg-white/88 transition-colors w-full sm:w-auto">
+            {laptopLab.cta} <span aria-hidden="true" class="ml-2">&rarr;</span>
+          </a>
         </div>
       </div>
     </section>

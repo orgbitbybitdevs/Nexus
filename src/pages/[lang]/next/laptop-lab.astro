@@ -1,0 +1,31 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NextLaptopLab from '../../../components/NextLaptopLab';
+import type { UiLanguage } from '../../../i18n/config';
+import { languages } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: UiLanguage };
+
+const meta = {
+  es: {
+    title: 'NEXT Laptop Lab — BitByBit Academy',
+    description: 'Descubre qué computadora necesitas realmente según tu carrera, proyectos y estilo de vida.',
+  },
+  en: {
+    title: 'NEXT Laptop Lab — BitByBit Academy',
+    description: 'Discover what computer you really need according to your career, projects and lifestyle.',
+  },
+  zh: {
+    title: 'NEXT Laptop Lab — BitByBit Academy',
+    description: '根据你的专业、项目和生活方式了解真正需要的电脑配置。',
+  },
+};
+---
+
+<Layout lang={lang} title={meta[lang].title} description={meta[lang].description}>
+  <NextLaptopLab client:load lang={lang} />
+</Layout>
