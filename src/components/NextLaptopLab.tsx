@@ -1004,7 +1004,12 @@ export default function NextLaptopLab({ lang = 'es' }: { lang?: Lang }) {
       <section className="px-5 sm:px-6 pt-32 pb-14 sm:pt-40 sm:pb-20">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <p className="mb-5 text-sm font-black uppercase tracking-[0.18em] text-white/38">{c.meta}</p>
+            <div className="mb-6 flex items-center gap-4">
+              <div className="h-16 w-16 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06]">
+                <img src="/next/lab.png" alt="" className="h-full w-full scale-125 object-contain" loading="eager" decoding="async" />
+              </div>
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-white/38">{c.meta}</p>
+            </div>
             <h1 className="mb-7 text-[clamp(3.2rem,10vw,7.3rem)] font-black leading-[0.92] tracking-normal">{c.title}</h1>
             <p className="mb-8 max-w-[620px] text-[1.1rem] font-medium leading-relaxed text-white/66 md:text-[1.35rem]">{c.subtitle}</p>
             <p className="text-2xl font-black leading-tight md:text-4xl">{c.positioning}</p>
