@@ -1,0 +1,46 @@
+---
+import CertifiedTechMark from './CertifiedTechMark.astro';
+import type { UiLanguage } from '../../i18n/config';
+import { useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang: UiLanguage;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang, 'certifiedTech');
+---
+
+<section class="relative isolate min-h-[100svh] overflow-hidden bg-apple-bg px-5 pt-32 pb-20 sm:px-8 sm:pt-36 lg:pt-40">
+  <div class="absolute inset-x-0 top-24 -z-10 mx-auto h-[520px] w-[min(88vw,920px)] rounded-full bg-[#8FA58A]/10 blur-3xl" aria-hidden="true"></div>
+  <div class="absolute right-[-4rem] top-28 -z-10 hidden opacity-[0.045] sm:block" aria-hidden="true">
+    <img src="/icon.png" alt="" class="h-80 w-80 object-contain" loading="eager" decoding="async" />
+  </div>
+
+  <div class="mx-auto flex min-h-[calc(100svh-10rem)] max-w-[1120px] flex-col justify-center">
+    <div class="mb-10 flex items-center gap-4">
+      <div class="flex h-20 w-20 items-center justify-center rounded-[1.5rem] border border-black/5 bg-white">
+        <CertifiedTechMark class="h-16 w-16" />
+      </div>
+      <div>
+        <p class="text-xs font-black uppercase tracking-[0.2em] text-[#2E4F1F]">{t('hero.eyebrow')}</p>
+        <p class="mt-2 text-sm font-bold text-apple-muted">{t('hero.subtitle')}</p>
+      </div>
+    </div>
+
+    <h1 class="max-w-[980px] text-[clamp(3rem,8vw,7rem)] font-black leading-[0.93] tracking-normal text-[#050506]">
+      {t('hero.headline')}
+    </h1>
+    <p class="mt-8 max-w-[720px] text-[1.15rem] font-medium leading-relaxed text-apple-muted md:text-[1.35rem]">
+      {t('hero.subheadline')}
+    </p>
+    <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+      <a href="#registro" class="inline-flex w-full items-center justify-center rounded-full bg-[#050506] px-7 py-3.5 text-sm font-black text-white transition-colors hover:bg-black/85 sm:w-auto">
+        {t('hero.primaryCta')}
+      </a>
+      <a href="#beneficios" class="inline-flex w-full items-center justify-center rounded-full border border-black/10 bg-white px-7 py-3.5 text-sm font-black text-[#050506] transition-colors hover:bg-black/[0.04] sm:w-auto">
+        {t('hero.secondaryCta')}
+      </a>
+    </div>
+  </div>
+</section>

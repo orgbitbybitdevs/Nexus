@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "BitByBit Certified Tech — 感谢你的购买",
+    "description": "注册你的购买，获得支持，并通过推荐 BitByBit Certified Tech 参与福利。"
+  },
+  "landingMeta": {
+    "title": "BitByBit Certified Tech — 认证技术",
+    "description": "由 deepdevjose hardware picks 筛选的认证、检查笔记本。"
+  },
+  "landing": {
+    "heroEyebrow": "BitByBit Certified Tech",
+    "heroTitle": "可以继续创造的认证笔记本。",
+    "heroBody": "以技术标准筛选、为真实使用检查，并准备进入第二次使用生命的设备。",
+    "primaryCta": "通过 WhatsApp 联系",
+    "secondaryCta": "注册购买",
+    "meaningTitle": "Certified Tech 的含义",
+    "meaningBody": "Certified Tech 是一组根据状态、性能和价值筛选的笔记本。它不是随意销售二手设备，而是选择仍然可以稳定发挥性能的技术。",
+    "processTitle": "筛选与验证",
+    "processCards": "按真实价值筛选|我们优先选择性能良好、结构可靠，并适合学生、创作者和专业人士的设备。;技术检查|检查硬件、外观状态、存储、电池（如适用）和整体使用条件。;初始准备|在设备需要时进行清洁、建议和基础配置。",
+    "purposeTitle": "更明智的购买",
+    "purposeBody": "选择认证设备有助于继续使用功能良好的技术，并减少不必要的更换。这是实用、经济，也更负责任的选择。",
+    "receiveTitle": "你会获得",
+    "receiveItems": "精选并检查的设备|保养指导|购买后注册入口|WhatsApp 支持|参与推荐福利",
+    "referralTitle": "推荐 Certified Tech",
+    "referralBody": "当有人通过你的推荐购买时，你可以参与预防性维护、升级折扣或精选配件福利。",
+    "finalTitle": "认证技术。明智购买。更少浪费。",
+    "finalBody": "联系我们了解可用设备；如果你已经拥有认证笔记本，也可以注册你的购买。"
+  },
+  "hero": {
+    "eyebrow": "BitByBit Certified Tech",
+    "headline": "感谢你选择拥有更长生命的科技。",
+    "subheadline": "你的购买帮助延长认证设备的使用寿命，并减少不必要的电子垃圾。",
+    "subtitle": "by deepdevjose hardware picks",
+    "primaryCta": "注册我的购买",
+    "secondaryCta": "查看福利"
+  },
+  "impact": {
+    "title": "更少浪费。每台设备创造更多价值。",
+    "body": "每台认证笔记本都代表一个更明智的决定：继续使用仍然可靠的技术，避免不必要的更换，让仍有性能的设备拥有更长寿命。",
+    "cards": "延长使用寿命|经过检查的设备可以继续用于创作、学习和工作。;明智购买|以更好的性价比获得高水平技术。;减少电子垃圾|减少不必要的更换，有助于降低电子垃圾带来的压力。"
+  },
+  "register": {
+    "title": "注册你的购买",
+    "description": "注册你的设备，以获得支持、保养建议以及 BitByBit Certified Tech 未来优惠。",
+    "fullName": "完整姓名",
+    "whatsapp": "WhatsApp",
+    "model": "设备型号",
+    "purchaseDate": "购买日期",
+    "purchaseCode": "购买代码或参考号",
+    "referredBy": "谁推荐了你？",
+    "comments": "备注",
+    "optional": "可选",
+    "submit": "提交注册",
+    "sending": "正在发送...",
+    "success": "注册已收到。感谢你成为 BitByBit Certified Tech 的一部分。",
+    "error": "我们无法完成注册。请重试或通过 WhatsApp 联系我们。",
+    "required": "请填写必填字段后继续。"
+  },
+  "referral": {
+    "title": "推荐并参与福利",
+    "body": "如果有人通过你的推荐购买设备，你可以参与折扣、预防性维护或精选配件福利。",
+    "cards": "预防性维护|升级折扣|精选配件",
+    "share": "通过 WhatsApp 分享",
+    "register": "登记推荐人",
+    "message": "你好，我推荐 BitByBit Certified Tech。他们销售经过认证和检查、性价比良好的笔记本。你可以在这里了解更多："
+  },
+  "care": {
+    "title": "像高端设备一样保养你的笔记本",
+    "tips": "避免堵塞散热口。|保持系统更新。|使用可靠的充电器。|如果发现温度高、噪音过大或性能下降，请申请维护。"
+  },
+  "final": {
+    "headline": "你的设备已经拥有第二次生命。现在开始创造属于你的作品。",
+    "register": "注册购买",
+    "support": "联系支持",
+    "footer": "BitByBit Certified Tech · 认证技术。明智购买。更少浪费。"
+  }
+}

@@ -10,7 +10,7 @@ function getNamespace(lang: string, ns: string): Record<string, any> {
   return mod?.default ?? {};
 }
 
-export type Namespace = 'common' | 'home' | 'platform' | 'projects' | 'mentors' | 'next' | 'nextResources';
+export type Namespace = 'common' | 'home' | 'platform' | 'projects' | 'mentors' | 'next' | 'nextResources' | 'certifiedTech';
 
 // ─── Deep key access (dot-notation) ──────────────────────────────────────────
 function deepGet(obj: Record<string, any>, path: string): string | undefined {

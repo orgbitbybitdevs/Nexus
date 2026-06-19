@@ -1,0 +1,34 @@
+---
+import type { UiLanguage } from '../../i18n/config';
+import { useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang: UiLanguage;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang, 'certifiedTech');
+const cards = t('impact.cards').split(';').map((item) => {
+  const [title, body] = item.split('|');
+  return { title, body };
+});
+---
+
+<section id="beneficios" class="bg-white px-5 py-24 text-apple-text sm:px-8 sm:py-32">
+  <div class="mx-auto max-w-[1120px]">
+    <div class="max-w-[820px]">
+      <h2 class="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.98] tracking-normal text-[#050506]">{t('impact.title')}</h2>
+      <p class="mt-7 text-[1.1rem] font-medium leading-relaxed text-apple-muted md:text-[1.3rem]">{t('impact.body')}</p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
+      {cards.map((card, index) => (
+        <article class="rounded-[2rem] border border-black/5 bg-[#F5F5F7] p-7 md:p-8">
+          <p class="mb-8 text-xs font-black text-[#6F8069]">{String(index + 1).padStart(2, '0')}</p>
+          <h3 class="mb-4 text-2xl font-black tracking-normal text-[#050506]">{card.title}</h3>
+          <p class="text-[0.98rem] font-semibold leading-relaxed text-apple-muted">{card.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

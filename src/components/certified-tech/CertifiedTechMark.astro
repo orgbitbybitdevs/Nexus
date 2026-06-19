@@ -1,0 +1,15 @@
+---
+interface Props {
+  class?: string;
+}
+
+const className = Astro.props.class ?? 'w-20 h-20';
+---
+
+<img
+  src="/tech.png"
+  alt="BitByBit Certified Tech"
+  class={`${className} object-contain`}
+  loading="lazy"
+  decoding="async"
+/>

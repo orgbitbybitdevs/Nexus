@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "BitByBit Certified Tech — Gracias por tu compra",
+    "description": "Registra tu compra, recibe soporte y participa por beneficios al referir BitByBit Certified Tech."
+  },
+  "landingMeta": {
+    "title": "BitByBit Certified Tech — Tecnología certificada",
+    "description": "Laptops certificadas, revisadas y seleccionadas por deepdevjose hardware picks."
+  },
+  "landing": {
+    "heroEyebrow": "BitByBit Certified Tech",
+    "heroTitle": "Laptops certificadas para seguir construyendo.",
+    "heroBody": "Equipos seleccionados con criterio técnico, revisados para uso real y preparados para una segunda vida útil.",
+    "primaryCta": "Contactar por WhatsApp",
+    "secondaryCta": "Registrar compra",
+    "meaningTitle": "Qué significa Certified Tech",
+    "meaningBody": "Certified Tech es una selección curada de laptops revisadas por estado, rendimiento y valor. No se trata de vender cualquier equipo usado: se trata de elegir tecnología que todavía puede rendir con claridad.",
+    "processTitle": "Selección y verificación",
+    "processCards": "Selección por valor real|Priorizamos equipos con buen rendimiento, construcción confiable y sentido para estudiantes, creadores y profesionales.;Revisión técnica|Se revisa hardware, estado físico, almacenamiento, batería cuando aplica y condiciones generales de uso.;Preparación inicial|Limpieza, recomendaciones y configuración base cuando el equipo lo requiere.",
+    "purposeTitle": "Una compra más inteligente",
+    "purposeBody": "Elegir un equipo certificado ayuda a aprovechar tecnología funcional y a reducir reemplazos innecesarios. Es una decisión práctica, económica y más responsable con los residuos electrónicos.",
+    "receiveTitle": "Qué recibes",
+    "receiveItems": "Equipo seleccionado y revisado|Orientación de cuidado|Acceso a registro post-compra|Soporte por WhatsApp|Participación en beneficios por referido",
+    "referralTitle": "Refiere Certified Tech",
+    "referralBody": "Cuando alguien compra por tu recomendación, puedes participar por mantenimiento preventivo, descuentos en upgrades o accesorios seleccionados.",
+    "finalTitle": "Tecnología certificada. Compra inteligente. Menos residuos.",
+    "finalBody": "Escríbenos para conocer equipos disponibles o registra tu compra si ya tienes tu laptop certificada."
+  },
+  "hero": {
+    "eyebrow": "BitByBit Certified Tech",
+    "headline": "Gracias por elegir tecnología con más vida.",
+    "subheadline": "Tu compra ayuda a extender la vida útil de un equipo certificado y a reducir los residuos electrónicos.",
+    "subtitle": "by deepdevjose hardware picks",
+    "primaryCta": "Registrar mi compra",
+    "secondaryCta": "Ver beneficios"
+  },
+  "impact": {
+    "title": "Menos residuos. Más valor por cada equipo.",
+    "body": "Cada laptop certificada representa una decisión más inteligente: aprovechar tecnología funcional, evitar reemplazos innecesarios y dar más vida a equipos que todavía pueden rendir.",
+    "cards": "Vida útil extendida|Un equipo revisado puede seguir creando, estudiando y trabajando por más tiempo.;Compra inteligente|Accedes a tecnología de alto nivel con una mejor relación calidad-precio.;Menos e-waste|Reducir reemplazos innecesarios ayuda a disminuir la presión sobre los residuos electrónicos."
+  },
+  "register": {
+    "title": "Registra tu compra",
+    "description": "Registra tu equipo para recibir soporte, recomendaciones de cuidado y futuras promociones de BitByBit Certified Tech.",
+    "fullName": "Nombre completo",
+    "whatsapp": "WhatsApp",
+    "model": "Modelo del equipo",
+    "purchaseDate": "Fecha de compra",
+    "purchaseCode": "Código de compra o referencia",
+    "referredBy": "¿Quién te refirió?",
+    "comments": "Comentarios",
+    "optional": "Opcional",
+    "submit": "Enviar registro",
+    "sending": "Enviando...",
+    "success": "Registro recibido. Gracias por formar parte de BitByBit Certified Tech.",
+    "error": "No pudimos completar el registro. Intenta de nuevo o contáctanos por WhatsApp.",
+    "required": "Completa los campos obligatorios para continuar."
+  },
+  "referral": {
+    "title": "Refiere y participa por beneficios",
+    "body": "Si alguien compra un equipo por tu recomendación, podrás participar por descuentos, mantenimiento preventivo o accesorios seleccionados.",
+    "cards": "Mantenimiento preventivo|Descuentos en upgrades|Accesorios seleccionados",
+    "share": "Compartir por WhatsApp",
+    "register": "Registrar referido",
+    "message": "Hola, te recomiendo BitByBit Certified Tech. Venden laptops certificadas, revisadas y con buena relación calidad-precio. Puedes conocer más aquí:"
+  },
+  "care": {
+    "title": "Cuida tu laptop como equipo premium",
+    "tips": "Evita bloquear la ventilación.|Mantén tu sistema actualizado.|Usa cargadores confiables.|Solicita mantenimiento si notas temperatura alta, ruido excesivo o bajo rendimiento."
+  },
+  "final": {
+    "headline": "Tu equipo ya tiene una segunda vida. Ahora empieza lo que vas a construir con él.",
+    "register": "Registrar compra",
+    "support": "Contactar soporte",
+    "footer": "BitByBit Certified Tech · Tecnología certificada. Compra inteligente. Menos residuos."
+  }
+}

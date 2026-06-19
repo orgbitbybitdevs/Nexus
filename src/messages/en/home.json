@@ -53,6 +53,14 @@
     "pill2": "Artificial intelligence",
     "pill3": "Innovation"
   },
+  "certifiedTech": {
+    "eyebrow": "BitByBit Certified Tech",
+    "title": "Certified technology. Smart purchase. Less waste.",
+    "body": "Reviewed, selected laptops ready to keep creating. A smarter way to access high-level technology while extending the useful life of devices that still have a lot to give.",
+    "cards": "Selected devices|This is not random resale. Each device is chosen for performance, condition and real value.;Technical review|Verified hardware, cleaning, recommendations and initial setup when applicable.;Purchase with purpose|Extending the useful life of a device helps reduce unnecessary replacements and electronic waste.",
+    "primaryCta": "Discover Certified Tech",
+    "secondaryCta": "I already bought a device"
+  },
   "mentors": {
     "title": "People who build.",
     "subtitle": "Learn from engineers working on real systems."

@@ -1,0 +1,43 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import type { UiLanguage } from '../../../i18n/config';
+import { languages } from '../../../i18n/config';
+import { useTranslations } from '../../../i18n/utils';
+import CertifiedTechHero from '../../../components/certified-tech/CertifiedTechHero.astro';
+import ImpactPanel from '../../../components/certified-tech/ImpactPanel.astro';
+import PurchaseRegisterForm from '../../../components/certified-tech/PurchaseRegisterForm.astro';
+import ReferralPanel from '../../../components/certified-tech/ReferralPanel.astro';
+import CareTips from '../../../components/certified-tech/CareTips.astro';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: UiLanguage };
+const t = useTranslations(lang, 'certifiedTech');
+---
+
+<Layout lang={lang} title={t('meta.title')} description={t('meta.description')}>
+  <main class="bg-apple-bg text-apple-text overflow-x-hidden">
+    <CertifiedTechHero lang={lang} />
+    <ImpactPanel lang={lang} />
+    <PurchaseRegisterForm lang={lang} />
+    <ReferralPanel lang={lang} />
+    <CareTips lang={lang} />
+
+    <section class="flex min-h-[100svh] items-center bg-[#050506] px-5 py-24 text-white sm:px-8 sm:py-32">
+      <div class="mx-auto max-w-[920px] text-center">
+        <h2 class="text-[clamp(2.4rem,7vw,5.8rem)] font-black leading-[0.96] tracking-normal">{t('final.headline')}</h2>
+        <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href="#registro" class="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-black text-[#050506] transition-colors hover:bg-white/88 sm:w-auto">
+            {t('final.register')}
+          </a>
+          <a href="https://wa.me/525560115704" target="_blank" rel="noreferrer" class="inline-flex w-full items-center justify-center rounded-full border border-white/15 bg-white/[0.06] px-8 py-4 text-sm font-black text-white transition-colors hover:bg-white/[0.1] sm:w-auto">
+            {t('final.support')}
+          </a>
+        </div>
+        <p class="mt-14 text-sm font-bold text-white/42">{t('final.footer')}</p>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -26,6 +26,7 @@ const navItems = [
   { path: `/${lang}/plataforma`, label: tc('nav.platform') },
   { path: `/${lang}/proyectos`,  label: tc('nav.projects') },
   { path: `/${lang}/next`,       label: tc('nav.next')     },
+  { path: `/${lang}/certified-tech`, label: tc('nav.certifiedTech') },
   { path: `/${lang}/mentores`,   label: tc('nav.mentors')  },
 ];
 
@@ -62,14 +63,14 @@ const defaultPath = `/es${currentPath.replace(`/${lang}`, '')}`;
         <span class={`h-5 w-px ${isNextPage ? 'bg-white/18' : 'bg-black/10'}`} aria-hidden="true"></span>
         <img src="/next/next_letters.png" alt="NEXT" class={`w-14 sm:w-16 h-6 object-contain ${isNextPage ? 'mix-blend-screen' : 'mix-blend-multiply'}`} loading="lazy" decoding="async" />
       </a>
-      <div class={`hidden md:flex relative p-1 rounded-full border ${isNextPage ? 'bg-white/[0.06] border-white/10' : 'bg-black/[0.03] border-black/[0.05]'}`} id="nav-container">
+      <div class={`hidden lg:flex relative p-1 rounded-full border ${isNextPage ? 'bg-white/[0.06] border-white/10' : 'bg-black/[0.03] border-black/[0.05]'}`} id="nav-container">
         <div id="nav-pill" class={`absolute top-1 bottom-1 left-0 rounded-full transition-all duration-300 ease-out z-0 opacity-0 pointer-events-none ${isNextPage ? 'bg-white/14' : 'bg-apple-blue/15 backdrop-blur-md'}`}></div>
         {navItems.map(item => {
           const isActive = currentPath === item.path || (item.path !== `/${lang}` && currentPath.startsWith(item.path));
           return (
             <a
               href={item.path}
-              class={`nav-link relative z-10 px-4 py-1.5 font-sans text-xs font-semibold transition-colors duration-300 no-underline rounded-full ${isActive ? (isNextPage ? 'text-white active-nav-item' : 'text-apple-blue active-nav-item') : (isNextPage ? 'text-white/48 hover:text-white' : 'text-apple-muted hover:text-apple-text')}`}
+              class={`nav-link relative z-10 px-3 xl:px-4 py-1.5 font-sans text-xs font-semibold transition-colors duration-300 no-underline rounded-full ${isActive ? (isNextPage ? 'text-white active-nav-item' : 'text-apple-blue active-nav-item') : (isNextPage ? 'text-white/48 hover:text-white' : 'text-apple-muted hover:text-apple-text')}`}
               data-active={isActive ? 'true' : 'false'}
             >
               {item.label}

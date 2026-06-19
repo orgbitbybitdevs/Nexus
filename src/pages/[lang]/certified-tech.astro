@@ -1,0 +1,121 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import type { UiLanguage } from '../../i18n/config';
+import { languages } from '../../i18n/config';
+import { useTranslations } from '../../i18n/utils';
+import CertifiedTechMark from '../../components/certified-tech/CertifiedTechMark.astro';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: UiLanguage };
+const t = useTranslations(lang, 'certifiedTech');
+const processCards = t('landing.processCards').split(';').map((item) => {
+  const [title, body] = item.split('|');
+  return { title, body };
+});
+const receiveItems = t('landing.receiveItems').split('|');
+---
+
+<Layout lang={lang} title={t('landingMeta.title')} description={t('landingMeta.description')}>
+  <main class="bg-apple-bg text-apple-text overflow-x-hidden">
+    <section class="relative isolate min-h-[100svh] px-5 pt-32 pb-20 sm:px-8 sm:pt-36 lg:pt-40">
+      <div class="absolute inset-x-0 top-24 -z-10 mx-auto h-[520px] w-[min(88vw,920px)] rounded-full bg-[#8FA58A]/10 blur-3xl" aria-hidden="true"></div>
+      <div class="mx-auto grid min-h-[calc(100svh-10rem)] max-w-[1120px] grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div>
+          <div class="mb-10 flex items-center gap-4">
+            <div class="flex h-20 w-20 items-center justify-center rounded-[1.5rem] border border-black/5 bg-white">
+              <CertifiedTechMark class="h-16 w-16" />
+            </div>
+            <div>
+              <p class="text-xs font-black uppercase tracking-[0.2em] text-[#2E4F1F]">{t('landing.heroEyebrow')}</p>
+              <p class="mt-2 text-sm font-bold text-apple-muted">by deepdevjose hardware picks</p>
+            </div>
+          </div>
+          <h1 class="max-w-[900px] text-[clamp(3rem,8vw,7rem)] font-black leading-[0.93] tracking-normal text-[#050506]">
+            {t('landing.heroTitle')}
+          </h1>
+          <p class="mt-8 max-w-[700px] text-[1.15rem] font-medium leading-relaxed text-apple-muted md:text-[1.35rem]">
+            {t('landing.heroBody')}
+          </p>
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+            <a href="https://wa.me/525560115704" target="_blank" rel="noreferrer" class="inline-flex w-full items-center justify-center rounded-full bg-[#050506] px-7 py-3.5 text-sm font-black text-white transition-colors hover:bg-black/85 sm:w-auto">
+              {t('landing.primaryCta')}
+            </a>
+            <a href={`/${lang}/certified-tech/thanks`} class="inline-flex w-full items-center justify-center rounded-full border border-black/10 bg-white px-7 py-3.5 text-sm font-black text-[#050506] transition-colors hover:bg-black/[0.04] sm:w-auto">
+              {t('landing.secondaryCta')}
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-[2.5rem] border border-black/5 bg-white p-6 sm:p-8 md:p-10">
+          <p class="mb-5 text-xs font-black uppercase tracking-[0.18em] text-[#6F8069]">Certified standard</p>
+          <h2 class="text-[clamp(2rem,4vw,3.8rem)] font-black leading-[1] tracking-normal text-[#050506]">{t('landing.meaningTitle')}</h2>
+          <p class="mt-6 text-[1.05rem] font-semibold leading-relaxed text-apple-muted md:text-[1.18rem]">{t('landing.meaningBody')}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-24 sm:px-8 sm:py-32">
+      <div class="mx-auto max-w-[1120px]">
+        <h2 class="max-w-[820px] text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.98] tracking-normal text-[#050506]">{t('landing.processTitle')}</h2>
+        <div class="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+          {processCards.map((card, index) => (
+            <article class="rounded-[2rem] border border-black/5 bg-[#F5F5F7] p-7 md:p-8">
+              <p class="mb-8 text-xs font-black text-[#6F8069]">{String(index + 1).padStart(2, '0')}</p>
+              <h3 class="mb-4 text-2xl font-black tracking-normal text-[#050506]">{card.title}</h3>
+              <p class="text-[0.98rem] font-semibold leading-relaxed text-apple-muted">{card.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-apple-bg px-5 py-24 sm:px-8 sm:py-32">
+      <div class="mx-auto grid max-w-[1120px] grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+        <div>
+          <h2 class="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.98] tracking-normal text-[#050506]">{t('landing.purposeTitle')}</h2>
+          <p class="mt-7 text-[1.1rem] font-medium leading-relaxed text-apple-muted md:text-[1.3rem]">{t('landing.purposeBody')}</p>
+        </div>
+        <div class="rounded-[2rem] border border-black/5 bg-white p-6 sm:p-8">
+          <h3 class="mb-6 text-2xl font-black text-[#050506]">{t('landing.receiveTitle')}</h3>
+          <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {receiveItems.map((item) => (
+              <p class="rounded-2xl bg-[#F5F5F7] px-4 py-4 text-sm font-black leading-tight text-[#050506]">{item}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-24 sm:px-8 sm:py-32">
+      <div class="mx-auto max-w-[1120px] rounded-[2.5rem] border border-black/5 bg-[#F5F5F7] p-6 sm:p-10 md:p-14">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <h2 class="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-[0.98] tracking-normal text-[#050506]">{t('landing.referralTitle')}</h2>
+            <p class="mt-6 text-[1.08rem] font-medium leading-relaxed text-apple-muted md:text-[1.25rem]">{t('landing.referralBody')}</p>
+          </div>
+          <div class="flex items-center justify-center rounded-[2rem] border border-black/5 bg-white p-10">
+            <CertifiedTechMark class="h-36 w-36 opacity-90" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex min-h-[100svh] items-center bg-[#050506] px-5 py-24 text-white sm:px-8 sm:py-32">
+      <div class="mx-auto max-w-[920px] text-center">
+        <h2 class="text-[clamp(2.4rem,7vw,5.8rem)] font-black leading-[0.96] tracking-normal">{t('landing.finalTitle')}</h2>
+        <p class="mx-auto mt-7 max-w-[680px] text-[1.05rem] font-semibold leading-relaxed text-white/58 md:text-[1.2rem]">{t('landing.finalBody')}</p>
+        <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href="https://wa.me/525560115704" target="_blank" rel="noreferrer" class="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-black text-[#050506] transition-colors hover:bg-white/88 sm:w-auto">
+            {t('landing.primaryCta')}
+          </a>
+          <a href={`/${lang}/certified-tech/thanks`} class="inline-flex w-full items-center justify-center rounded-full border border-white/15 bg-white/[0.06] px-8 py-4 text-sm font-black text-white transition-colors hover:bg-white/[0.1] sm:w-auto">
+            {t('landing.secondaryCta')}
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

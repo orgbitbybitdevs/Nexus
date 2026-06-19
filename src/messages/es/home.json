@@ -53,6 +53,14 @@
     "pill2": "Inteligencia artificial",
     "pill3": "Innovación"
   },
+  "certifiedTech": {
+    "eyebrow": "BitByBit Certified Tech",
+    "title": "Tecnología certificada. Compra inteligente. Menos residuos.",
+    "body": "Laptops revisadas, seleccionadas y listas para seguir creando. Una forma más inteligente de acceder a tecnología de alto nivel mientras extendemos la vida útil de equipos que todavía tienen mucho que dar.",
+    "cards": "Equipos seleccionados|No es reventa al azar. Cada equipo se elige por rendimiento, estado y valor real.;Revisión técnica|Hardware verificado, limpieza, recomendaciones y configuración inicial cuando aplica.;Compra con propósito|Extender la vida útil de un equipo ayuda a reducir reemplazos innecesarios y residuos electrónicos.",
+    "primaryCta": "Conocer Certified Tech",
+    "secondaryCta": "Ya compré un equipo"
+  },
   "mentors": {
     "title": "Personas que construyen.",
     "subtitle": "Aprende con ingenieros que trabajan en sistemas reales."

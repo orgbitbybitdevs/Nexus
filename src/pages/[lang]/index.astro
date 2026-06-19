@@ -5,6 +5,7 @@ import type { UiLanguage } from '../../i18n/config';
 import { languages } from '../../i18n/config';
 import { useTranslations } from '../../i18n/utils';
 import MentorCard from '../../components/MentorCard.astro';
+import CertifiedTechMark from '../../components/certified-tech/CertifiedTechMark.astro';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -13,6 +14,10 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: UiLanguage };
 const tc = useTranslations(lang, 'common');
 const th = useTranslations(lang, 'home');
+const certifiedTechCards = th('certifiedTech.cards').split(';').map((item) => {
+  const [title, body] = item.split('|');
+  return { title, body };
+});
 ---
 
 <Layout lang={lang} title={`BitByBit Academy — ${th('hero.title')}`}>
@@ -132,6 +137,45 @@ const th = useTranslations(lang, 'home');
         <div class="relative h-[240px] sm:min-h-[340px] flex items-center justify-center order-2">
           <div class="next-cube-wrap w-[min(72vw,500px)] max-h-full">
             <img src="/next/next_cube.png" alt="" class="next-cube-float w-full max-h-full h-auto object-contain" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certified Tech -->
+    <section class="bg-apple-bg px-5 sm:px-8 py-24 sm:py-32 border-t border-black/5">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-[0.78fr_1.22fr] gap-10 lg:gap-14 items-start">
+          <div>
+            <div class="mb-8 flex items-center gap-4">
+              <div class="h-16 w-16 rounded-2xl border border-black/5 bg-white flex items-center justify-center">
+                <CertifiedTechMark class="h-12 w-12" />
+              </div>
+              <p class="text-xs font-black uppercase tracking-[0.18em] text-[#6F8069]">{th('certifiedTech.eyebrow')}</p>
+            </div>
+            <h2 class="text-[clamp(2.3rem,5vw,4.5rem)] font-black tracking-normal leading-[0.98] text-[#050506]">
+              {th('certifiedTech.title')}
+            </h2>
+            <p class="mt-7 text-[1.08rem] md:text-[1.25rem] text-apple-muted font-medium leading-relaxed">
+              {th('certifiedTech.body')}
+            </p>
+            <div class="mt-9 flex flex-col sm:flex-row gap-3">
+              <a href={`/${lang}/certified-tech`} class="inline-flex items-center justify-center px-7 py-3.5 bg-[#050506] text-white rounded-full font-black text-sm hover:bg-black/85 transition-colors w-full sm:w-auto">
+                {th('certifiedTech.primaryCta')}
+              </a>
+              <a href={`/${lang}/certified-tech/thanks`} class="inline-flex items-center justify-center px-7 py-3.5 bg-white border border-black/10 text-[#050506] rounded-full font-black text-sm hover:bg-black/[0.04] transition-colors w-full sm:w-auto">
+                {th('certifiedTech.secondaryCta')}
+              </a>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
+            {certifiedTechCards.map((card, index) => (
+              <article class="rounded-[1.75rem] border border-black/5 bg-white p-6 md:p-7">
+                <p class="text-xs font-black text-[#8FA58A] mb-7">{String(index + 1).padStart(2, '0')}</p>
+                <h3 class="text-xl font-black text-[#050506] mb-3">{card.title}</h3>
+                <p class="text-[0.95rem] text-apple-muted font-semibold leading-relaxed">{card.body}</p>
+              </article>
+            ))}
           </div>
         </div>
       </div>
